@@ -6,6 +6,7 @@ import java.util.InputMismatchException;
 public class SciCalculator
 {public static void main(String[]args){
 
+    //lab3 git commet ----- ocober 19
     int option = 0;
     double firstO = 0.0;
     double secondO = 0.0;
