@@ -1,1 +1,215 @@
 
+
+import java.util.Scanner;
+
+public class PakuriProgram
+{
+    public static Scanner keyboard = new Scanner(System.in);
+    public static void main(String[] args)
+    {
+
+        int pakucapacity =0; // how many pakumon the dex willcontain
+        int menu =0;
+        Pakudex pakugame;//constructor pakumon with space for 20 pakumon
+        boolean cont = false; // first barrier user must add correct input
+
+
+
+        System.out.println("Welcome to Pakudex: Tracker Extraordinaire!");
+        System.out.print("Enter max capacity of the Pakudex: ");
+        do
+        {
+            if(keyboard.hasNextInt())
+            {
+                pakucapacity = keyboard.nextInt();
+                cont = true;
+            }
+            else
+            {
+                System.out.println("Please enter a valid size.");
+                keyboard.next();
+                System.out.print("Enter max capacity of the Pakudex: ");
+            }
+        }while(!cont);
+
+            if(pakucapacity>0)
+            {
+                pakugame = new Pakudex(pakucapacity);
+            }
+            else
+            {
+                pakugame = new Pakudex();
+            }
+
+        System.out.println("The Pakudex can hold " + pakucapacity + " species of Pakuri.");
+        System.out.println();
+
+        do
+        {
+
+            System.out.println("Pakudex Main Menu");
+            System.out.println("-----------------");
+            System.out.println("1. List Pakuri");
+            System.out.println("2. Show Pakuri");
+            System.out.println("3. Add Pakuri");
+            System.out.println("4. Evolve Pakuri");
+            System.out.println("5. Sort Pakuri");
+            System.out.println("6. Exit");
+            System.out.println();
+            System.out.print("What would you like to do? ");
+            if(!(keyboard.hasNextInt()))
+            {
+                System.out.println("Unrecognized menu selection!");
+                keyboard.next();
+                System.out.println();
+            }
+            else
+            {
+                menu = keyboard.nextInt();
+
+                switch (menu)
+                {
+                    case 1:
+                        list(pakugame);
+                        System.out.println();
+                        break;
+                    case 2:
+                        System.out.print("Enter the name of the species to display: ");
+                        String userpaku = keyboard.next();
+                        System.out.println();
+                        show(pakugame, userpaku);
+                        System.out.println();
+                        break;
+                    case 3:
+                        Add(pakugame);
+                        System.out.println();
+                        break;
+                    case 4:
+                        System.out.print("Enter the name of the species to evolve: ");
+                        String evolvepaku = keyboard.next();
+                        evolve(pakugame, evolvepaku);
+                        System.out.println();
+                        break;
+                    case 5:
+                        sort(pakugame);
+                        System.out.println();
+                        break;
+                    case 6:
+                        System.out.println("Thanks for using Pakudex! Bye!");
+                        System.out.println();
+                        break;
+                    default:
+                        System.out.println("Unrecognized menu selection!");
+                        System.out.println();
+                        break;
+                }
+            }
+
+
+        }while(menu !=6);
+
+
+
+    }
+
+
+
+
+    public static  void list(Pakudex paku)
+    {
+        if(paku.getSize()==0)
+        {
+            System.out.println("No Pakuri in Pakudex yet!");
+        }
+        else
+        {
+            System.out.println("Pakuri In Pakudex:");
+            String pakulist[] = paku.getSpeciesArray();
+            for (int i = 0; i < paku.getSize(); i++)
+            {
+                System.out.println((i + 1) + ". " + pakulist[i]);
+            }
+        }
+
+    }
+
+
+    public static void show(Pakudex paku, String pakuS)
+    {
+        if(paku.getSize()==0)
+        {
+            System.out.println("Error: No such Pakuri!");
+        }
+        else
+        {
+            int stats[] = paku.getStats(pakuS);
+            if(stats==null)
+            {
+                System.out.println("Error: No such Pakuri!");
+            }
+            else
+            {
+                System.out.println("Species: " + pakuS);
+                System.out.println("Attack: " + stats[0]);
+                System.out.println("Defense: " + stats[1]);
+                System.out.println("Speed: " + stats[2]);
+            }
+
+        }
+    }
+
+
+    public static void Add(Pakudex paku)
+    {
+
+        if (paku.getSize() == paku.getCapacity())//pakudex is full??
+        {
+            System.out.println("Error: Pakudex is full!");
+        } else
+        {
+            System.out.print("Enter the name of the species to add: ");
+            String addpakumon = keyboard.next();
+            boolean steal = paku.addPakuri(addpakumon);
+            if (steal)
+            {
+                System.out.println("Pakuri species " + addpakumon + " successfully added!");
+            } else
+            {
+                System.out.println("Error: Pakudex already contains this species!");
+            }
+        }
+    }
+
+
+
+    public static void evolve(Pakudex paku, String pakuE)
+    {
+        boolean exist = paku.findpaku(pakuE);
+        if(exist)
+        {
+            paku.evolveSpecies(pakuE);
+            System.out.println(pakuE + " has evolved!");
+        }
+        else
+        {
+            System.out.println("Error: No such Pakuri!");
+        }
+    }
+
+
+    public static void sort(Pakudex paku)
+    {
+        paku.sortPakuri();
+        System.out.println("Pakuri have been sorted!");
+    }
+
+
+}
+
+
+
+
+
+
+
+
