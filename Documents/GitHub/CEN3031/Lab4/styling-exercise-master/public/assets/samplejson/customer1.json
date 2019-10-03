@@ -1,0 +1,12 @@
+{
+	"id": 1,
+	"name": "Yuhan",
+	"email": "yhou@test.com",
+	"phone": "123456789",
+	"city": "Gainesville",
+	"state": "Florida",
+	"country": "USA",
+	"organization": "UF",
+	"jobProfile": "TA",
+	"additionalInfo": "yay!!!"
+}

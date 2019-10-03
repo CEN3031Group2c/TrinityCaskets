@@ -1,0 +1,12 @@
+{
+	"id": 3,
+	"name": "nobody",
+	"email": "nobody@test.com",
+	"phone": "123412345",
+	"city": "New York",
+	"state": "N.Y.",
+	"country": "USA",
+	"organization": "some Company",
+	"jobProfile": "engineer",
+	"additionalInfo": "did a lot what???"
+}
