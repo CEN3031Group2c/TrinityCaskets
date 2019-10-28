@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha server/tests",
     "install-all": "concurrently \"npm install\" \"cd client && npm install\"",
-    "client": "cd client && npm start",
+    "client": "cd client && npm start"
   },
   "repository": {
     "type": "git",
