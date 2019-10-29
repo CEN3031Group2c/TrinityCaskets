@@ -21,6 +21,6 @@ listingSchema.pre('save',function (next){
     next();
 });
 
-var Model = mongoose.model('Listing', listingSchema);
+var Listing = mongoose.model('Listing', listingSchema);
 
-module.exports = Model;
+module.exports = Listing;
