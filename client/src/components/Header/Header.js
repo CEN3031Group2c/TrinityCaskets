@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import RegisterWindow from "../userAuthentication/RegisterWindow";
+import LogoutWindow from "../userAuthentication/LogoutWindow";
+
 
 const Header = () => {
     return (
@@ -14,6 +16,7 @@ const Header = () => {
             {/* Page Links */}
             <div className="topnav-right">
                 <RegisterWindow />
+                <LogoutWindow />
                 <Link className="topnav-link" to='/projects'>Projects</Link>
                 <a className="topnav-link" target='_blank' rel="noopener noreferrer" href="https://www.facebook.com/groups/ufosc/events/?source=4&action_history=null&filter=calendar">
                     Events
