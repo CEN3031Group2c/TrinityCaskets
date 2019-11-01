@@ -24,7 +24,7 @@ class RegisterWindow extends Component {
         msg: null
     };
 
-    // Set the types for our props
+    // Set the types for our props. Not yet fully implemented
     static propTypes = {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
