@@ -24,7 +24,7 @@ class RegisterWindow extends Component {
         msg: null
     };
 
-    // Set the types for our props
+    // Set the types for our props. Not yet fully implemented
     static propTypes = {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
@@ -47,14 +47,17 @@ class RegisterWindow extends Component {
     onSubmit = submit => {
         submit.preventDefault();
 
+        // Pass in the name, email, and password
         const { name, email, password } = this.state;
 
-        // Create user object. Not implemented yet
+        // Create a new user object with the passed in data
         const newUser = {
             name,
             email,
             password
         };
+
+        // Attempt to register the new user
     };
 
     render() {
