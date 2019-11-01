@@ -14,10 +14,6 @@ import {
 // So we can set the types of our props
 import PropTypes from 'prop-types';
 
-// Allow our updating of user login state
-import { register } from '../../redux/actions/authActions';
-import { clearErrors } from '../../redux/actions/errorActions';
-
 class RegisterWindow extends Component {
     state = {
         modal: false,
@@ -62,7 +58,6 @@ class RegisterWindow extends Component {
         };
 
         // Attempt to register the new user
-        this.props.register(newUser);
     };
 
     render() {

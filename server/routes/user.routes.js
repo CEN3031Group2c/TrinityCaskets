@@ -7,7 +7,7 @@ router = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 // To get our secret key
-const config = require('../config/config');
+const config = require('config');
 
 
 // User Model

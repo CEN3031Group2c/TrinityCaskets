@@ -6,7 +6,6 @@ const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
 // Need a way to constantly validate path
-const auth = require('../middleware/authMiddleware');
 
 
 // User schema
@@ -49,16 +48,6 @@ router.post('/', (req, res) => {
             )
         })
     })
-});
-
-// Get the user data from /api/authentication/user
-router.get('/user', auth, (req, res) => {
-    // Get ID
-    UserSchema.findById(req.user.id)
-        // Don't want to get password for security reasons
-        .select('-password')
-        // Pass the promised user
-        .then(user => res.json(user));
 });
 
 module.exports = router;
