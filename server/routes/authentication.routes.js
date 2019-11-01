@@ -5,8 +5,6 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
-// Need a way to constantly validate path
-
 
 // User schema
 const UserSchema = require('../models/UserSchema');
