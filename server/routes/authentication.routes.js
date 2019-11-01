@@ -5,6 +5,8 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
+// Need a way to constantly check if user is logged in
+const auth = require('../middleware/authMiddleware');
 
 // User schema
 const UserSchema = require('../models/UserSchema');
@@ -24,7 +26,7 @@ router.post('/', (req, res) => {
         // If email is not attached to an existing user
         if(!user) return res.status(400).json({ msg: 'Invalid email' });
 
-        // If user does exist, check password using bcrypt's compare
+        // If user does exist, check if password is correct using bcrypt's compare
         bcrypt.compare(password, user.password).then(isMatch => {
             if(!isMatch) return res.status(400).json({ msg: 'Wrong password' });
 
@@ -46,6 +48,16 @@ router.post('/', (req, res) => {
             )
         })
     })
+});
+
+
+// Validate the user using the token from authMiddleware
+router.get('/user', auth, (req, res) => {
+    // Find the user information
+    UserSchema.findById(req.user.id)
+        // Don't want to return password for security
+        .select('-password')
+        .then(user => res.json(user));
 });
 
 module.exports = router;
