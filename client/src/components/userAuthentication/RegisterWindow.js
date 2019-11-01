@@ -11,8 +11,13 @@ import {
     NavLink,
     Alert
 } from 'reactstrap';
+// Using redux to handle all this
+import { connect } from 'react-redux';
 // So we can set the types of our props
 import PropTypes from 'prop-types';
+
+import { register } from '../../redux/actions/authActions';
+import { clearErrors } from '../../redux/actions/errorActions';
 
 class RegisterWindow extends Component {
     state = {
@@ -24,16 +29,38 @@ class RegisterWindow extends Component {
         msg: null
     };
 
-    /*// Set the types for our props. Not yet fully implemented
+    // Set the types for our props
     static propTypes = {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
         register: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired
-    };*/
+    };
+
+    // Check if it changed, i.e. new user successfully authenticated
+    componentDidUpdate(prevProps) {
+        const { error, isAuthenticated } = this.props;
+        if (error !== prevProps.error) {
+            // Check if registered successfully
+            if (error.id === 'REGISTER_FAIL') {
+                this.setState({ msg: error.msg.msg });
+            } else {
+                this.setState({ msg: null });
+            }
+        }
+
+        // If authenticated, close window
+        if (this.state.modal) {
+            if (isAuthenticated) {
+                this.toggle();
+            }
+        }
+    }
 
     // Open the registration form
     toggle = () => {
+        // Initially clear errors
+        this.props.clearErrors();
         // !open (closed) -> open
         this.setState({
             modal: !this.state.modal
@@ -58,6 +85,7 @@ class RegisterWindow extends Component {
         };
 
         // Attempt to register the new user
+        this.props.register(newUser);
     };
 
     render() {
@@ -116,4 +144,14 @@ class RegisterWindow extends Component {
     }
 }
 
-export default RegisterWindow;
+// Set the state of authentication based on props
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    error: state.error
+});
+
+export default connect(
+    // Actually allow us to register
+    mapStateToProps,
+    { register, clearErrors }
+)(RegisterWindow);
