@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-config = require('../config/config');
+const config = require('config');
 const jwt = require('jsonwebtoken');
 // Need a way to constantly validate path
 const auth = require('../middleware/authMiddleware');
@@ -51,7 +51,7 @@ router.post('/', (req, res) => {
     })
 });
 
-// Get the user data
+// Get the user data from /api/authentication/user
 router.get('/user', auth, (req, res) => {
     // Get ID
     UserSchema.findById(req.user.id)

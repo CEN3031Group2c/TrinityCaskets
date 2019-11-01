@@ -42,5 +42,5 @@ module.exports.init = () => {
     }
 
     return app
-}
+};
 

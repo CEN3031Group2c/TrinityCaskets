@@ -14,6 +14,10 @@ import {
 // So we can set the types of our props
 import PropTypes from 'prop-types';
 
+// Allow our updating of user login state
+import { register } from '../../redux/actions/authActions';
+import { clearErrors } from '../../redux/actions/errorActions';
+
 class RegisterWindow extends Component {
     state = {
         modal: false,
@@ -47,14 +51,18 @@ class RegisterWindow extends Component {
     onSubmit = submit => {
         submit.preventDefault();
 
+        // Pass in the name, email, and password
         const { name, email, password } = this.state;
 
-        // Create user object. Not implemented yet
+        // Create a new user object with the passed in data
         const newUser = {
             name,
             email,
             password
         };
+
+        // Attempt to register the new user
+        this.props.register(newUser);
     };
 
     render() {

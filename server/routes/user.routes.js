@@ -1,11 +1,13 @@
+// Router for user
+
 // Middleware
 express = require('express');
 // Function from express
 router = express.Router();
-const bcrypt = require('bcryptjs');
-// To get our jwtSecret
-config = require('../config/config');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+// To get our secret key
+const config = require('../config/config');
 
 
 // User Model

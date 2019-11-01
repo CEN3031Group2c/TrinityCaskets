@@ -1,6 +1,6 @@
 // Middleware for private routing of password and user info
 
-config = require('../config/config');
+const config = require('config');
 const jwt = require('jsonwebtoken');
 
 function authMiddleware(req, res, next) {
