@@ -19,7 +19,7 @@ class Header extends Component {
 
     render() {
 
-        // Get whether we're logged in and the user's name from our 'logged in' prop
+        // Get whether we're logged in + the user's name from our 'logged in' prop
         const { isAuthenticated, user } = this.props.auth;
 
         // Change what is viewed based on if we're logged in or not
