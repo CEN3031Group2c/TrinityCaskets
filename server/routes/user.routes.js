@@ -51,7 +51,7 @@ router.post('/', (req, res) =>{
                         // User id is token identifier
                         { id: user.id },
                         // Secret key
-                        config.get('jwtSecret'),
+                        require('../config/config').jwt.jwtSecret,
                         (err, token) => {
                             if(err) throw err;
 

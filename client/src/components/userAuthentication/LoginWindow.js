@@ -16,40 +16,36 @@ import { connect } from 'react-redux';
 // So we can set the types of our props
 import PropTypes from 'prop-types';
 
-import { register } from '../../redux/actions/authActions';
+import { login } from '../../redux/actions/authActions';
 import { clearErrors } from '../../redux/actions/errorActions';
 
-class RegisterWindow extends Component {
+class LoginWindow extends Component {
     state = {
         modal: false,
-        name: '',
         email: '',
         password: '',
-        // Register successful?
         msg: null
     };
 
-    // Set the types for our props
     static propTypes = {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
-        register: PropTypes.func.isRequired,
+        login: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired
     };
 
-    // Check if it changed, i.e. new user successfully authenticated
     componentDidUpdate(prevProps) {
         const { error, isAuthenticated } = this.props;
         if (error !== prevProps.error) {
-            // Check if registered successfully
-            if (error.id === 'REGISTER_FAIL') {
+            // Check for login error
+            if (error.id === 'LOGIN_FAIL') {
                 this.setState({ msg: error.msg.msg });
             } else {
                 this.setState({ msg: null });
             }
         }
 
-        // If authenticated, close window
+        // If login was successful, close window
         if (this.state.modal) {
             if (isAuthenticated) {
                 this.toggle();
@@ -57,62 +53,48 @@ class RegisterWindow extends Component {
         }
     }
 
-    // Open the registration form
+    // Open/close the window when clicked
     toggle = () => {
-        // Initially clear errors
+        // Clear errors
         this.props.clearErrors();
-        // !open (closed) -> open
         this.setState({
             modal: !this.state.modal
         });
     };
 
-    onChange = change => {
-        this.setState({ [change.target.name]: change.target.value });
+    onChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
     };
 
-    onSubmit = submit => {
-        submit.preventDefault();
+    onSubmit = e => {
+        e.preventDefault();
 
-        // Pass in the name, email, and password
-        const { name, email, password } = this.state;
+        const { email, password } = this.state;
 
-        // Create a new user object with the passed in data
-        const newUser = {
-            name,
+        const user = {
             email,
             password
         };
 
-        // Attempt to register the new user
-        this.props.register(newUser);
+        // Attempt to login
+        this.props.login(user);
     };
 
     render() {
         return (
             <div>
                 <NavLink onClick={this.toggle} href='#'>
-                    Register
+                    Login
                 </NavLink>
 
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                    <ModalHeader toggle={this.toggle}>Register</ModalHeader>
+                    <ModalHeader toggle={this.toggle}>Login</ModalHeader>
                     <ModalBody>
                         {this.state.msg ? (
                             <Alert color='danger'>{this.state.msg}</Alert>
                         ) : null}
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
-                                <Label for='name'>Full Name</Label>
-                                <Input
-                                    type='text'
-                                    name='name'
-                                    id='name'
-                                    placeholder='Name'
-                                    className='mb-3'
-                                    onChange={this.onChange}
-                                />
-
                                 <Label for='email'>Email</Label>
                                 <Input
                                     type='email'
@@ -133,7 +115,7 @@ class RegisterWindow extends Component {
                                     onChange={this.onChange}
                                 />
                                 <Button color='dark' style={{ marginTop: '2rem' }} block>
-                                    Register
+                                    Login
                                 </Button>
                             </FormGroup>
                         </Form>
@@ -144,14 +126,12 @@ class RegisterWindow extends Component {
     }
 }
 
-// Set the state of authentication based on props
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
     error: state.error
 });
 
 export default connect(
-    // Actually allow us to register
     mapStateToProps,
-    { register, clearErrors }
-)(RegisterWindow);
+    { login, clearErrors }
+)(LoginWindow);
