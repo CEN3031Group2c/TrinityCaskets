@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
+
+
 import RegisterWindow from "../userAuthentication/RegisterWindow";
 import LogoutWindow from "../userAuthentication/LogoutWindow";
 import LoginWindow from "../userAuthentication/LoginWindow";

@@ -11,6 +11,7 @@ const initialState = {};
 // Middleware we will use
 const middleWare = [thunk];
 
+// Long nonsensical thing that redux needs
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 
