@@ -68,7 +68,7 @@ export const register = ({ name, email, password }) => dispatch => {
                 payload: res.data
             })
         )
-        // If we didn't pass, clear everything (REGISTER_FAIL), and return some erros
+        // If we didn't pass, clear everything (REGISTER_FAIL), and return some errors
         .catch(err => {
             dispatch(
                 returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL')
