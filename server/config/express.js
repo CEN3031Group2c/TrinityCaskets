@@ -3,7 +3,7 @@ const path = require('path'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    exampleRouter = require('../routes/examples.server.routes');
+    router = require('../routes/server.routes');
 
 module.exports.init = () => {
     /* 
@@ -25,8 +25,11 @@ module.exports.init = () => {
     // body parsing middleware
     app.use(bodyParser.json());
 
-    // add a router
-    app.use('/api/example', exampleRouter);
+    // Router for user
+    app.use('/api/user', require('../routes/user.routes'));
+    // Router for user authentication
+    app.use('/api/authentication', require('../routes/authentication.routes'));
+
 
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
@@ -39,5 +42,5 @@ module.exports.init = () => {
     }
 
     return app
-}
+};
 

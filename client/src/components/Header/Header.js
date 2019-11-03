@@ -97,7 +97,41 @@ class Header extends Component {
           FAQ
         </div>
       </div>
-      </div>
+            </div>
+        );
+
+        // If we're not logged in:
+        const noUserLinks = (
+            <div>
+                <RegisterWindow />
+                <LoginWindow />
+            </div>
+        );
+
+        return (
+            <div className='topnav'>
+                {/* Logo */}
+                <Link id="logo-link" to="/">
+                    <img className="topnav-logo" src={"/logo192.png"} alt="React logo"/>
+                </Link>
+
+                {/* Page Links */}
+                <div className="topnav-right">
+                    {isAuthenticated ? userLinks : noUserLinks}
+                    <Link className="topnav-link" to='/projects'>Projects</Link>
+                    <a className="topnav-link" target='_blank' rel="noopener noreferrer"
+                       href="https://www.facebook.com/groups/ufosc/events/?source=4&action_history=null&filter=calendar">
+                        Events
+                        <i className="fas fa-external-link-alt external-link" data-fa-transform="up-6"></i>
+                    </a>
+                    <a className="topnav-link" target='_blank' rel="noopener noreferrer"
+                       href="https://github.com/ufosc/club-resources">
+                        Resources
+                        <i className="fas fa-external-link-alt external-link" data-fa-transform="up-6 right-4"></i>
+                    </a>
+                    <Link className="topnav-link" to="/about">About</Link>
+                </div>
+            </div>
         )
     };
 }

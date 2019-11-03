@@ -1,30 +1,44 @@
 {
-  "name": "react_template_repo",
+  "name": "trinity_caskets_website",
   "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "description": "This website is created for Trinity Caskets store.",
   "main": "index.js",
   "scripts": {
     "test": "mocha server/tests",
     "install-all": "concurrently \"npm install\" \"cd client && npm install\"",
     "client": "cd client && npm start",
+    "server": "nodemon server/server.js",
+    "dev": "concurrently \"nodemon server/server.js\" \"cd client && npm run start\"",
+    "build": "cd client && npm build",
+    "start": "node server/server.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/UFWebApps/React_Template_Repo.git"
+    "url": "https://github.com/CEN3031Group2c/TrinityCaskets.git"
   },
   "keywords": [],
-  "author": "Dakota Rennemann",
+  "author": "Group2C",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.19.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^4.1.0",
+    "config": "^3.2.4",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mocha": "^6.2.1",
     "mongoose": "^5.7.1",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
+    "prop-types": "^15.7.2",
+    "react-redux": "^7.1.1",
+    "reactstrap": "^8.1.1",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
     "should": "^13.2.3",
     "supertest": "^4.0.2"
   },
-  "homepage": "https://github.com/UFWebApps/React_Template_Repo#readme"
+  "homepage": "https://github.com/CEN3031Group2c/TrinityCaskets"
 }
