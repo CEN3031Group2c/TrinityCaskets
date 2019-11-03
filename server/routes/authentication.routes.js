@@ -3,7 +3,6 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const config = require('config');
 const jwt = require('jsonwebtoken');
 // Need a way to constantly check if user is logged in
 const auth = require('../middleware/authMiddleware');

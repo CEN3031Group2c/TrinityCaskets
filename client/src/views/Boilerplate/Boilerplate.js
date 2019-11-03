@@ -1,5 +1,5 @@
 import React from 'react';
-import './Boilerplate.css':;
+import './Boilerplate.css';
 
 function Boilerplate()
 {
