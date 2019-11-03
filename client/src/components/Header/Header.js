@@ -18,7 +18,6 @@ class Header extends Component {
     };
 
     render() {
-
         // Get whether we're logged in + the user's name from our 'logged in' prop
         const { isAuthenticated, user } = this.props.auth;
 
