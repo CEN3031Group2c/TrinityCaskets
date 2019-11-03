@@ -8,7 +8,7 @@ var id;
 
 listing = {
     modelNumber: "A101",
-    discription: "Wooden coffin",
+    description: "Wooden coffin",
     type: "Casket",
     price: 1000,
     compareToPrice: 5000,
@@ -32,10 +32,10 @@ describe('Listing Schema Unit Tests', function() {
        */
       this.timeout(10000);
   
-      it('saves properly when model number, discription, price and type are given', function(done){
+      it('saves properly when model number, description, price and type are given', function(done){
         new Listing({
           modelNumber: listing.modelNumber, 
-          discription: listing.discription,
+          description: listing.description,
           price: listing.price,
           type: listing.type
         }).save(function(err, listing){
@@ -55,7 +55,7 @@ describe('Listing Schema Unit Tests', function() {
   
       it('throws an error when model number not provided', function(done){
         new Listing({
-          discription: listing.discription,
+          description: listing.description,
           price: listing.price,
           type: listing.type
         }).save(function(err){
@@ -64,7 +64,7 @@ describe('Listing Schema Unit Tests', function() {
         })
       });
   
-      it('throws an error when discription not provided', function(done){
+      it('throws an error when description not provided', function(done){
         new Listing({
           modelNumber: listing.modelNumber,
           price: listing.price,
@@ -77,7 +77,7 @@ describe('Listing Schema Unit Tests', function() {
       it('throws an error when price not provided', function(done){
           new Listing({
             modelNumber: listing.modelNumber,
-            discription: listing.discription,
+            description: listing.description,
             type: listing.type,
           }).save(function(err){
               should.exist(err);
@@ -88,7 +88,7 @@ describe('Listing Schema Unit Tests', function() {
       it('throws an error when type not provided', function(done){
         new Listing({
           modelNumber: listing.modelNumber,
-          discription: listing.discription,
+          description: listing.description,
           price: listing.price
         }).save(function(err){
             should.exist(err);
