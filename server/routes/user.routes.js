@@ -1,13 +1,13 @@
 // Router for user
 
 // Middleware
-express = require('express');
+const express = require('express');
 // Function from express
-router = express.Router();
+const router = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 // To get our secret key
-const config = require('config');
+const config = require('../config/config');
 
 
 // User Model
@@ -51,7 +51,7 @@ router.post('/', (req, res) =>{
                         // User id is token identifier
                         { id: user.id },
                         // Secret key
-                        require('../config/config').jwt.jwtSecret,
+                        config.jwt.jwtSecret,
                         (err, token) => {
                             if(err) throw err;
 
