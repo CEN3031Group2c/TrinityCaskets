@@ -194,3 +194,18 @@ body
   background-color: blue;
 
 }
+
+#page_content
+{
+  padding: 20px;
+  background-color:
+}
+
+#footer
+{
+  height: 40px;
+  padding: 10px 0px;
+  background-color: grey;
+  text-align: center;
+}
+

@@ -40,6 +40,75 @@ class Header extends Component {
         );
 
         return (
+          <div id="all_content_holder">
+                    {isAuthenticated ? userLinks : noUserLinks}
+            <div id = "title_box">
+        <div id = "title">
+          Trinity Casket Store... And More
+        </div>
+        <div id = "top_buttons">
+          <div id = "login_signup">
+            <div id = "login">
+               login
+            </div>
+            <div id = "signup">
+              sign up
+            </div>
+          </div>
+          <div id = "user_info">
+            INFO
+          </div>
+          <div id = "cart">
+            CART
+          </div>
+        </div>
+      </div>
+
+      <div id = "middle_box">
+        <div id = "middle_box_info">
+          Welcome to the website. This box is used to contain important header information. It should be about two lines long, although it could be extended if necessary.
+        </div>
+        <div id="search_bar_holder">
+            SEARCH
+          <button type = "submit" id="search_bar_button">
+            GO
+          </button>
+        </div>
+
+      </div>
+
+      <div id = "navbar">
+        <div className = "nav_button">
+          HOME
+        </div>
+        <div className = "nav_button">
+          ABOUT
+        </div>
+        <div className = "nav_button">
+          CASKETS
+        </div>
+        <div className = "nav_button">
+          URNS
+        </div>
+        <div className = "nav_button">
+          HEADSTONES
+        </div>
+        <div className = "nav_button">
+          FAQ
+        </div>
+      </div>
+            </div>
+        );
+
+        // If we're not logged in:
+        const noUserLinks = (
+            <div>
+                <RegisterWindow />
+                <LoginWindow />
+            </div>
+        );
+
+        return (
             <div className='topnav'>
                 {/* Logo */}
                 <Link id="logo-link" to="/">
