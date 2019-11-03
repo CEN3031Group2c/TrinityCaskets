@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var listingSchema = new Schema({
     modelNumber : {type: String, required: true},
-    discription : {type: String, required: true}, //The Model number and Discription will be the used to "name" the listing on the store page
+    description : {type: String, required: true}, //The Model number and Description will be the used to "name" the listing on the store page
     price: {type : Number, required: true},
     type: {type: String, required: true}, //Is this a casket, urn or something else?
     compareToPrice: Number,    //Based off what I saw in the best caskets website

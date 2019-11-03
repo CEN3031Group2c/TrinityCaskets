@@ -28,6 +28,8 @@ module.exports.init = () => {
     app.use('/api/user', require('../routes/user.routes'));
     // Router for user authentication
     app.use('/api/authentication', require('../routes/authentication.routes'));
+    // Router for listing
+    app.use('/api/listings', require('../routes/listings.routes'));
 
 
     if (process.env.NODE_ENV === 'production') {
