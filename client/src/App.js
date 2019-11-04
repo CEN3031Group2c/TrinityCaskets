@@ -3,6 +3,10 @@ import { Route, Switch, Redirect  } from 'react-router-dom';
 import Home from "./views/Home/Home"
 import NotFound from "./views/NotFound"
 import Header from "./components/Header/Header"
+import Footer from "./components/Footer/Footer"
+import About from "./views/About/About"
+import CT from "./views/Catalog/Catalog"
+import FQ from "./views/FQ/FQ"
 
 // Getting redux to work
 import { Provider } from 'react-redux';
@@ -19,15 +23,21 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <div>
+                <div id="all_content_holder">
                     <Header/>
-                    <Switch>
+                    <div id = "page_content">
+                      <Switch>
                         <Route exact path="/Home" component={Home}/>
+                        <Route exact path="/About" component={About} />
+                        <Route exact path="/FAQ" component={FQ} />
+                        <Route exact path="/Catalog" component={CT} />
                         <Route exact path="/">
                             <Redirect to="/Home"/>
                         </Route>
                         <Route component={NotFound}/>
-                    </Switch>
+                      </Switch>
+                    </div>
+                    <Footer />
                 </div>
             </Provider>
         );
