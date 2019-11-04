@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './Header.css';
 
 // Login/logout stuff
@@ -98,7 +97,7 @@ class Header extends Component {
       </div>
             </div>
         );
-    };
+    }
 }
 
 // Map our header's 'logged in' state to the overall 'logged in' prop
