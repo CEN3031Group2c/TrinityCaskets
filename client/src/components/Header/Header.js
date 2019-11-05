@@ -13,12 +13,15 @@ class Header extends Component {
 
     // 'logged in' prop we'll modify
     static propTypes = {
-        auth: PropTypes.object.isRequired
+        auth: PropTypes.object.isRequired,
+        //admin: PropTypes.object.isRequired
     };
 
     render() {
         // Get whether we're logged in + the user's name from our 'logged in' prop
         const { isAuthenticated, user } = this.props.auth;
+        // Need to add admin
+        //const { isAdmin } = this.props.admin;
 
         // Change what is viewed based on if we're logged in or not
         // If we're logged in:
