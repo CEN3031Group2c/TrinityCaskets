@@ -1,0 +1,211 @@
+
+*
+{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body
+{
+  font-family: Calibri;
+}
+
+
+#all_content_holder
+{
+  width: 1000px;
+  margin: 50px auto;
+}
+
+#title_box
+{
+  width: 100%;
+}
+
+#title
+{
+  padding: 0px 5px;
+  font-family: 'Lobster';
+  font-size: 40pt;
+  width: 690px;
+  height: 70px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+#top_buttons
+{
+  width: 300px;
+  height: 70px;
+  display: inline-block;
+}
+
+#login_signup
+{
+  height: 70px;
+  width: 150px;
+  display: inline-block;
+  text-align: center;
+  margin: 0px 1px;
+}
+
+#login
+{
+  height: 32px;
+  width: 150px;
+  padding: 7px 0px;
+  background-color: black;
+  color: white;
+  margin-top: 2px;
+
+}
+
+#login:hover
+{
+  cursor: pointer;
+  background-color: blue;
+}
+
+#signup
+{
+  background-color: black;
+  color: white;
+  padding: 7px 0px;
+  height: 32px;
+  width: 150px;
+  margin-top: 2px;
+}
+
+#signup:hover
+{
+  cursor: pointer;
+  background-color: blue;
+}
+
+#user_info
+{
+  background-color: black;
+  color: white;
+  height: 70px;
+  width: 70px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: bottom;
+  padding: 25px 0px;
+}
+
+#cart
+{
+  background-color: black;
+  color: white;
+  height: 70px;
+  width: 70px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: bottom;
+  padding: 25px 0px;
+}
+
+#user_info:hover
+{
+  cursor: pointer;
+  background-color: blue;
+}
+
+#cart:hover
+{
+  cursor: pointer;
+  background-color: blue;
+}
+
+
+#middle_box
+{
+  padding: 5px 0px;
+  width: 100%;
+  height: 85px;
+}
+
+#middle_box_info
+{
+  width: 690px;
+  display: inline-block;
+  background-color: grey;
+  height: 75px;
+  padding: 20px 15px;
+}
+
+#search_bar_holder
+{
+  margin-left: 2px;
+  width: 300px;
+  height: 30px;
+  vertical-align: bottom;
+  display: inline-block;
+}
+
+#search_bar
+{
+  width: 268px;
+  display: inline-block;
+  vertical-align: bottom;
+  height: 30px;
+  padding: 6px 10px;
+  border: 1px solid black;
+}
+#search_bar_button
+{
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  display: inline-block;
+  border: none;
+  margin-left: -2px;
+}
+#search_bar_button:hover
+{
+  background-color: blue;
+  cursor: pointer;
+}
+
+#navbar
+{
+  width: 100%;
+  height: 45px;
+
+}
+
+.nav_button
+{
+  background-color: black;
+  color: white;
+  height: 40px;
+  width: 163px;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 0px;
+}
+
+.nav_button:hover
+{
+  cursor: pointer;
+  background-color: blue;
+
+}
+
+#page_content
+{
+  padding: 20px;
+  background-color:
+}
+
+#footer
+{
+  height: 40px;
+  padding: 10px 0px;
+  background-color: grey;
+  text-align: center;
+}
+
