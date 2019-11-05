@@ -14,14 +14,12 @@ class Header extends Component {
     // 'logged in' prop we'll modify
     static propTypes = {
         auth: PropTypes.object.isRequired,
-        //admin: PropTypes.object.isRequired
     };
 
     render() {
         // Get whether we're logged in + the user's name from our 'logged in' prop
         const { isAuthenticated, user } = this.props.auth;
-        // Need to add admin
-        //const { isAdmin } = this.props.admin;
+        //const isAdmin = user.admin;
 
         // Change what is viewed based on if we're logged in or not
         // If we're logged in:
@@ -40,6 +38,21 @@ class Header extends Component {
             </div>
         );
 
+        const adminBox = (
+            <a href="/Admin">
+            <div id = "user_info">
+
+                ADMIN
+            </div>
+            </a>
+        );
+
+        const noAdminBox = (
+            <div id = "user_info">
+            INFO
+            </div>
+        )
+
         return (
           <div>
                     {isAuthenticated ? userLinks : noUserLinks}
@@ -56,9 +69,8 @@ class Header extends Component {
               sign up
             </div>
           </div>
-          <div id = "user_info">
-            INFO
-          </div>
+            {user ? (user.admin ? adminBox : noAdminBox) : noAdminBox}
+
           <div id = "cart">
             CART
           </div>

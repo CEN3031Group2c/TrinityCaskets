@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer"
 import About from "./views/About/About"
 import CT from "./views/Catalog/Catalog"
 import FQ from "./views/FQ/FQ"
+import admin from "./views/Administrator/Administrator"
 
 // Getting redux to work
 import { Provider } from 'react-redux';
@@ -31,6 +32,7 @@ class App extends Component {
                         <Route exact path="/About" component={About} />
                         <Route exact path="/FAQ" component={FQ} />
                         <Route exact path="/Catalog" component={CT} />
+                        <Route exact path="/Admin" component={admin} />
                         <Route exact path="/">
                             <Redirect to="/Home"/>
                         </Route>
