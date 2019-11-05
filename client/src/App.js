@@ -7,12 +7,15 @@ import Footer from "./components/Footer/Footer"
 import About from "./views/About/About"
 import CT from "./views/Catalog/Catalog"
 import FQ from "./views/FQ/FQ"
-import admin from "./views/Administrator/Administrator"
+import Admin from "./views/Administrator/Administrator"
+import PrivateRoute from "./components/PrivateRoute"
+
 
 // Getting redux to work
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { loadUser } from './redux/actions/authActions';
+
 
 class App extends Component {
     // Dispatch the 'check if user logged in'
@@ -22,6 +25,7 @@ class App extends Component {
 
     // Added the store for redux. The rest is the same as before
     render() {
+
         return (
             <Provider store={store}>
                 <div id="all_content_holder">
@@ -32,7 +36,7 @@ class App extends Component {
                         <Route exact path="/About" component={About} />
                         <Route exact path="/FAQ" component={FQ} />
                         <Route exact path="/Catalog" component={CT} />
-                        <Route exact path="/Admin" component={admin} />
+                        <PrivateRoute exact path="/Admin" component={Admin} />
                         <Route exact path="/">
                             <Redirect to="/Home"/>
                         </Route>

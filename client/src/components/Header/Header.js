@@ -16,10 +16,10 @@ class Header extends Component {
         auth: PropTypes.object.isRequired,
     };
 
+
     render() {
         // Get whether we're logged in + the user's name from our 'logged in' prop
         const { isAuthenticated, user } = this.props.auth;
-        //const isAdmin = user.admin;
 
         // Change what is viewed based on if we're logged in or not
         // If we're logged in:
@@ -41,17 +41,17 @@ class Header extends Component {
         const adminBox = (
             <a href="/Admin">
             <div id = "user_info">
-
                 ADMIN
             </div>
             </a>
         );
 
+        // If not admin, see user info
         const noAdminBox = (
             <div id = "user_info">
             INFO
             </div>
-        )
+        );
 
         return (
           <div>
