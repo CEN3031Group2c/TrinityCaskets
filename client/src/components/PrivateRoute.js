@@ -18,7 +18,6 @@ class PrivateRoute extends Component{
         // If not logged in, or not an admin
         else if (!user || !user.admin) {
             return <h2>Access Denied</h2>
-
         }
         // If an admin, load up the specified component
         else {
