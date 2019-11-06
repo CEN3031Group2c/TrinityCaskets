@@ -5,7 +5,7 @@ var listingSchema = new Schema({
     modelNumber : {type: String, required: true},
     description : {type: String, required: true}, //The Model number and Description will be the used to "name" the listing on the store page
     price: {type : Number, required: true},
-    image: {type: String, required: true},
+    image: {type: String, required: false},
     type: {type: String, required: true}, //Is this a casket, urn or something else?
     compareToPrice: Number,    //Based off what I saw in the best caskets website
     stock: Number,             //How many are left in stock, not asked for but could be useful to have stored somewhere
