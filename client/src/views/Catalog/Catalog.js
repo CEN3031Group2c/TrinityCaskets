@@ -1,14 +1,12 @@
 import React from 'react';
+import Listings from "../../components/Listings/Listings"
 import logo from '../../assets/logo.svg';
-import './Home.css';
+import './Catalog.css';
 
-function Home() {
+function Catalog() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>future TrinityCaskets website.</p>
-            </header>
+        <div>
+            <Listings />
         </div>
     );
 }
