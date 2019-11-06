@@ -1,15 +1,17 @@
 import React, { Component} from 'react';
 import { Route, Switch, Redirect  } from 'react-router-dom';
 import Home from "./views/Home/Home"
+import Catalog from "./views/Catalog/Catalog"
 import NotFound from "./views/NotFound"
 import Header from "./components/Header/Header"
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./components/Footer/Footer"
 import About from "./views/About/About"
 import CT from "./views/Catalog/Catalog"
 import FQ from "./views/FQ/FQ"
 import Admin from "./views/Administrator/Administrator"
 import PrivateRoute from "./components/PrivateRoute"
-
 
 // Getting redux to work
 import { Provider } from 'react-redux';

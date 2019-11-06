@@ -1,18 +1,13 @@
 import React from 'react';
+import Listings from "../../components/Listings/Listings"
+import logo from '../../assets/logo.svg';
+import './Catalog.css';
 
-function About() {
+function Catalog() {
     return (
-        
-        <div className="App">
-            <header className="App-header">
-            <h1>About us ……..</h1>
-            <div>
-                this is catalog page
-            </div>
-
-            </header>
+        <div>
+            <Listings />
         </div>
     );
 }
-
-export default About;
+export default Catalog;

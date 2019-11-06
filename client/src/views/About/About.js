@@ -18,7 +18,6 @@ Our costs are in most cases less than half the cost that funeral homes charge. B
 <li>Economical</li>
 </ul>
 At Trinity we sell Caskets, Urns, Headstones, Vaults, Programs, Casket Floral Pieces, and do referrals for many other services; all directly to the public at the best prices anywhere for quality merchandise.
-
             </header>
         </div>
     );
