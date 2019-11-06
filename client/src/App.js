@@ -4,7 +4,7 @@ import Home from "./views/Home/Home"
 import Catalog from "./views/Catalog/Catalog"
 import NotFound from "./views/NotFound"
 import Header from "./components/Header/Header"
-import Listings from "./components/Listings/Listings"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Getting redux to work
 import { Provider } from 'react-redux';
