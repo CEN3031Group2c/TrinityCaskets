@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { Component} from 'react';
 
-function Admin() {
-    return (
+class Admin extends Component{
+    componentDidUpdate(prevProps, prevState, snapshot) {
 
-        <div className="App">
-            <header className="App-header">
-                <h1>Admin</h1>
-                <div>
-                </div>
+    }
+    render() {
+        return (
 
-            </header>
-        </div>
-    );
+            <div className="App">
+                <header className="App-header">
+                    <h1>Admin</h1>
+                    <div>
+                    </div>
+
+                </header>
+            </div>
+        );
+    }
 }
 
 export default Admin;

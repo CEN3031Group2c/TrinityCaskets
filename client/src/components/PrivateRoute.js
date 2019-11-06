@@ -1,27 +1,29 @@
-import React from "react";
+import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import Admin from "../views/Administrator/Administrator"
+
 
 // Component that's passed in + auth state
-const PrivateRoute = ({ component: Component, auth }) => (
+class PrivateRoute extends Component{
 
-    <Route
-        render={props => {
-            if (auth.isLoading ) {
-                return <h2>Loading...</h2>;
-            }
-            // If not logged in, or not an admin
-            else if(!auth.user || !auth.user.admin){
-                return <h2>Access Denied</h2>
-            }
-            // If an admin, load up the specified component
-            else {
-                return <Component {...props} />;
-            }
-        }}
-    />
-);
+    render() {
+        const { user, isLoading } = this.props.auth;
 
+        if (isLoading) {
+            return <h2>Loading...</h2>;
+        }
+        // If not logged in, or not an admin
+        else if (!user || !user.admin) {
+            return <h2>Access Denied</h2>
+        }
+        // If an admin, load up the specified component
+        else {
+            return <Admin />;
+        }
+    }
+}
+//({ component: Component, auth })
 const mapStateToProps = state => ({
     auth: state.auth
 });
