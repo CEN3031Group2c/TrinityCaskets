@@ -1,22 +1,22 @@
 import React, {Component} from 'react';
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
+import { Card, Button } from 'react-bootstrap';
 
 export class Listings extends Component {
     render() {
         return (
-            <MDBCol>
-                <MDBCard style={{ width: "22rem" }}>
-                    <MDBCardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" waves />
-                    <MDBCardBody>
-                        <MDBCardTitle>Card title</MDBCardTitle>
-                        <MDBCardText>
-                            Some quick example text to build on the card title and make
-                            up the bulk of the card&apos;s content.
-                        </MDBCardText>
-                        <MDBBtn href="#">MDBBtn</MDBBtn>
-                    </MDBCardBody>
-                </MDBCard>
-            </MDBCol>
+            <Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src="holder.js/100px180" />
+  <Card.Body>
+    <Card.Title>Card Title</Card.Title>
+    <Card.Text>
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </Card.Text>
+    <Button variant="primary">Go somewhere</Button>
+  </Card.Body>
+</Card>
         );
     }
 }
+
+export default Listings;
