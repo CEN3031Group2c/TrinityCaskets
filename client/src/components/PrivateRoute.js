@@ -10,12 +10,9 @@ const PrivateRoute = ({ component: Component, auth }) => (
             if (auth.isLoading ) {
                 return <h2>Loading...</h2>;
             }
-            else if(!auth.user){
+            // If not logged in, or not an admin
+            else if(!auth.user || !auth.user.admin){
                 return <h2>Access Denied</h2>
-            }
-            // If not an admin
-            else if (!auth.user.admin) {
-                return <Redirect to="/" />;
             }
             // If an admin, load up the specified component
             else {
