@@ -1,13 +1,12 @@
 import React from 'react';
 
-function Administrator() {
+function Admin() {
     return (
 
         <div className="App">
             <header className="App-header">
-                <h1>About us ……..</h1>
+                <h1>Admin</h1>
                 <div>
-                    Admin panel
                 </div>
 
             </header>
@@ -15,4 +14,4 @@ function Administrator() {
     );
 }
 
-export default Administrator;
+export default Admin;

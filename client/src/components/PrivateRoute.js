@@ -2,18 +2,19 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-// Bring in the component, auth, ...rest for anything else
-const PrivateRoute = ({ component: Component, auth, ...rest }) => (
+// Component that's passed in + auth state
+const PrivateRoute = ({ component: Component, auth }) => (
 
     <Route
-        {...rest}
         render={props => {
-            console.log(auth);
-            if (auth.isLoading) {
+            if (auth.isLoading ) {
                 return <h2>Loading...</h2>;
             }
+            else if(!auth.user){
+                return <h2>Access Denied</h2>
+            }
             // If not an admin
-            else if (!auth.user) {
+            else if (!auth.user.admin) {
                 return <Redirect to="/" />;
             }
             // If an admin, load up the specified component

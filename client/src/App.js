@@ -25,9 +25,9 @@ class App extends Component {
 
     // Added the store for redux. The rest is the same as before
     render() {
-
         return (
             <Provider store={store}>
+                {console.log(store.getState())}
                 <div id="all_content_holder">
                     <Header/>
                     <div id = "page_content">
@@ -39,6 +39,7 @@ class App extends Component {
                         <PrivateRoute exact path="/Admin" component={Admin} />
                         <Route exact path="/">
                             <Redirect to="/Home"/>
+
                         </Route>
                         <Route component={NotFound}/>
                       </Switch>
