@@ -27,7 +27,6 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                {console.log(store.getState())}
                 <div id="all_content_holder">
                     <Header/>
                     <div id = "page_content">
