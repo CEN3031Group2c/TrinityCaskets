@@ -10,5 +10,4 @@ function Catalog() {
         </div>
     );
 }
-
 export default Catalog;
