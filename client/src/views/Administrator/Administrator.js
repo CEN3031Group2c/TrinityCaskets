@@ -1,9 +1,7 @@
 import React, { Component} from 'react';
 
 class Admin extends Component{
-    componentDidUpdate(prevProps, prevState, snapshot) {
 
-    }
     render() {
         return (
 

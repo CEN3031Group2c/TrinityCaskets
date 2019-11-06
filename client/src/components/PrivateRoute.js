@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import Admin from "../views/Administrator/Administrator"
 
 
 // Component that's passed in + auth state
 class PrivateRoute extends Component{
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.auth.user !== this.props.auth.user){
+            //window.location.reload();
+        }
+    }
 
+    // this.props is reserved in class components
     render() {
+        console.log(this.props);
+
         const { user, isLoading } = this.props.auth;
 
         if (isLoading) {
@@ -19,11 +26,11 @@ class PrivateRoute extends Component{
         }
         // If an admin, load up the specified component
         else {
-            return <Admin />;
+            return <this.props.component />;
         }
     }
 }
-//({ component: Component, auth })
+
 const mapStateToProps = state => ({
     auth: state.auth
 });
