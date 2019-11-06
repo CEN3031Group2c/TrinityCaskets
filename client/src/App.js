@@ -23,8 +23,6 @@ class App extends Component {
                     <Header/>
                     <Switch>
                         <Route exact path="/Home" component={Home}/>
-                        <Route exact path="/Listing" component={Catalog}>
-                        </Route>
                         <Route exact path="/">
                             <Redirect to="/Home"/>
                         </Route>
