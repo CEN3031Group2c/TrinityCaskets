@@ -1,3 +1,4 @@
+
 *
 {
   box-sizing: border-box;
@@ -92,8 +93,6 @@ body
   text-align: center;
   vertical-align: bottom;
   padding: 25px 0px;
-  margin-right: 3px;
-  margin-left: 2px;
 }
 
 #cart
@@ -187,7 +186,6 @@ body
   display: inline-block;
   text-align: center;
   padding: 10px 0px;
-  margin: 0px 1px;
 }
 
 .nav_button:hover
@@ -196,3 +194,18 @@ body
   background-color: blue;
 
 }
+
+#page_content
+{
+  padding: 20px;
+  background-color: white;
+}
+
+#footer
+{
+  height: 40px;
+  padding: 10px 0px;
+  background-color: grey;
+  text-align: center;
+}
+

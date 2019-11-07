@@ -1,13 +1,13 @@
 // Router for user
 
 // Middleware
-express = require('express');
+const express = require('express');
 // Function from express
-router = express.Router();
+const router = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 // To get our secret key
-const config = require('config');
+const config = require('../config/config');
 
 
 // User Model
@@ -17,7 +17,7 @@ const UserSchema = require('../models/UserSchema');
 router.post('/', (req, res) =>{
 
     // Grab the inputted info
-    const { name, email, password } = req.body;
+    const { name, email, password, admin } = req.body;
 
     // Make sure all fields are filled out
     if(!name || !email || !password) {
@@ -33,7 +33,8 @@ router.post('/', (req, res) =>{
         const newUser = new UserSchema({
             name,
             email,
-            password
+            password,
+            admin
         });
 
         // Create salt (random string of bits to encrypt)
@@ -51,7 +52,7 @@ router.post('/', (req, res) =>{
                         // User id is token identifier
                         { id: user.id },
                         // Secret key
-                        require('../config/config').jwt.jwtSecret,
+                        config.jwt.jwtSecret,
                         (err, token) => {
                             if(err) throw err;
 
@@ -62,7 +63,8 @@ router.post('/', (req, res) =>{
                                 user: {
                                     id: user.id,
                                     name: user.name,
-                                    email: user.email
+                                    email: user.email,
+                                    admin: false
                                 }
                             });
                         }

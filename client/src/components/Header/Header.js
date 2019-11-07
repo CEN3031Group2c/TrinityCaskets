@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './Header.css';
 
 // Login/logout stuff
@@ -14,11 +13,11 @@ class Header extends Component {
 
     // 'logged in' prop we'll modify
     static propTypes = {
-        auth: PropTypes.object.isRequired
+        auth: PropTypes.object.isRequired,
     };
 
-    render() {
 
+    render() {
         // Get whether we're logged in + the user's name from our 'logged in' prop
         const { isAuthenticated, user } = this.props.auth;
 
@@ -39,32 +38,87 @@ class Header extends Component {
             </div>
         );
 
-        return (
-            <div className='topnav'>
-                {/* Logo */}
-                <Link id="logo-link" to="/">
-                    <img className="topnav-logo" src={"/logo192.png"} alt="React logo"/>
-                </Link>
-
-                {/* Page Links */}
-                <div className="topnav-right">
-                    {isAuthenticated ? userLinks : noUserLinks}
-                    <Link className="topnav-link" to='/projects'>Projects</Link>
-                    <a className="topnav-link" target='_blank' rel="noopener noreferrer"
-                       href="https://www.facebook.com/groups/ufosc/events/?source=4&action_history=null&filter=calendar">
-                        Events
-                        <i className="fas fa-external-link-alt external-link" data-fa-transform="up-6"></i>
-                    </a>
-                    <a className="topnav-link" target='_blank' rel="noopener noreferrer"
-                       href="https://github.com/ufosc/club-resources">
-                        Resources
-                        <i className="fas fa-external-link-alt external-link" data-fa-transform="up-6 right-4"></i>
-                    </a>
-                    <Link className="topnav-link" to="/about">About</Link>
-                </div>
+        const adminBox = (
+            <a href="/Admin">
+            <div id = "user_info">
+                ADMIN
             </div>
-        )
-    };
+            </a>
+        );
+
+        // If not admin, see user info
+        const noAdminBox = (
+            <div id = "user_info">
+            INFO
+            </div>
+        );
+
+        return (
+          <div>
+                    {isAuthenticated ? userLinks : noUserLinks}
+            <div id = "title_box">
+        <div id = "title">
+          Trinity Casket Store... And More
+        </div>
+        <div id = "top_buttons">
+          <div id = "login_signup">
+            <div id = "login">
+               log in
+            </div>
+            <div id = "signup">
+              sign up
+            </div>
+          </div>
+            {user ? (user.admin ? adminBox : noAdminBox) : noAdminBox}
+
+          <div id = "cart">
+            CART
+          </div>
+        </div>
+      </div>
+
+      <div id = "middle_box">
+        <div id = "middle_box_info">
+          Welcome to the website. This box is used to contain important header information. It should be about two lines long, although it could be extended if necessary.
+        </div>
+        <div id="search_bar_holder">
+            <input type="text" name="search" id = "search_bar" placeholder="Search..." value={this.state}/>
+          <button type = "submit" id="search_bar_button">
+            GO
+          </button>
+        </div>
+
+      </div>
+
+      <div id = "navbar">
+        <a href="/Home">
+        <div className = "nav_button">
+          HOME
+        </div></a>
+        <a href="/About">
+        <div className = "nav_button">
+          ABOUT
+        </div></a>
+        <a href = "/Catalog">
+        <div className = "nav_button">
+          CASKETS
+        </div> </a>
+        <a href="/Catalog">
+        <div className = "nav_button">
+          URNS
+        </div> </a>
+        <a href="/Catalog">
+        <div className = "nav_button">
+          HEADSTONES
+        </div></a>
+        <a href="/FAQ">
+        <div className = "nav_button">
+          FAQ
+        </div></a>
+      </div>
+            </div>
+        );
+    }
 }
 
 // Map our header's 'logged in' state to the overall 'logged in' prop
