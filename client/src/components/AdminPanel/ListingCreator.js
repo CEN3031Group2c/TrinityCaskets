@@ -17,6 +17,7 @@ class ListingCreator extends Component{
         this.modelNumberChanged = this.modelNumberChanged.bind(this);
         this.descriptionChanged = this.descriptionChanged.bind(this);
         this.priceChanged = this.priceChanged.bind(this);
+        this.imageChanged = this.imageChanged.bind(this);
         this.typeChanged = this.typeChanged.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
@@ -25,6 +26,7 @@ class ListingCreator extends Component{
             modelNumber: '',
             description: '',
             price: '',
+            image: '',
             type: 'Casket',
             canLeave: false
         }
@@ -42,8 +44,11 @@ class ListingCreator extends Component{
         this.setState({ price: e.target.value })
     }
 
+    imageChanged(e) {
+        this.setState({ image: e.target.value })
+    }
+
     typeChanged(e) {
-        console.log(e.target.value);
         this.setState({ type: e.target.value })
     }
 
@@ -54,6 +59,7 @@ class ListingCreator extends Component{
             modelNumber: this.state.modelNumber,
             description: this.state.description,
             price: this.state.price,
+            image: this.state.image,
             type: this.state.type
         };
 
@@ -64,6 +70,7 @@ class ListingCreator extends Component{
             modelNumber: '',
             description: '',
             price: '',
+            image: '',
             type: 'Casket',
             canLeave: true
         });
@@ -114,6 +121,15 @@ class ListingCreator extends Component{
                             placeholder='$$$'
                             className='mb-3'
                             onChange={this.priceChanged}
+                        />
+
+                        <Label for='image'>Image</Label>
+                        <Input
+                            name='image'
+                            id='image'
+                            onChange={this.imageChanged}
+                            placeholder='Paste Link'
+                            className='mb-3'
                         />
 
                         <Label for='type'>Type</Label>
