@@ -32,6 +32,7 @@ class Administrator extends Component {
     }
 
     render() {
+        console.log(this.state.listings);
         return (<div className="table-wrapper">
             <Table striped bordered hover>
                 <thead>
