@@ -25,7 +25,7 @@ class ListingCreator extends Component{
             modelNumber: '',
             description: '',
             price: '',
-            type: '',
+            type: 'Casket',
             canLeave: false
         }
     }
@@ -64,7 +64,7 @@ class ListingCreator extends Component{
             modelNumber: '',
             description: '',
             price: '',
-            type: '',
+            type: 'Casket',
             canLeave: true
         });
     }
@@ -124,7 +124,6 @@ class ListingCreator extends Component{
                             placeholder='Type'
                             className='mb-3'
                             onChange={this.typeChanged}>
-                            <option>---</option>
                             <option>Casket</option>
                             <option>Urn</option>
                             <option>Headstone</option>
