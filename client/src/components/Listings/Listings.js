@@ -8,49 +8,12 @@ export class Listings extends Component {
                 <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src="https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg" />
                     <Card.Body>
-                        <Card.Title>Sample Casket</Card.Title>
+                        <Card.Title style={{textAlign: 'center'}}>#0000 &nbsp; Sample Casket</Card.Title>
                         <Card.Text>
                             Description of Casket
                         </Card.Text>
-                        <Button variant="primary">Add to Cart</Button>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg" />
-                    <Card.Body>
-                        <Card.Title>Sample Casket</Card.Title>
                         <Card.Text>
-                            Description of Casket
-                        </Card.Text>
-                        <Button variant="primary">Add to Cart</Button>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg" />
-                    <Card.Body>
-                        <Card.Title>Sample Casket</Card.Title>
-                        <Card.Text>
-                            Description of Casket
-                        </Card.Text>
-                        <Button variant="primary">Add to Cart</Button>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg" />
-                    <Card.Body>
-                        <Card.Title>Sample Casket</Card.Title>
-                        <Card.Text>
-                            Description of Casket
-                        </Card.Text>
-                        <Button variant="primary">Add to Cart</Button>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg" />
-                    <Card.Body>
-                        <Card.Title>Sample Casket</Card.Title>
-                        <Card.Text>
-                            Description of Casket
+                            $0000
                         </Card.Text>
                         <Button variant="primary">Add to Cart</Button>
                     </Card.Body>
