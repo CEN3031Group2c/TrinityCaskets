@@ -87,29 +87,29 @@ const data = [
     }
 ]
 
-
 export class Listings extends Component {
     render() {
-        return (
-            <div className="App" class="row">
+        const casketList = data.map(listing => {
+            return (
                 <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg" />
+                    <Card.Img variant="top" src={listing.image} />
                     <Card.Body>
-                        <Card.Title style={{textAlign: 'center'}}>#0000 &nbsp; Sample Casket</Card.Title>
+                        <Card.Title style={{textAlign: 'center'}}>Model Number: #{listing.modelNumber}</Card.Title>
                         <Card.Text>
                             <ReactTextCollapse options={TEXT_COLLAPSE_OPTIONS}>
-                                Description of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of Casket
+                                {listing.description}
                             </ReactTextCollapse>
                         </Card.Text>
                         <br />
                         <Card.Title>
-                            $0000
+                            ${listing.price}
                         </Card.Title>
                         <Button variant="primary">Add To Cart</Button>
                     </Card.Body>
                 </Card>
-            </div>
-        );
+            );
+        });
+        return <div className="App" class="row">{casketList}</div>
     }
 }
 
