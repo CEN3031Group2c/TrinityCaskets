@@ -129,7 +129,9 @@ class ListingTable extends Component {
                         </ModalBody>
                     </Modal>
                     &nbsp;&nbsp;&nbsp;
-                    <Button onClick={() => { this.deleteListing() }} size="sm" variant="danger">Delete</Button>
+                    <Button onClick={(e) => { if (window.confirm('Are you sure you want to delete this item?'))
+                        this.deleteListing(e) }}
+                            size="sm" variant="danger">Delete</Button>
                 </td>
             </tr>
         );
