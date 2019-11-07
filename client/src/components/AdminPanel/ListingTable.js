@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
-import ListingEditor from './ListingEditor'
-import {Alert, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader} from "reactstrap";
+import {Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader} from "reactstrap";
 
 class ListingTable extends Component {
 
@@ -14,7 +13,7 @@ class ListingTable extends Component {
             modelNumber: '',
             description: '',
             price: '',
-            type: this.props.obj.type
+            type: ''
         };
     }
 
@@ -30,6 +29,7 @@ class ListingTable extends Component {
         window.location.reload();
     }
 
+    // Update form
     onChange(e) {
         this.setState({[e.target.name]: e.target.value})
     }
@@ -113,6 +113,7 @@ class ListingTable extends Component {
                                         name='type'
                                         id='type'
                                         onChange={(value) => this.onChange(value)}
+                                        defaultValue={this.props.obj.type}
                                         placeholder='Type'
                                         className='mb-3'>
                                         <option>Casket</option>
