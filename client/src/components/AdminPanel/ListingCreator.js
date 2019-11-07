@@ -17,6 +17,7 @@ class ListingCreator extends Component{
         this.modelNumberChanged = this.modelNumberChanged.bind(this);
         this.descriptionChanged = this.descriptionChanged.bind(this);
         this.priceChanged = this.priceChanged.bind(this);
+        this.imageChanged = this.imageChanged.bind(this);
         this.typeChanged = this.typeChanged.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
