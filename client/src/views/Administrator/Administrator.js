@@ -31,7 +31,6 @@ class Administrator extends Component {
         });
     }
 
-
     render() {
         return (<div className="table-wrapper">
             <Table striped bordered hover>
@@ -47,6 +46,10 @@ class Administrator extends Component {
                 {this.DataTable()}
                 </tbody>
             </Table>
+            <a href="/Admin/ListingCreator">
+            <div className = "nav_button">
+                Creat New Listing
+            </div></a>
         </div>);
     }
 }
