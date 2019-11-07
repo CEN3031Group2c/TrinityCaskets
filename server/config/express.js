@@ -30,6 +30,7 @@ module.exports.init = () => {
     // Router for user authentication
     app.use('/api/authentication', require('../routes/authentication.routes'));
 
+    app.use('/api/custom', require('../routes/headstone.custimaization.route'));
 
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
