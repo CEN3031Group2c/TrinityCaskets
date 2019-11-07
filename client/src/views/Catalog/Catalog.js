@@ -5,7 +5,7 @@ import './Catalog.css';
 
 function Catalog() {
     return (
-        <div>
+        <div className="App">
             <Listings />
         </div>
     );
