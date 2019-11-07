@@ -1,10 +1,15 @@
 import React, { Component} from 'react';
 import {
     Button,
+    Modal,
+    ModalHeader,
+    ModalBody,
     Form,
     FormGroup,
     Label,
     Input,
+    NavLink,
+    Alert
 } from 'reactstrap';
 import axios from 'axios'
 
@@ -57,7 +62,7 @@ class Admin extends Component{
             type: this.state.type
         };
 
-        axios.post('/api/listings', newListing)
+        axios.put('/api/listings', newListing)
             .then(res => console.log(res.data));
 
         this.setState({
@@ -82,62 +87,47 @@ class Admin extends Component{
                 </div>)
         }
         return (
-            <div className="form-wrapper">
-                <center><h1>New Listing</h1></center>
-                <Form onSubmit={this.onSubmit}>
-                    <FormGroup>
-                        <Label for='modelNumber'>Model Number</Label>
-                        <Input
-                            type='modelNumber'
-                            name='modelNumber'
-                            id='modelNumber'
-                            value=''
-                            ref={(input) => this.state.modelNumber = input}
-                            placeholder='Model Number'
-                            className='mb-3'
-                            onChange={this.modelNumberChanged}
-                        />
+            <div>
+                <NavLink onClick={this.toggle} href='#'>
+                    Edit Listing
+                </NavLink>
 
-                        <Label for='description'>Description</Label>
-                        <Input
-                            type='description'
-                            name='description'
-                            id='description'
-                            placeholder='Description'
-                            className='mb-3'
-                            onChange={this.descriptionChanged}
-                        />
+                <Modal isOpen={this.state.modal} toggle={this.toggle}>
+                    <ModalHeader toggle={this.toggle}>Login</ModalHeader>
+                    <ModalBody>
+                        {this.state.msg ? (
+                            <Alert color='danger'>{this.state.msg}</Alert>
+                        ) : null}
+                        <Form onSubmit={this.onSubmit}>
+                            <FormGroup>
+                                <Label for='email'>Email</Label>
+                                <Input
+                                    type='email'
+                                    name='email'
+                                    id='email'
+                                    placeholder='Email'
+                                    className='mb-3'
+                                    onChange={this.onChange}
+                                />
 
-                        <Label for='price'>Price</Label>
-                        <Input
-                            type='price'
-                            name='price'
-                            id='price'
-                            placeholder='$$$'
-                            className='mb-3'
-                            onChange={this.priceChanged}
-                        />
-
-                        <Label for='type'>Type</Label>
-                        <Input
-                            type='select'
-                            name='type'
-                            id='type'
-                            placeholder='Type'
-                            className='mb-3'
-                            onChange={this.typeChanged}>
-                            <option>---</option>
-                            <option>Casket</option>
-                            <option>Urn</option>
-                            <option>Headstone</option>
-                        </Input>
-
-                        <Button color='dark' style={{ marginTop: '2rem' }} block>
-                            Create listing
-                        </Button>
-                    </FormGroup>
-                </Form>
-            </div>);
+                                <Label for='password'>Password</Label>
+                                <Input
+                                    type='password'
+                                    name='password'
+                                    id='password'
+                                    placeholder='Password'
+                                    className='mb-3'
+                                    onChange={this.onChange}
+                                />
+                                <Button color='dark' style={{ marginTop: '2rem' }} block>
+                                    Login
+                                </Button>
+                            </FormGroup>
+                        </Form>
+                    </ModalBody>
+                </Modal>
+            </div>
+        );
 
     }
 }
