@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
+import ListingEditor from './ListingEditor'
 
 class ListingTable extends Component {
 
@@ -29,6 +29,9 @@ class ListingTable extends Component {
                 <td>{this.props.obj.price}</td>
                 <td>{this.props.obj.type}</td>
                 <td>
+                    <Button onClick={() => { }} size="sm" variant="primary">Edit</Button>
+                    {/*<ListingEditor />*/}
+                    &nbsp;&nbsp;&nbsp;
                     <Button onClick={() => { this.deleteListing() }} size="sm" variant="danger">Delete</Button>
                 </td>
             </tr>

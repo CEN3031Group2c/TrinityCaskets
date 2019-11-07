@@ -8,7 +8,7 @@ import {
 } from 'reactstrap';
 import axios from 'axios'
 
-class ListingCreator extends Component{
+class Admin extends Component{
 
     constructor(props) {
         super(props);
@@ -91,6 +91,8 @@ class ListingCreator extends Component{
                             type='modelNumber'
                             name='modelNumber'
                             id='modelNumber'
+                            value=''
+                            ref={(input) => this.state.modelNumber = input}
                             placeholder='Model Number'
                             className='mb-3'
                             onChange={this.modelNumberChanged}
@@ -140,4 +142,4 @@ class ListingCreator extends Component{
     }
 }
 
-export default ListingCreator;
+export default Admin;
