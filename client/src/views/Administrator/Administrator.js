@@ -40,6 +40,7 @@ class Administrator extends Component {
                     <th>Model Number</th>
                     <th>Description</th>
                     <th>Price</th>
+                    <th>Image</th>
                     <th>Type</th>
                     <th>Options</th>
                 </tr>

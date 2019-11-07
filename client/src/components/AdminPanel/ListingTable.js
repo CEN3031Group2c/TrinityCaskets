@@ -13,6 +13,7 @@ class ListingTable extends Component {
             modelNumber: '',
             description: '',
             price: '',
+            image: '',
             type: ''
         };
     }
@@ -43,12 +44,12 @@ class ListingTable extends Component {
 
     // Edit the listing with the changes made
     onSubmit = e => {
-        console.log("Here");
         e.preventDefault();
         const newListing = {
             modelNumber: this.state.modelNumber,
             description: this.state.description,
             price: this.state.price,
+            image: this.state.image,
             type: this.state.type
         };
 
@@ -60,12 +61,14 @@ class ListingTable extends Component {
     };
 
     render() {
-        console.log(this.state.modal);
+        console.log(this.props);
         return (
             <tr>
                 <td>{this.props.obj.modelNumber}</td>
                 <td>{this.props.obj.description}</td>
                 <td>{this.props.obj.price}</td>
+                <td><img src={this.props.obj.image} />
+                </td>
                 <td>{this.props.obj.type}</td>
                 <td>
                     <Button onClick={() => { this.toggle() }} size="sm" variant="primary">Edit</Button>
@@ -102,6 +105,16 @@ class ListingTable extends Component {
                                         name='price'
                                         id='price'
                                         defaultValue={this.props.obj.price}
+                                        onChange={(value) => this.onChange(value)}
+                                        placeholder='$$$'
+                                        className='mb-3'
+                                    />
+
+                                    <Label for='image'>Image</Label>
+                                    <Input
+                                        name='image'
+                                        id='image'
+                                        defaultValue={this.props.obj.image}
                                         onChange={(value) => this.onChange(value)}
                                         placeholder='$$$'
                                         className='mb-3'
