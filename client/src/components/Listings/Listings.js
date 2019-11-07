@@ -5,12 +5,12 @@ import ReactTextCollapse from 'react-text-collapse';
 const TEXT_COLLAPSE_OPTIONS = {
     collapse: false, // default state when component rendered
     collapseText: 'More Info', // text to show when collapsed
-    expandText: 'show less', // text to show when expanded
-    minHeight: 100, // component height when closed
+    expandText: 'Less Info', // text to show when expanded
+    minHeight: 50, // component height when closed
     maxHeight: 250, // expanded to
     textStyle: { // pass the css for the collapseText and expandText here
       color: "blue",
-      fontSize: "20px"
+      fontSize: "12px"
     }
 }
 
@@ -27,87 +27,10 @@ export class Listings extends Component {
                                 Description of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of CasketDescription of Casket
                             </ReactTextCollapse>
                         </Card.Text>
-                        <Card.Text>
+                        <br />
+                        <Card.Title>
                             $0000
-                        </Card.Text>
-                        <Button variant="primary">Add To Cart</Button>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg" />
-                    <Card.Body>
-                        <Card.Title style={{textAlign: 'center'}}>#0000 &nbsp; Sample Casket</Card.Title>
-                        <Card.Text>
-                            Description of Casket
-                        </Card.Text>
-                        <Card.Text>
-                            $0000
-                        </Card.Text>
-                        <Button variant="primary">Add To Cart</Button>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg" />
-                    <Card.Body>
-                        <Card.Title style={{textAlign: 'center'}}>#0000 &nbsp; Sample Casket</Card.Title>
-                        <Card.Text>
-                            Description of Casket
-                        </Card.Text>
-                        <Card.Text>
-                            $0000
-                        </Card.Text>
-                        <Button variant="primary">Add To Cart</Button>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg" />
-                    <Card.Body>
-                        <Card.Title style={{textAlign: 'center'}}>#0000 &nbsp; Sample Casket</Card.Title>
-                        <Card.Text>
-                            Description of Casket
-                        </Card.Text>
-                        <Card.Text>
-                            $0000
-                        </Card.Text>
-                        <Button variant="primary">Add To Cart</Button>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg" />
-                    <Card.Body>
-                        <Card.Title style={{textAlign: 'center'}}>#0000 &nbsp; Sample Casket</Card.Title>
-                        <Card.Text>
-                            Description of Casket
-                        </Card.Text>
-                        <Card.Text>
-                            $0000
-                        </Card.Text>
-                        <Button variant="primary">Add To Cart</Button>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg" />
-                    <Card.Body>
-                        <Card.Title style={{textAlign: 'center'}}>#0000 &nbsp; Sample Casket</Card.Title>
-                        <Card.Text>
-                            Description of Casket
-                        </Card.Text>
-                        <Card.Text>
-                            $0000
-                        </Card.Text>
-                        <Button variant="primary">Add To Cart</Button>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg" />
-                    <Card.Body>
-                        <Card.Title style={{textAlign: 'center'}}>#0000 &nbsp; Sample Casket</Card.Title>
-                        <Card.Text>
-                            Description of Casket
-                        </Card.Text>
-                        <Card.Text>
-                            $0000
-                        </Card.Text>
+                        </Card.Title>
                         <Button variant="primary">Add To Cart</Button>
                     </Card.Body>
                 </Card>
