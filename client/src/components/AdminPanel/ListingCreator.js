@@ -5,9 +5,10 @@ import {
     FormGroup,
     Label,
     Input,
-    NavLink,
 } from 'reactstrap';
 import axios from 'axios'
+import { Route, Redirect } from "react-router-dom";
+
 
 class Admin extends Component{
 
@@ -26,7 +27,8 @@ class Admin extends Component{
             modelNumber: '',
             description: '',
             price: '',
-            type: ''
+            type: '',
+            canLeave: false
         }
     }
 
@@ -55,7 +57,6 @@ class Admin extends Component{
             price: this.state.price,
             type: this.state.type
         };
-        console.log(newListing)
 
         axios.post('/api/listings', newListing)
             .then(res => console.log(res.data));
@@ -64,11 +65,23 @@ class Admin extends Component{
             modelNumber: '',
             description: '',
             price: '',
-            type: ''
+            type: '',
+            canLeave: true
         });
     }
 
     render() {
+        if (this.state.canLeave){
+            return(
+                <div>
+                    <center><h1>Listing Added Successfully!</h1></center>
+                    <center><a href="/Admin">
+                        <div className = "nav_button">
+                            Click to return to listings
+                        </div>
+                    </a></center>
+                </div>)
+        }
         return (
             <div className="form-wrapper">
                 <center><h1>New Listing</h1></center>
@@ -120,6 +133,7 @@ class Admin extends Component{
                     </FormGroup>
                 </Form>
             </div>);
+
     }
 }
 

@@ -41,6 +41,7 @@ class Administrator extends Component {
                     <th>Description</th>
                     <th>Price</th>
                     <th>Type</th>
+                    <th>Options</th>
                 </tr>
                 </thead>
                 <tbody>

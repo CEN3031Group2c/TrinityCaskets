@@ -7,17 +7,19 @@ class ListingTable extends Component {
 
     constructor(props) {
         super(props);
-        //this.deleteStudent = this.deleteStudent.bind(this);
+        this.deleteListing = this.deleteListing.bind(this);
     }
 
-    /*deleteStudent() {
-        axios.delete('http://localhost:4000/students/delete-student/' + this.props.obj._id)
+    deleteListing() {
+        axios.delete('/api/listings/' + this.props.obj._id)
             .then((res) => {
-                console.log('Student successfully deleted!')
+                console.log('Listing successfully deleted!')
             }).catch((error) => {
             console.log(error)
-        })
-    }*/
+        });
+
+        window.location.reload();
+    }
 
     render() {
         return (
@@ -26,6 +28,9 @@ class ListingTable extends Component {
                 <td>{this.props.obj.description}</td>
                 <td>{this.props.obj.price}</td>
                 <td>{this.props.obj.type}</td>
+                <td>
+                    <Button onClick={() => { this.deleteListing() }} size="sm" variant="danger">Delete</Button>
+                </td>
             </tr>
         );
     }
