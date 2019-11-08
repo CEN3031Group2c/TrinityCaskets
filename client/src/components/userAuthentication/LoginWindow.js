@@ -50,6 +50,7 @@ class LoginWindow extends Component {
         if (this.state.modal) {
             if (isAuthenticated) {
                 this.toggle();
+                this.reload();
             }
         }
     }
@@ -79,6 +80,7 @@ class LoginWindow extends Component {
 
         // Attempt to login
         this.props.login(user);
+
     };
 
     render() {

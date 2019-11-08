@@ -48,7 +48,7 @@ export const loadUser = () => (dispatch, getState) => {
 };
 
 // 2. Register User. Pass in (name, email, password)
-export const register = ({ name, email, password }) => dispatch => {
+export const register = ({ name, email, password, admin}) => dispatch => {
     // Headers
     const config = {
         headers: {
@@ -58,7 +58,7 @@ export const register = ({ name, email, password }) => dispatch => {
 
     // Request body of data that we want to send
     // Need stringify to turn javascript to JSON
-    const body = JSON.stringify({ name, email, password });
+    const body = JSON.stringify({ name, email, password, admin });
 
     axios.post('/api/user', body, config)
         // If we passed, then register was successful and we can send the data

@@ -45,6 +45,7 @@ export default function(state = initialState, action) {
         case REGISTER_SUCCESS:
             // Get the token since we are successful
             localStorage.setItem('token', action.payload.token);
+            window.location.reload();
             return {
                 ...state,
                 ...action.payload,
@@ -53,7 +54,6 @@ export default function(state = initialState, action) {
             };
         case AUTH_ERROR:
         case LOGIN_FAIL:
-        case LOGOUT_SUCCESS:
         case REGISTER_FAIL:
             // Get rid of the token since we are unsuccessful
             localStorage.removeItem('token');
@@ -65,6 +65,19 @@ export default function(state = initialState, action) {
                 isAuthenticated: false,
                 isLoading: false
             };
+        case LOGOUT_SUCCESS:
+            // Same as above but will reload page too
+            localStorage.removeItem('token');
+            window.location.reload();
+            return {
+                // Clear everything out since we failed
+                ...state,
+                token: null,
+                user: null,
+                isAuthenticated: false,
+                isLoading: false
+            };
+
         default:
             return state;
     }

@@ -15,8 +15,9 @@ class Header extends Component {
 
     // 'logged in' prop we'll modify
     static propTypes = {
-        auth: PropTypes.object.isRequired
+        auth: PropTypes.object.isRequired,
     };
+
 
     render() {
         // Get whether we're logged in + the user's name from our 'logged in' prop
@@ -36,6 +37,21 @@ class Header extends Component {
             <div>
                 <LoginWindow />
                 <RegisterWindow />
+            </div>
+        );
+
+        const adminBox = (
+            <a href="/Admin">
+            <div id = "user_info">
+                ADMIN
+            </div>
+            </a>
+        );
+
+        // If not admin, see user info
+        const noAdminBox = (
+            <div id = "user_info">
+            INFO
             </div>
         );
 
@@ -69,6 +85,13 @@ class Header extends Component {
               </button>
             </div>
           </div>
+            {user ? (user.admin ? adminBox : noAdminBox) : noAdminBox}
+
+          <div id = "cart">
+            CART
+          </div>
+        </div>
+      </div>
 
         <div id = "navbar">
           <Link to= "/Home">

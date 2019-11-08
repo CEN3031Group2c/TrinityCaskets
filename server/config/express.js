@@ -31,6 +31,7 @@ module.exports.init = () => {
     // Router for listing
     app.use('/api/listings', require('../routes/listings.routes'));
 
+    app.use('/api/custom', require('../routes/headstone.custimaization.route'));
 
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
