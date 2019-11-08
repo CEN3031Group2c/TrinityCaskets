@@ -1,4 +1,5 @@
 import React from 'react';
+import './About.css';
 
 function About() {
     return (
@@ -6,7 +7,7 @@ function About() {
         <div className="App">
             <header className="App-header">
             <h1>About us ……..</h1>
-            <div>
+            <div className="centered">
 Trinity Casket Store …And More is founded on the basic principal of providing consumers with a more cost effective means of selecting funeral merchandise.
 Further while doing so … to provide them with a quality product and a wider variety of desired color combinations of caskets, urns, headstones, etc. in which to choose from.
 We sell directly to the public and deliver to any funeral homes accept this merchandise.
