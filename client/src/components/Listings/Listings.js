@@ -96,7 +96,7 @@ export class Listings extends Component {
         })
         .map(listing => {
             return (
-                <div style={{margin: 10}}>
+                <div style={{margin: 5}}>
                     <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src={listing.image} />
                         <Card.Body>
