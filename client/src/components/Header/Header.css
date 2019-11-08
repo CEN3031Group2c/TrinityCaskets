@@ -32,6 +32,7 @@ body
 {
   padding: 0px 5px;
   font-family: 'Lobster';
+  color: black;
   font-size: 40pt;
   width: 690px;
   height: 70px;
@@ -107,7 +108,7 @@ body
   display: inline-block;
   text-align: center;
   vertical-align: bottom;
-  padding: 17px 10px;
+  padding: 13px 10px;
   margin-right: 3px;
   margin-left: 2px;
 }
@@ -150,7 +151,8 @@ body
   display: inline-block;
   background-color: grey;
   height: 75px;
-  padding: 20px 15px;
+  padding: 15px 15px;
+  color: black;
 }
 
 #search_bar_holder

@@ -93,9 +93,9 @@ class RegisterWindow extends Component {
     render() {
         return (
             <div>
-                <NavLink onClick={this.toggle} href='#'>
+                <div onClick={this.toggle} href='#'>
                     <div id="signup">register</div>
-                </NavLink>
+                </div>
 
                 <Modal
                   isOpen={this.state.modal}
