@@ -14,97 +14,77 @@ const TEXT_COLLAPSE_OPTIONS = {
     }
 }
 
+/*function getListings() {
+    var data = [];
+    fetch('http://localhost:5000/api/listings', {mode: 'no-cors'})
+    .then((response) => response.json())
+    .then((json) => data = json);
+    return data;
+}*/
+
 const data = [
-    {
-        modelNumber : "2000",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        price: 3888,
-        image: "https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg",
-        type: "Casket"
+    {     
+        modelNumber: '6429',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        price: 453,
+        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
+        type: 'Casket', 
     },
-    {
-        modelNumber : "2000",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        price: 3888,
-        image: "https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg",
-        type: "Casket"
+    {     
+        modelNumber: '6429',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        price: 453,
+        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
+        type: 'Casket', 
     },
-    {
-        modelNumber : "2000",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        price: 3888,
-        image: "https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg",
-        type: "Casket"
+    {     
+        modelNumber: '6429',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        price: 453,
+        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
+        type: 'Casket', 
     },
-    {
-        modelNumber : "2000",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        price: 3888,
-        image: "https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg",
-        type: "Casket"
+    {     
+        modelNumber: '6429',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        price: 453,
+        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
+        type: 'Casket', 
     },
-    {
-        modelNumber : "2000",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        price: 3888,
-        image: "https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg",
-        type: "Casket"
+    {     
+        modelNumber: '6429',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        price: 453,
+        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
+        type: 'Casket', 
     },
-    {
-        modelNumber : "2000",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        price: 3888,
-        image: "https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg",
-        type: "Casket"
+    {     
+        modelNumber: '6429',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        price: 453,
+        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
+        type: 'Casket', 
     },
-    {
-        modelNumber : "2000",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        price: 3888,
-        image: "https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg",
-        type: "Casket"
+    {     
+        modelNumber: '6429',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        price: 453,
+        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
+        type: 'Casket', 
     },
-    {
-        modelNumber : "2000",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        price: 3888,
-        image: "https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg",
-        type: "Casket"
+    {     
+        modelNumber: '6429',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        price: 453,
+        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
+        type: 'Casket', 
     },
-    {
-        modelNumber : "2000",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        price: 3888,
-        image: "https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg",
-        type: "Casket"
-    },
-    {
-        modelNumber : "2000",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        price: 3888,
-        image: "https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg",
-        type: "Casket"
-    },
-    {
-        modelNumber : "2000",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        price: 3888,
-        image: "https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg",
-        type: "Casket"
-    },
-    {
-        modelNumber : "2000",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        price: 3888,
-        image: "https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg",
-        type: "Urn"
-    },
-    {
-        modelNumber : "2000",
-        description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        price: 3888,
-        image: "https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg",
-        type: "Casket"
+    {     
+        modelNumber: '6429',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        price: 453,
+        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
+        type: 'Casket', 
     }
 ]
 
@@ -116,25 +96,27 @@ export class Listings extends Component {
         })
         .map(listing => {
             return (
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={listing.image} />
-                    <Card.Body>
-                        <Card.Title style={{textAlign: 'center'}}>Model Number: #{listing.modelNumber}</Card.Title>
-                        <Card.Text>
-                            <ReactTextCollapse options={TEXT_COLLAPSE_OPTIONS}>
-                                {listing.description}
-                            </ReactTextCollapse>
-                        </Card.Text>
-                        <br />
-                        <Card.Title>
-                            ${listing.price}
-                        </Card.Title>
-                        <Button variant="primary">Add To Cart</Button>
-                    </Card.Body>
-                </Card>
+                <div style={{margin: 10}}>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src={listing.image} />
+                        <Card.Body>
+                            <Card.Title style={{textAlign: 'center'}}>Model Number: #{listing.modelNumber}</Card.Title>
+                            <Card.Text>
+                                <ReactTextCollapse options={TEXT_COLLAPSE_OPTIONS}>
+                                    {listing.description}
+                                </ReactTextCollapse>
+                            </Card.Text>
+                            <br />
+                            <Card.Title>
+                                ${listing.price}
+                            </Card.Title>
+                            <Button variant="primary">Add To Cart</Button>
+                        </Card.Body>
+                    </Card>
+                </div>
             );
         });
-        return <div className="App" class="row">{casketList}</div>
+        return <div className="App" class="row" style={{marginLeft: 15}}>{casketList}</div>
     }
 }
 
