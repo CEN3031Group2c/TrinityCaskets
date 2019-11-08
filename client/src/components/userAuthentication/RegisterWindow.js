@@ -92,18 +92,23 @@ class RegisterWindow extends Component {
         return (
             <div>
                 <NavLink onClick={this.toggle} href='#'>
-                    Register
+                    <div id="signup">register</div>
                 </NavLink>
 
-                <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                    <ModalHeader toggle={this.toggle}>Register</ModalHeader>
-                    <ModalBody>
+                <Modal
+                  isOpen={this.state.modal}
+                  toggle={this.toggle}
+                  className="modal_content"
+                  overlayClassName="modal"
+                >
+                    <ModalHeader toggle={this.toggle} id="header">Register</ModalHeader>
+                    <ModalBody id="body">
                         {this.state.msg ? (
                             <Alert color='danger'>{this.state.msg}</Alert>
                         ) : null}
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
-                                <Label for='name'>Full Name</Label>
+                                <Label for='name'>FULL NAME: </Label>
                                 <Input
                                     type='text'
                                     name='name'
@@ -112,8 +117,7 @@ class RegisterWindow extends Component {
                                     className='mb-3'
                                     onChange={this.onChange}
                                 />
-
-                                <Label for='email'>Email</Label>
+                                <Label for='email'>EMAIL: </Label>
                                 <Input
                                     type='email'
                                     name='email'
@@ -122,8 +126,7 @@ class RegisterWindow extends Component {
                                     className='mb-3'
                                     onChange={this.onChange}
                                 />
-
-                                <Label for='password'>Password</Label>
+                                <Label for='password'>PASSWORD: </Label>
                                 <Input
                                     type='password'
                                     name='password'
@@ -132,7 +135,7 @@ class RegisterWindow extends Component {
                                     className='mb-3'
                                     onChange={this.onChange}
                                 />
-                                <Button color='dark' style={{ marginTop: '2rem' }} block>
+                                <Button color='dark' id="submit_button" block>
                                     Register
                                 </Button>
                             </FormGroup>

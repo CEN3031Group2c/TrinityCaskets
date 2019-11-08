@@ -10,6 +10,7 @@
 body
 {
   font-family: Calibri;
+  background-color: #e6e6e6;
 }
 
 
@@ -17,10 +18,15 @@ body
 {
   width: 1000px;
   margin: 50px auto;
+  background-color: rgba(0,0,0,0);
+
 }
 
 #page_content
 {
-  padding: 20px;
+  width: 989px;
+  padding: 30px 40px;
   background-color: White;
+  position: relative;
+  z-index: 0;
 }

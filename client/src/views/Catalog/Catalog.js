@@ -1,18 +1,14 @@
 import React from 'react';
 
-function About() {
+function Catalog() {
     return (
-        
-        <div className="App">
-            <header className="App-header">
-            <h1>About us ……..</h1>
             <div>
-                this is catalog page
+              <h1>Catalog</h1>
+              <div>
+                Listings will appear here.
+              </div>
             </div>
-
-            </header>
-        </div>
     );
 }
 
-export default About;
+export default Catalog;
