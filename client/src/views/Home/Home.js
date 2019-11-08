@@ -5,7 +5,7 @@ class Home extends React.Component{
     render(){
         return (
             <div className="App">
-                <img src="https://i.imgur.com/54WF4Ft.png" height="700px" witdh="571px"/>
+                <h1>This is our home page</h1>
             </div>
         );
     }
