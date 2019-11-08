@@ -5,6 +5,7 @@ import Catalog from "./views/Catalog/Catalog"
 import NotFound from "./views/NotFound"
 import Header from "./components/Header/Header"
 
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./components/Footer/Footer"
 import About from "./views/About/About"
@@ -36,7 +37,7 @@ class App extends Component {
                       <Switch>
                         <Route exact path="/Home" component={Home}/>
                         <Route exact path="/About" component={About} />
-                        <Route exact path="/FAQ" component={FQ} />
+                        <Route exact path="/FAQ" render={() => ( <FQ/>)} />
                         <Route exact path="/Catalog" component={CT} />
                         <PrivateRoute exact path="/Admin" component={Admin} />
                         <PrivateRoute exact path="/Admin/ListingCreator" component={ListingCreator} />
