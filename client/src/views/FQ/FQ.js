@@ -47,49 +47,61 @@ class FQ2 extends React.Component {
     }
 
 render()
-{  
+{
    return (
-       <div className="App">
-           <header className="App-header2">
-               <div id="all_content_holder">
+       <div>
            <h1>Frequently Asked Questions</h1>
-           <div className="space"></div>
-           <div className="DisplayQuestion">
-               <h3 className="ActualQuestion">Q: Will funeral homes accept this merchandise?</h3>
-               <button type="button" className="DisplayB" onClick = {this.onClick1.bind(this)}></button>
-           </div>
-          <div>{this.state.op1 ? 
-            <div className="DisplayAns" >Yes, federal and state law require that all funeral homes must accept all individually purchased merchandise
-            (site law:                                                             )
-            </div> : null }</div>
-          
-        <div className="DisplayQuestion">
-        <h3 className="ActualQuestion" >Q: Where would merchandise be delivered?</h3>
-        <button type="button" className="DisplayB" onClick = {this.onClick2.bind(this)}>  </button>
-        </div>
-        <div>{this.state.op2 ? 
-            <div className="DisplayAns" >All caskets will be delivered to the funeral home of your choice. Urns, and programs, etc. delivered to families address                                                             )
-            </div> : null }</div>
+           <div id="all_questions">
+             <div className="DisplayQuestion">
+                 <h3 className="ActualQuestion">
+                    Q: Will funeral homes accept this merchandise?
+                  </h3>
+                 <button type="button" className="DisplayB" onClick = {this.onClick1.bind(this)}></button>
+              </div>
 
-        <div className="DisplayQuestion">
-        <h3 className="ActualQuestion" >Q: How long delivery time?</h3>
-        <button type="button" className="DisplayB" onClick = {this.onClick3.bind(this)}>  </button>
-        </div>
-        <div>{this.state.op3 ? 
-            <div className="DisplayAns" > 24- 48 hours anywhere in the USA.
-            </div> : null }</div>
+              { this.state.op1 ?
+                <div className="DisplayAns" >
+                  <p>Yes, federal and state law require that all funeral homes must accept all individually purchased merchandise.</p>
+                </div>
+              : null }
 
-        <div className="DisplayQuestion">
-        <h3 className="ActualQuestion" >Q: What forms of payment do you accept?</h3>
-        <button type="button" className="DisplayB" onClick = {this.onClick4.bind(this)}>  </button>
-        </div>
-        <div>{this.state.op4 ? 
-            <div className="DisplayAns" > We accept the following forms of payment: Cash, Cash App, (visa, debt, master card sent to cash app)                                                 )
-            </div> : null }</div>
+            <div className="DisplayQuestion">
+                <h3 className="ActualQuestion" >
+                  Q: Where will merchandise be delivered?
+                </h3>
+                <button type="button" className="DisplayB" onClick = {this.onClick2.bind(this)}></button>
+            </div>
 
+            { this.state.op2 ?
+              <div className="DisplayAns" >
+                <p>All caskets will be delivered to the funeral home of your choice. Urns, programs, etc. will be delivered to the family's address.</p>
+              </div>
+            : null }
 
-        </div>
-           </header>
+            <div className="DisplayQuestion">
+              <h3 className="ActualQuestion" >
+                Q: How long will merchandise take to deliver?
+              </h3>
+              <button type="button" className="DisplayB" onClick = {this.onClick3.bind(this)}>  </button>
+            </div>
+            {this.state.op3 ?
+              <div className="DisplayAns" >
+                 <p> 24-48 hours anywhere in the USA.</p>
+              </div>
+            : null }
+
+            <div className="DisplayQuestion">
+              <h3 className="ActualQuestion" >
+                  Q: What forms of payment do you accept?
+              </h3>
+                <button type="button" className="DisplayB" onClick = {this.onClick4.bind(this)}>  </button>
+            </div>
+            {this.state.op4 ?
+              <div className="DisplayAns" >
+                 <p> We accept the following forms of payment: Cash, Cash App, (visa, debt, master card sent to cash app)</p>
+              </div>
+            : null }
+          </div>
        </div>
    );
 

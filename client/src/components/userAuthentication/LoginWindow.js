@@ -86,9 +86,9 @@ class LoginWindow extends Component {
     render() {
         return (
             <div>
-                <NavLink onClick={this.toggle} href='#'>
+                <div onClick={this.toggle} href='#'>
                 <div id="login">log in</div>
-                </NavLink>
+                </div>
 
                 <Modal
                     isOpen={this.state.modal}

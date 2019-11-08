@@ -85,13 +85,7 @@ class Header extends Component {
               </button>
             </div>
           </div>
-            {user ? (user.admin ? adminBox : noAdminBox) : noAdminBox}
 
-          <div id = "cart">
-            CART
-          </div>
-        </div>
-      </div>
 
         <div id = "navbar">
           <Link to= "/Home">

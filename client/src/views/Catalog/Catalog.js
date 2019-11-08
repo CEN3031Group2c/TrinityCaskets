@@ -5,12 +5,9 @@ import './Catalog.css';
 
 function Catalog() {
     return (
-            <div>
-              <h1>Catalog</h1>
-              <div>
-                Listings will appear here.
-              </div>
-            </div>
+        <div className="App" class="centered">
+            <Listings />
+        </div>
     );
 }
 export default Catalog;
