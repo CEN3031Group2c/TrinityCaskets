@@ -18,6 +18,7 @@ import PropTypes from 'prop-types';
 
 import { login } from '../../redux/actions/authActions';
 import { clearErrors } from '../../redux/actions/errorActions';
+import './userAuthentication.css';
 
 class LoginWindow extends Component {
     state = {
@@ -86,18 +87,24 @@ class LoginWindow extends Component {
         return (
             <div>
                 <NavLink onClick={this.toggle} href='#'>
-                    Login
+                <div id="login">log in</div>
                 </NavLink>
 
-                <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                    <ModalHeader toggle={this.toggle}>Login</ModalHeader>
-                    <ModalBody>
+                <Modal
+                    isOpen={this.state.modal}
+                    toggle={this.toggle}
+                    className="modal_content"
+                    overlayClassName="modal"
+                >
+                <ModalHeader toggle={this.toggle} id="header">Log In</ModalHeader>
+                    <ModalBody
+                      id="body">
                         {this.state.msg ? (
                             <Alert color='danger'>{this.state.msg}</Alert>
                         ) : null}
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
-                                <Label for='email'>Email</Label>
+                                <Label for='email'>EMAIL: </Label>
                                 <Input
                                     type='email'
                                     name='email'
@@ -107,7 +114,7 @@ class LoginWindow extends Component {
                                     onChange={this.onChange}
                                 />
 
-                                <Label for='password'>Password</Label>
+                                <Label for='password'>PASSWORD:</Label>
                                 <Input
                                     type='password'
                                     name='password'
@@ -116,7 +123,7 @@ class LoginWindow extends Component {
                                     className='mb-3'
                                     onChange={this.onChange}
                                 />
-                                <Button color='dark' style={{ marginTop: '2rem' }} block>
+                                <Button color='dark' id="submit_button" block>
                                     Login
                                 </Button>
                             </FormGroup>

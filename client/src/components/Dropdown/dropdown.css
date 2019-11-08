@@ -1,0 +1,25 @@
+#all
+{
+  display: inline-block;
+}
+
+.menu
+{
+}
+
+.list_item
+{
+  background-color: black;
+  color: white;
+  height: 40px;
+  width: 163px;
+  text-align: center;
+  padding: 10px 0px;
+  margin: 3px 1px;
+}
+
+.list_item:hover
+{
+  background-color:blue;
+  cursor: pointer;
+}

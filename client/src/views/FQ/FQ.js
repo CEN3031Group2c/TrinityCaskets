@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './FQ.css';
 
-
 class FQ2 extends React.Component {
     constructor()
     {
