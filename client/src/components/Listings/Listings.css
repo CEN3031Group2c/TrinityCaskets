@@ -9,3 +9,67 @@
     align-items: center;
     justify-content: center;
   }
+
+.all_listings
+{
+  padding-left:10px;
+}
+
+#tile
+{
+  width: 275px;
+  display: inline-block;
+  margin: 15px;
+  border: 1px solid grey;
+  color: black;
+}
+
+#img_holder
+{
+  width: 275px;
+  text-align: center;
+}
+
+#tile_body
+{
+  padding: 20px;
+  padding-left: 25px;
+}
+
+#model_name
+{
+  font-size: 16pt;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+#description
+{
+}
+
+#price
+{
+  font-size: 16pt;
+  font-weight: bold;
+  text-align: right;
+  padding-right: 3px;
+  padding-bottom: 5px;
+}
+
+#add_cart
+{
+  text-align: center;
+  width: 125px;
+  height: 25px;
+  background-color: black;
+  color: white;
+  margin-left: 100px;
+}
+
+#add_cart:hover
+{
+  background-color: blue;
+  cursor: pointer;
+}
+
+
