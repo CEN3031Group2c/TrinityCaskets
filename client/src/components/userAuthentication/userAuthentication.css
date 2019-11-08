@@ -1,0 +1,80 @@
+.modal
+{
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: white;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal_content
+{
+  background-color: white;
+  margin: auto;
+  padding: 20px;
+  width: 500px;
+}
+
+.close
+{
+  color: white;
+  background-color: black;
+  float: right;
+  border: none;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.close:hover
+{
+  background-color: blue;
+  cursor: pointer;
+}
+
+#name, #email, #password
+{
+  width: 410px;
+  padding: 5px 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+#submit_button
+{
+  width: 100px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  border: none;
+  margin-right: 10px;
+}
+
+#submit_button:hover
+{
+  background-color: blue;
+  cursor: pointer;
+}
+
+#header
+{
+  font-family: 'Lobster';
+  font-size: 28pt;
+  padding-top: -10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+
+#body
+{
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+

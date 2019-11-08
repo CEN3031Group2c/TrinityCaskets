@@ -36,6 +36,8 @@ exports.update = function (req, res) {
         listing.description = req.body.description;
     if (req.body.price)
         listing.price = req.body.price;
+    if (req.body.image)
+        listing.image = req.body.image;
     if (req.body.type)
         listing.type = req.body.type;
     if (req.body.compareToPrice)

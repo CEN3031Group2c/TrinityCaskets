@@ -6,6 +6,7 @@ router.route('/')
   .get(controller.list)
   .post(controller.create);
 
+// Only for updating/deleting
 router.route('/:listingId')
   .get(controller.read)
   .put(controller.update)
