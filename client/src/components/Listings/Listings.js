@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Card, Button } from 'react-bootstrap';
 import ReactTextCollapse from 'react-text-collapse';
+import axios from 'axios'
 
 const TEXT_COLLAPSE_OPTIONS = {
     collapse: false, // default state when component rendered
@@ -88,9 +89,19 @@ const data = [
     }
 ]
 
+const backendData = [];
+
 export class Listings extends Component {
+    
+    componentDidMount() {
+        axios.get('/api/listings/')
+        .then(response => {
+            console.log(response.data);
+        });
+    }
+
     render() {
-        const casketList = data
+        const casketList = backendData
         .filter(listing => {
             return listing.type.toLowerCase() == "casket"
         })

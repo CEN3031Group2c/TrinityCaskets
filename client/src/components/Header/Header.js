@@ -97,7 +97,7 @@ class Header extends Component {
               ABOUT
             </div></Link>
           <Dropdown />
-          <Link to="/Catalog">
+          <Link to="/Urn">
             <div className = "nav_button nav_button_fix">
               URNS
             </div> </Link>
