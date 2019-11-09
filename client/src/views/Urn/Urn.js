@@ -1,12 +1,12 @@
 import React from 'react';
 import Listings from "../../components/Listings/Listings"
-import './Catalog.css';
+import './Urn.css';
 
-function Catalog() {
+function Urn() {
     return (
         <div className="App" class="centered">
-            <Listings type="casket" />
+            <Listings type="urn" />
         </div>
     );
 }
-export default Catalog;
+export default Urn;
