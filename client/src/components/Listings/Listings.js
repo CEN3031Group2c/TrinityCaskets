@@ -89,18 +89,26 @@ const data = [
     }
 ]
 
-const backendData = [];
-
 export class Listings extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: []
+        };
+    }
     
     componentDidMount() {
         axios.get('/api/listings/')
         .then(response => {
-            console.log(response.data);
+            this.setState({
+                data: response.data
+            })
         });
     }
 
     render() {
+        const backendData = this.state.data;
         const casketList = backendData
         .filter(listing => {
             return listing.type.toLowerCase() == "casket"
