@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import { Card, Button } from 'react-bootstrap';
 import ReactTextCollapse from 'react-text-collapse';
 import axios from 'axios'
+import "./Listings.css"
 
 const TEXT_COLLAPSE_OPTIONS = {
     collapse: false, // default state when component rendered
@@ -16,7 +16,7 @@ const TEXT_COLLAPSE_OPTIONS = {
 }
 
 export class Listings extends Component {
-
+  
     constructor(props) {
         super(props);
         this.state = {
@@ -31,8 +31,7 @@ export class Listings extends Component {
                 data: response.data
             })
         });
-    }
-
+      
     render() {
         const backendData = this.state.data;
         const casketList = backendData
@@ -41,27 +40,30 @@ export class Listings extends Component {
         })
         .map(listing => {
             return (
-                <div style={{margin: 5}}>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={listing.image} />
-                        <Card.Body>
-                            <Card.Title style={{textAlign: 'center'}}>Model Number: #{listing.modelNumber}</Card.Title>
-                            <Card.Text>
+                <div id="tile">
+                      <div id="img_holder">
+                        <img src={listing.image} width='260'></img>
+                      </div>
+                        <div id="tile_body">
+                            <div id="model_name">Model Number:
+                                #{listing.modelNumber}
+                            </div>
+                            <div id="description">
                                 <ReactTextCollapse options={TEXT_COLLAPSE_OPTIONS}>
                                     {listing.description}
                                 </ReactTextCollapse>
-                            </Card.Text>
-                            <br />
-                            <Card.Title>
+                            </div>
+                            <div id="price">
                                 ${listing.price}
-                            </Card.Title>
-                            <Button variant="primary">Add To Cart</Button>
-                        </Card.Body>
-                    </Card>
-                </div>
+                            </div>
+                            <div id="add_cart">
+                                Add To Cart
+                            </div>
+                        </div>
+                  </div>
             );
         });
-        return <div className="App" class="row" style={{marginLeft: 15}}>{casketList}</div>
+        return <div className="all_listings"><div class = "row">{casketList}</div></div>
     }
 }
 

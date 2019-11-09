@@ -1,36 +1,10 @@
-.App-header2 {
-    background-color: #222;
-    height: 600px;
-    padding: 10px;
-    color: white;
-  }
-
-.space
-{
-    width: 5px;
-    height: 50px;
-}
-
-.DisplayQuestion
-{
-    display: inline-block;
-    white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-}
-
 .ActualQuestion
 {
     display: inline-block;
-    white-space: normal;
-    margin-right:10px;
-    margin-bottom: 20px;
 }
-
 
 .DisplayB
 {
-
     display: inline-block;
     background-color: transparent;
     /* Triangle; */
@@ -52,17 +26,17 @@
 
 p
 {
-  padding: 10px 15px;
+  padding: 10px 30px;
+}
+
+h3
+{
+  font-size: 18pt;
+  font-weight: bold;
 }
 
 #all_questions
 {
   padding:10px;
-}
-
-.question
-{
-  padding: 10px 0px;
-  padding-top: 5px;
 }
 
