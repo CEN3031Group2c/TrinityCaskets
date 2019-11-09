@@ -15,72 +15,6 @@ const TEXT_COLLAPSE_OPTIONS = {
     }
 }
 
-const data = [
-    {     
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket', 
-    },
-    {     
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket', 
-    },
-    {     
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket', 
-    },
-    {     
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket', 
-    },
-    {     
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket', 
-    },
-    {     
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket', 
-    },
-    {     
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/urn.jpg',
-        type: 'Urn', 
-    },
-    {     
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/urn.jpg',
-        type: 'Urn', 
-    },
-    {     
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/urn.jpg',
-        type: 'Urn', 
-    }
-]
-
 export class Listings extends Component {
 
     constructor(props) {
@@ -101,7 +35,7 @@ export class Listings extends Component {
 
     render() {
         const backendData = this.state.data;
-        const casketList = data
+        const casketList = backendData
         .filter(listing => {
             return listing.type.toLowerCase() == this.props.type
         })
