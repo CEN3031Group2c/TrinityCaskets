@@ -31,7 +31,8 @@ export class Listings extends Component {
                 data: response.data
             })
         });
-      
+    }    
+
     render() {
         const backendData = this.state.data;
         const casketList = backendData
