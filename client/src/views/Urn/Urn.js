@@ -5,7 +5,7 @@ import './Urn.css';
 function Urn() {
     return (
         <div className="App" class="centered">
-            <Listings />
+            <Listings type="urn" />
         </div>
     );
 }
