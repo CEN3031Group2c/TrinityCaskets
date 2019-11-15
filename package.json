@@ -11,7 +11,8 @@
     "dev": "concurrently \"nodemon server/server.js\" \"cd client && npm run start\"",
     "build": "cd client && npm build",
     "start": "node server/server.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "eslint": "eslint server && cd client && eslint src"
   },
   "repository": {
     "type": "git",
@@ -34,18 +35,14 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
     "prop-types": "^15.7.2",
-    "react-redux": "^7.1.1",
-    "reactstrap": "^8.1.1",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "should": "^13.2.3",
-    "supertest": "^4.0.2",
-    "react-bootstrap": "1.0.0-beta.14"
+    "supertest": "^4.0.2"
   },
   "homepage": "https://github.com/CEN3031Group2c/TrinityCaskets",
   "devDependencies": {
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-mocha": "^6.2.1",
-    "eslint-plugin-react": "^7.16.0"
+    "dotenv": "^8.2.0",
+    "eslint-plugin-mocha": "^6.2.1"
   }
 }
