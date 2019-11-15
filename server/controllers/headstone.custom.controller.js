@@ -1,9 +1,8 @@
-var mongoose = require('mongoose')
-var HeadstoneCustomazation = require('../models/HeadstoneCustomazationSchema')
+var HeadstoneCustomization = require('../models/HeadstoneCustomizationSchema')
 
 exports.create = function(req,res){
     //console.log(req);
-    var headstone = new HeadstoneCustomazation({
+    var headstone = new HeadstoneCustomization({
     });
     headstone.UserID = req.body.userID;
     headstone.ListingID = req.body.headstoneID;
@@ -23,7 +22,7 @@ exports.create = function(req,res){
 exports.read = function(req,res){
     console.log( typeof userID, typeof headstoneID)
     console.log('called Listing by UserID and ListingID');
-    HeadstoneCustomazation.findOne({UserID: req.params.userID,
+    HeadstoneCustomization.findOne({UserID: req.params.userID,
     ListingID: req.params.headstoneID }).exec(function(err, headstone){
         if(err){
             res.status(400).send(err);
@@ -37,7 +36,7 @@ exports.read = function(req,res){
 exports.update = function(req,res){
     
 
-     HeadstoneCustomazation.findOne({
+     HeadstoneCustomization.findOne({
         UserID : req.params.userID,
         ListingID : req.params.headstoneID
     },
@@ -72,8 +71,8 @@ exports.update = function(req,res){
 }
 
 exports.delete = function(req,res){
-    var headstone = getByUserIDAndListingID(req.params.userID, req.params.headstoneID);
-    Headstone.deleteOne(headstone, (err) =>{
+    var headstone = getByUserIDAndListingID(req.params.userID, req.params.headstoneID, res);
+    HeadstoneCustomization.deleteOne(headstone, (err) =>{
         if(err){
             console.log(err);
             res.status(400).send(err);
@@ -84,13 +83,11 @@ exports.delete = function(req,res){
     })
 }
 
-
-
-getByUserIDAndListingID = function(userID, headstoneID){
+exports.getByUserIDAndListingID = function(userID, headstoneID, res){
     
     console.log( typeof userID, typeof headstoneID)
     console.log('called Listing by UserID and ListingID');
-    HeadstoneCustomazation.findOne({UserID: userID,
+    HeadstoneCustomization.findOne({UserID: userID,
     ListingID: headstoneID }).exec(function(err, headstone){
         if(err){
             res.status(400).send(err);
