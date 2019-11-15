@@ -1,7 +1,6 @@
 var should = require('should'), 
     mongoose = require('mongoose'), 
-    Listing = require('../models/ListingSchema'), 
-    config = require('../config/config');
+    Listing = require('../models/ListingSchema');
 
 var listing;
 var id;
@@ -17,9 +16,8 @@ listing = {
 }
 
 describe('Listing Schema Unit Tests', function() {
-
     before(function(done) {
-      mongoose.connect(config.db.uri, { useNewUrlParser: true });
+      mongoose.connect(process.env.DB_URI || require('../config/config').db.uri, { useNewUrlParser: true });
       mongoose.set('useCreateIndex', true);
       mongoose.set('useFindAndModify', false);
       done();
