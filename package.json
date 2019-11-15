@@ -10,7 +10,7 @@
     "client": "npm start --prefix client",
     "server": "nodemon server/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "npm run build --prefix client",
+    "build": "cd client && npm run build",
     "start": "node server/server.js",
     "heroku-postbuild": "npm run install-client && npm run build",
     "eslint": "eslint server && cd client && eslint src"
