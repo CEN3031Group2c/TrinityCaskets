@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
+
 const path = require('path'),
     express = require('express'),
     mongoose = require('mongoose'),
@@ -9,6 +13,7 @@ module.exports.init = () => {
         connect to database
         - reference README for db uri
     */
+   console.log(process.env.DB_URI || 'no process.env.DB_URI found')
     mongoose.connect(process.env.DB_URI || require('./config').db.uri, {
         useNewUrlParser: true
     });
