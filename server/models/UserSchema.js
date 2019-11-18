@@ -19,7 +19,8 @@ const UserSchema = new Schema({
     admin: {
         type: Boolean,
         required: true
-    }
+    },
+    orders: []
 });
 
 var User = mongoose.model('user', UserSchema);

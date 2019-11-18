@@ -11,3 +11,9 @@ export const REGISTER_FAIL = "REGISTER_FAIL";
 // Different types needed for login errors
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+
+// Different types needed for our shopping cart
+export const GET_CART_ITEMS = 'GET_CART_ITEMS';
+export const ADD_CART_ITEM = 'ADD_CART_ITEM';
+export const DELETE_CART_ITEM = 'DELETE_CART_ITEM';
+export const CART_ITEMS_LOADING = 'CART_ITEMS_LOADING';
