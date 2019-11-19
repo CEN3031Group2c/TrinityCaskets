@@ -18,8 +18,8 @@ class Header extends Component {
         auth: PropTypes.object.isRequired,
     };
 
-
     render() {
+
         // Get whether we're logged in + the user's name from our 'logged in' prop
         const { isAuthenticated, user } = this.props.auth;
 

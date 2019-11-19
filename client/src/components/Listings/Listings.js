@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import ReactTextCollapse from 'react-text-collapse';
 import axios from 'axios'
 import "./Listings.css"
+import Button from "react-bootstrap/Button";
+import {connect} from "react-redux";
+import PropTypes from "prop-types";
 
 const TEXT_COLLAPSE_OPTIONS = {
     collapse: false, // default state when component rendered
@@ -16,12 +19,36 @@ const TEXT_COLLAPSE_OPTIONS = {
 }
 
 export class Listings extends Component {
-  
+
+    static propTypes = {
+        auth: PropTypes.object.isRequired,
+    };
+
     constructor(props) {
         super(props);
+        this.addListingToCart = this.addListingToCart.bind(this);
+        console.log(this.props.auth);
+
         this.state = {
-            data: []
+            data: [],
         };
+    }
+
+    // Add the listing to the cart
+    addListingToCart(e) {
+        console.log(e);
+        const listingToAdd = {
+            user: this.props.auth.user._id,
+            product: e
+        };
+        console.log(listingToAdd);
+        axios.post('/api/cart', listingToAdd)
+            .then((res) => {
+                console.log('Listing successfully added!')
+            }).catch((error) => {
+            console.log(error)
+        });
+
     }
     
     componentDidMount() {
@@ -31,9 +58,10 @@ export class Listings extends Component {
                 data: response.data
             })
         });
-    }    
+    }
 
     render() {
+
         const backendData = this.state.data;
         const casketList = backendData
         .filter(listing => {
@@ -57,9 +85,9 @@ export class Listings extends Component {
                             <div id="price">
                                 ${listing.price}
                             </div>
-                            <div id="add_cart">
-                                Add To Cart
-                            </div>
+                            <Button onClick={() => { this.addListingToCart(listing) }} size="sm" variant="primary">
+                                Add to Cart
+                            </Button>
                         </div>
                   </div>
             );
@@ -68,4 +96,12 @@ export class Listings extends Component {
     }
 }
 
-export default Listings;
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+
+// Export the mapped prop
+export default connect(
+    mapStateToProps,
+    null
+)(Listings);

@@ -1,16 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const CartSchema = require('../models/CartSchema');
-const requireLogin = require('../middleware/requireLogin');
 
 const router = express.Router();
 const jsonParser = bodyParser.json();
 
-router.post('/', requireLogin, jsonParser, (req, res) => {
+router.post('/', jsonParser, (req, res) => {
     const user = req.body.user;
     const item = {
-        product: req.body.product,
-        quantity: req.body.quantity
+        product: req.body.product
     };
 
     CartSchema.findOne({ user: user })
@@ -23,9 +21,6 @@ router.post('/', requireLogin, jsonParser, (req, res) => {
                             items: {
                                 $elemMatch: { product: item.product }
                             }
-                        },
-                        {
-                            $inc: { 'items.$.quantity': item.quantity }
                         })
                         .exec()
                         .then(() => res.end());
@@ -34,7 +29,7 @@ router.post('/', requireLogin, jsonParser, (req, res) => {
                     foundCart.save().then(() => res.end());
                 }
             } else {
-                Cart.create({
+                CartSchema.create({
                     user: user,
                     items: [item]
                 })
@@ -43,7 +38,7 @@ router.post('/', requireLogin, jsonParser, (req, res) => {
         });
 });
 
-router.get('/', requireLogin, (req, res) => {
+router.get('/', (req, res) => {
     CartSchema.findOne({ user: req.user.id })
         .populate('items.product')
         .exec((err, cart) => {
@@ -55,7 +50,7 @@ router.get('/', requireLogin, (req, res) => {
         });
 });
 
-router.put('/', requireLogin, jsonParser, (req, res) => {
+router.put('/', jsonParser, (req, res) => {
     CartSchema.findById(req.body.cartId)
         .then((foundCart) => {
             foundCart.items = foundCart.items.filter((item) => item._id !== req.body.itemId);
@@ -63,7 +58,7 @@ router.put('/', requireLogin, jsonParser, (req, res) => {
         });
 });
 
-router.delete('/', requireLogin, (req, res) => {
+router.delete('/', (req, res) => {
     CartSchema.findByIdAndRemove(req.query.id)
         .then(() => res.end())
         .catch((err) => res.send(err));
