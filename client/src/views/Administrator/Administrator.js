@@ -51,7 +51,7 @@ class Administrator extends Component {
             </Table>
             <a href="/Admin/ListingCreator">
             <div className = "nav_button">
-                Creat New Listing
+                Create New Listing
             </div></a>
         </div>);
     }

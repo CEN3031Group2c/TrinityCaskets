@@ -5,6 +5,13 @@ import "./Listings.css"
 import Button from "react-bootstrap/Button";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
+import Snackbar from 'material-ui/Snackbar';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Cart from "../Cart/Cart";
+import { Route  } from 'react-router-dom';
+
+
+
 
 const TEXT_COLLAPSE_OPTIONS = {
     collapse: false, // default state when component rendered
@@ -27,10 +34,13 @@ export class Listings extends Component {
     constructor(props) {
         super(props);
         this.addListingToCart = this.addListingToCart.bind(this);
+        this.goToCart = this.goToCart.bind(this);
+
         console.log(this.props.auth);
 
         this.state = {
             data: [],
+            snackbarOpen: false
         };
     }
 
@@ -48,6 +58,8 @@ export class Listings extends Component {
             }).catch((error) => {
             console.log(error)
         });
+        this.setState({ snackbarOpen: true });
+
 
     }
     
@@ -58,6 +70,16 @@ export class Listings extends Component {
                 data: response.data
             })
         });
+    }
+
+    goToCart(){
+        return(
+            <a href="/Cart">
+                <Button color="secondary" size="small">
+                    Go to cart
+                </Button>
+            </a>
+        )
     }
 
     render() {
@@ -87,8 +109,19 @@ export class Listings extends Component {
                             </div>
                             <Button onClick={() => { this.addListingToCart(listing) }} size="sm" variant="primary">
                                 Add to Cart
+
                             </Button>
+                            <MuiThemeProvider>
+                                <Snackbar
+                                    open={this.state.snackbarOpen}
+                                    message='Item added to your cart.'
+                                    autoHideDuration={4000}
+                                    bodyStyle={{ 'background': '#1B8B17'}}
+                                    action={this.goToCart()}
+                                />
+                            </MuiThemeProvider>
                         </div>
+
                   </div>
             );
         });
@@ -96,11 +129,11 @@ export class Listings extends Component {
     }
 }
 
+// Stuff needed to get the authentication state interacting with the page's components
 const mapStateToProps = state => ({
     auth: state.auth
 });
 
-// Export the mapped prop
 export default connect(
     mapStateToProps,
     null
