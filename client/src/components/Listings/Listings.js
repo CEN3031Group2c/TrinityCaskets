@@ -7,10 +7,7 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import Snackbar from 'material-ui/Snackbar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Cart from "../Cart/Cart";
-import { Route  } from 'react-router-dom';
-
-
+import Cart from "../../views/Cart/Cart";
 
 
 const TEXT_COLLAPSE_OPTIONS = {

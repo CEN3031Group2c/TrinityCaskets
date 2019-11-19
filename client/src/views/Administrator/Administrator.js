@@ -16,6 +16,7 @@ class Administrator extends Component {
 
     componentDidMount() {
         axios.get('/api/listings').then(res => {
+            console.log(res);
             this.setState({
                 listings: res.data
             })

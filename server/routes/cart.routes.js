@@ -39,6 +39,8 @@ router.post('/', jsonParser, (req, res) => {
 });
 
 router.get('/', (req, res) => {
+    console.log(req.user);
+    // Find one with the matching user id
     CartSchema.findOne({ user: req.user.id })
         .populate('items.product')
         .exec((err, cart) => {
