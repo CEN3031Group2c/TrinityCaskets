@@ -20,7 +20,7 @@ class Cart extends React.Component{
             id: this.props.auth.user._id
         };
         console.log(user);
-        axios.get('/api/cart', {params: user}).then(res => {
+        axios.get('/api/cart', this.props.auth.user._id).then(res => {
             console.log(res.data);
             this.setState({
                 cartItems: res.data

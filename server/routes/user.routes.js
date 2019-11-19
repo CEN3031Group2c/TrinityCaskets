@@ -16,7 +16,7 @@ const UserSchema = require('../models/UserSchema');
 router.post('/', (req, res) =>{
 
     // Grab the inputted info
-    const { name, email, password, admin } = req.body;
+    const { name, email, password, admin, items } = req.body;
 
     // Make sure all fields are filled out
     if(!name || !email || !password) {
@@ -33,7 +33,8 @@ router.post('/', (req, res) =>{
             name,
             email,
             password,
-            admin
+            admin,
+            items
         });
 
         // Create salt (random string of bits to encrypt)
@@ -63,7 +64,8 @@ router.post('/', (req, res) =>{
                                     id: user.id,
                                     name: user.name,
                                     email: user.email,
-                                    admin: false
+                                    admin: false,
+                                    items: []
                                 }
                             });
                         }

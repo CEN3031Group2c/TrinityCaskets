@@ -20,7 +20,14 @@ const UserSchema = new Schema({
         type: Boolean,
         required: true
     },
-    orders: []
+    items: [
+        {
+            product: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'product'
+            }
+        }
+    ]
 });
 
 var User = mongoose.model('user', UserSchema);

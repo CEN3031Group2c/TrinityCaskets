@@ -43,9 +43,9 @@ export class Listings extends Component {
 
     // Add the listing to the cart
     addListingToCart(e) {
-        console.log(e);
+        console.log(this.props.auth.user);
         const listingToAdd = {
-            user: this.props.auth.user._id,
+            user: this.props.auth.user,
             product: e
         };
         console.log(listingToAdd);

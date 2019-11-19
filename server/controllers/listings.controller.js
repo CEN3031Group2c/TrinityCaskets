@@ -4,6 +4,7 @@ var Listing = require('../models/ListingSchema.js');
 /* Create a listing */
 exports.create = function (req, res) {
 
+    console.log(req.user);
     /* Instantiate a Listing */
     var listing = new Listing(req.body);
 
