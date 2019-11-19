@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha server/tests",
-    "install-all": "concurrently \"npm install\" \"cd client && npm install\"",
-    "client": "cd client && npm start",
+    "install-all": "concurrently \"npm install\" \"npm run install-client\"",
+    "install-client": "cd client && npm install",
+    "client": "npm start --prefix client",
     "server": "nodemon server/server.js",
-    "dev": "concurrently \"nodemon server/server.js\" \"cd client && npm run start\"",
-    "build": "cd client && npm build",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd client && npm run build",
     "start": "node server/server.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "eslint": "eslint server && cd client && eslint src"
   },
   "repository": {
     "type": "git",
@@ -26,26 +28,22 @@
     "body-parser": "^1.19.0",
     "concurrently": "^4.1.0",
     "config": "^3.2.4",
-    "eslint": "^6.6.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mocha": "^6.2.1",
     "mongoose": "^5.7.1",
     "morgan": "^1.9.1",
-    "nodemon": "^1.18.10",
     "prop-types": "^15.7.2",
-    "react-redux": "^7.1.1",
-    "reactstrap": "^8.1.1",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0",
-    "should": "^13.2.3",
-    "supertest": "^4.0.2",
-    "react-bootstrap": "1.0.0-beta.14"
+    "redux-thunk": "^2.3.0"
   },
   "homepage": "https://github.com/CEN3031Group2c/TrinityCaskets",
   "devDependencies": {
-    "eslint-plugin-import": "^2.18.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.6.0",
     "eslint-plugin-mocha": "^6.2.1",
-    "eslint-plugin-react": "^7.16.0"
+    "nodemon": "^1.18.10",
+    "should": "^13.2.3",
+    "supertest": "^4.0.2"
   }
 }

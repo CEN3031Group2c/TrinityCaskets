@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 
 import { login } from '../../redux/actions/authActions';
 import { clearErrors } from '../../redux/actions/errorActions';
-import './userAuthentication.css';
+// import './userAuthentication.css';
 
 class LoginWindow extends Component {
     state = {

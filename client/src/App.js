@@ -1,15 +1,14 @@
 import React, { Component} from 'react';
 import { Route, Switch, Redirect  } from 'react-router-dom';
 import Home from "./views/Home/Home"
-import Catalog from "./views/Catalog/Catalog"
 import NotFound from "./views/NotFound"
 import Header from "./components/Header/Header"
-
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./components/Footer/Footer"
 import About from "./views/About/About"
 import CT from "./views/Catalog/Catalog"
+import Urn from "./views/Urn/Urn"
 import FQ from "./views/FQ/FQ"
 import Admin from "./views/Administrator/Administrator"
 import PrivateRoute from "./components/PrivateRoute"
@@ -39,6 +38,7 @@ class App extends Component {
                         <Route exact path="/About" component={About} />
                         <Route exact path="/FAQ" render={() => ( <FQ/>)} />
                         <Route exact path="/Catalog" component={CT} />
+                        <Route exact path="/Urn" component={Urn} />
                         <PrivateRoute exact path="/Admin" component={Admin} />
                         <PrivateRoute exact path="/Admin/ListingCreator" component={ListingCreator} />
                         <Route exact path="/">

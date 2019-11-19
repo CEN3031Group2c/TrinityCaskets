@@ -1,9 +1,7 @@
 var mongoose = require('mongoose')
-var Schema = mongoose.Schema
-Listing = require("../models/ListingSchema")
-config = require('../config/config')
+var Listing = require("../models/ListingSchema")
 
-mongoose.connect(config.db.uri, {useNewUrlParser: true});
+mongoose.connect(process.env.DB_URI || require('../config/config').db.uri, {useNewUrlParser: true});
 
 var listings = [{
     modelNumber : '1000',

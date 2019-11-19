@@ -65,9 +65,7 @@ class Header extends Component {
                 <div id = "login_signup">
                   {isAuthenticated ? userLinks : noUserLinks}
                 </div>
-                <div id = "user_info">
-                   USER INFO
-                </div>
+                    {user ? (user.admin ? adminBox : noAdminBox) : noAdminBox}
                 <div id = "cart">
                   CART
                 </div>
@@ -97,7 +95,7 @@ class Header extends Component {
               ABOUT
             </div></Link>
           <Dropdown />
-          <Link to="/Catalog">
+          <Link to="/Urn">
             <div className = "nav_button nav_button_fix">
               URNS
             </div> </Link>

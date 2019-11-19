@@ -11,5 +11,5 @@ var headStoneSchema = new Schema({
     Epitaph: String
 });
 
-var HeadStoneCustomizaton = mongoose.model('HeadStoneCustization',headStoneSchema);
+var HeadStoneCustomizaton = mongoose.model('HeadStoneCustomization',headStoneSchema);
 module.exports = HeadStoneCustomizaton

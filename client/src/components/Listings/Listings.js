@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactTextCollapse from 'react-text-collapse';
+import axios from 'axios'
 import "./Listings.css"
 
 const TEXT_COLLAPSE_OPTIONS = {
@@ -14,85 +15,29 @@ const TEXT_COLLAPSE_OPTIONS = {
     }
 }
 
-/*function getListings() {
-    var data = [];
-    fetch('http://localhost:5000/api/listings', {mode: 'no-cors'})
-    .then((response) => response.json())
-    .then((json) => data = json);
-    return data;
-}*/
-
-const data = [
-    {
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket',
-    },
-    {
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket',
-    },
-    {
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket',
-    },
-    {
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket',
-    },
-    {
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket',
-    },
-    {
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket',
-    },
-    {
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket',
-    },
-    {
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket',
-    },
-    {
-        modelNumber: '6429',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        price: 453,
-        image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg',
-        type: 'Casket',
-    }
-]
-
 export class Listings extends Component {
+  
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: []
+        };
+    }
+    
+    componentDidMount() {
+        axios.get('/api/listings/')
+        .then(response => {
+            this.setState({
+                data: response.data
+            })
+        });
+    }    
+
     render() {
-        const casketList = data
+        const backendData = this.state.data;
+        const casketList = backendData
         .filter(listing => {
-            return listing.type.toLowerCase() == "casket"
+            return listing.type.toLowerCase() == this.props.type
         })
         .map(listing => {
             return (

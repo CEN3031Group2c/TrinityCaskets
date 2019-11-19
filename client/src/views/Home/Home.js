@@ -1,12 +1,14 @@
 import React from 'react';
 import './Home.css';
 
-function Home() {
-    return (
-        <div className="App">
-            home page here
-        </div>
-    );
+class Home extends React.Component{
+    render(){
+        return (
+            <div className="App">
+                <h1>This is our home page</h1>
+            </div>
+        );
+    }
 }
 
 export default Home;
