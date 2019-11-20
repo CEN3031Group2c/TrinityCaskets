@@ -30,9 +30,24 @@ exports.post = function (req, res) {
             }
         });
 };
+/* Show the current listing */
+exports.read = function (req, res) {
+    /* send back the listing as json from the request */
+    res.json(req.user);
+};
 
-exports.get = function (req, res, userToGet) {
-    console.log(userToGet);
+exports.userByID = function (req, res, next, id) {
+    UserSchema.findById(id).exec(function (err, user) {
+        if (err) {
+            res.status(400).send(err);
+        } else {
+            req.user = user;
+            next();
+        }
+    });
+};
+
+exports.get = function (req, res) {
     // Find one with the matching user id
     UserSchema.findOne({_id: req.body.user._id})
         .populate('items.product')

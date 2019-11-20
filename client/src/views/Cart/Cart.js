@@ -9,31 +9,39 @@ class Cart extends React.Component{
 
     constructor(props) {
         super(props);
-        this.getTable = this.getTable.bind(this);
         this.state = {
-            cartItems: []
+            cartItems: [],
+            shouldLogin: false
         };
     }
 
-    getTable() {
-        const user = {
-            id: this.props.auth.user._id
-        };
-        console.log(user);
-        axios.get('/api/cart', this.props.auth.user._id).then(res => {
-            console.log(res.data);
-            this.setState({
-                cartItems: res.data
-            })
-        }).catch((error) => {
-            console.log(error);
-        })
+    // Because user authentication doesn't load immediately, need to define it once it's ready
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.auth.isAuthenticated !== this.props.auth.isAuthenticated) {
+            console.log('Here: '+ this.props.auth.isAuthenticated)
+            if (this.props.auth.isAuthenticated) {
+                const user = {
+                    id: this.props.auth.user._id
+                };
+                console.log(user);
+                axios.get('/api/cart/' + this.props.auth.user._id).then(res => {
+                    this.setState({
+                        cartItems: res.data.items
+                    })
+                }).catch((error) => {
+                    console.log(error);
+                })
+            }
+            else{
+                this.setState({
+                    shouldLogin: true
+                })
+            }
+        }
     }
 
     // Pass in the gotten listing data as props into our listing table
     DataTable() {
-        console.log(this.state.cartItems);
-
         return this.state.cartItems.map((res, i) => {
             return <CartTable obj={res} key={i} />;
         });
@@ -41,28 +49,20 @@ class Cart extends React.Component{
 
     render(){
         while (!this.props.auth.isAuthenticated){
-                return(<h1>Loading...</h1>)
+            if (!this.state.shouldLogin) {
+                return (<h1>Loading...</h1>)
+            }
+            else {
+                // Just a place holder for now, can make more fancy later
+                return (<h1>Please log in</h1>)
+            }
         }
         return (
-            <div className="table-wrapper">
-
-                <Table striped bordered hover>
-                    <thead>
-                    <tr>
-                        <th>Model Number</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Image</th>
-                        <th>Type</th>
-                        <th>Options</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {this.getTable(this.props.auth)}
-                    {this.DataTable()}
-                    </tbody>
-                </Table>
+            <div>
+                <h1>Your Cart</h1>
+                {this.DataTable()}
             </div>
+
         );
     }
 }
