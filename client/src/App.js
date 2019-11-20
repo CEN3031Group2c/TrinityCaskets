@@ -13,6 +13,7 @@ import FQ from "./views/FQ/FQ"
 import Admin from "./views/Administrator/Administrator"
 import PrivateRoute from "./components/PrivateRoute"
 import ListingCreator from "./components/AdminPanel/ListingCreator"
+import Cart from "./views/Cart/Cart";
 
 // Getting redux to work
 import { Provider } from 'react-redux';
@@ -39,6 +40,7 @@ class App extends Component {
                         <Route exact path="/FAQ" render={() => ( <FQ/>)} />
                         <Route exact path="/Catalog" component={CT} />
                         <Route exact path="/Urn" component={Urn} />
+                        <Route exact path="/Cart" component={Cart} />
                         <PrivateRoute exact path="/Admin" component={Admin} />
                         <PrivateRoute exact path="/Admin/ListingCreator" component={ListingCreator} />
                         <Route exact path="/">
