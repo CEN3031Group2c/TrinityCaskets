@@ -55,3 +55,13 @@ exports.get = function (req, res) {
             res.send(cart);
         });
 };
+
+exports.delete = function (req, res) {
+
+    UserSchema.findOne({_id: req.body.user._id})
+        .then((foundCart) => {
+            foundCart.items.pull({_id: req.body.product._id});
+            foundCart.save().then(() => res.end());
+
+        });
+};

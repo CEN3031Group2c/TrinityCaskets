@@ -4,10 +4,12 @@ const controller = require('../controllers/cart.controller'),
 
 router.route('/')
     .get(controller.get)
-    .post(controller.post);
+    .post(controller.post)
+    .delete(controller.delete);
+
 
 router.route('/:userID')
-    .get(controller.read)
+    .get(controller.read);
 
 router.param('userID', controller.userByID);
 

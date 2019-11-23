@@ -43,7 +43,7 @@ class Cart extends React.Component{
     // Pass in the gotten listing data as props into our listing table
     DataTable() {
         return this.state.cartItems.map((res, i) => {
-            return <CartTable obj={res} key={i} />;
+            return <CartTable obj={res} key={i} user = {this.props.auth.user}/>;
         });
     }
 
