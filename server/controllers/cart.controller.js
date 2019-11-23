@@ -60,7 +60,7 @@ exports.delete = function (req, res) {
 
     UserSchema.findOne({_id: req.body.user._id})
         .then((foundCart) => {
-            foundCart.items.pull({product: req.body.product});
+            foundCart.items.pull({_id: req.body.product._id});
             foundCart.save().then(() => res.end());
 
         });

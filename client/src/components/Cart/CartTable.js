@@ -22,19 +22,17 @@ class CartTable extends Component {
 
     // Delete a listing
     removeFromCart() {
-        console.log(this.props.obj.product);
+        console.log(this.props.obj);
         console.log(this.props.user);
         const listingToDelete = {
             user: this.props.user,
-            product: this.props.obj.product
+            product: this.props.obj
         };
         axios.delete('/api/cart/', {data: listingToDelete}).then(res => {
-            this.setState({
-                cartItems: res.data
-            })
+            console.log('Successfully deleted')
         });
 
-        //window.location.reload();
+        window.location.reload();
     }
 
     componentDidMount() {
