@@ -22,12 +22,23 @@ class CartTable extends Component {
 
     // Delete a listing
     removeFromCart() {
-        // Not implemented yet
+        console.log(this.props.obj.product);
+        console.log(this.props.user);
+        const listingToDelete = {
+            user: this.props.user,
+            product: this.props.obj.product
+        };
+        axios.delete('/api/cart/', {data: listingToDelete}).then(res => {
+            this.setState({
+                cartItems: res.data
+            })
+        });
 
-        window.location.reload();
+        //window.location.reload();
     }
 
     componentDidMount() {
+        console.log(this.props.obj.product);
         axios.get('/api/listings/'+this.props.obj.product).then(res => {
             this.setState({
                 cartItems: res.data
@@ -53,7 +64,7 @@ class CartTable extends Component {
                     <tbody>
                 <tr>
                     <td>
-                        {this.state.cartItems.image !== undefined ?
+                        {(this.state.cartItems.image !== undefined) ?
                             <img src={this.state.cartItems.image} width={80} height={64} mode='fit'/> :
                             <p1>No Image</p1>
                         }
@@ -64,7 +75,7 @@ class CartTable extends Component {
 
                     <td>{this.state.cartItems.type}</td>
                     <td>
-                        <Button size="sm" variant="danger">Remove From Cart</Button>
+                        <Button onClick={(e) => {this.removeFromCart(e)}} size="sm" variant="danger">Remove From Cart</Button>
                     </td>
                 </tr>
                     </tbody>
