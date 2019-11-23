@@ -22,8 +22,6 @@ class CartTable extends Component {
 
     // Delete a listing
     removeFromCart() {
-        console.log(this.props.obj);
-        console.log(this.props.user);
         const listingToDelete = {
             user: this.props.user,
             product: this.props.obj
