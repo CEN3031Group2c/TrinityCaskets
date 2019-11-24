@@ -53,10 +53,11 @@ render()
            <h1>Frequently Asked Questions</h1>
            <div id="all_questions">
              <div className="DisplayQuestion">
-                 <h3 className="ActualQuestion">
+             <button type="button" className="DisplayB2" onClick = {this.onClick1.bind(this)}>
+               <h3 className="ActualQuestion">
                     Q: Will funeral homes accept this merchandise?
                   </h3>
-                 <button type="button" className="DisplayB" onClick = {this.onClick1.bind(this)}></button>
+                 </button>
               </div>
 
               { this.state.op1 ?
@@ -66,10 +67,11 @@ render()
               : null }
 
             <div className="DisplayQuestion">
+            <button type="button" className="DisplayB2" onClick = {this.onClick2.bind(this)}>
                 <h3 className="ActualQuestion" >
                   Q: Where will merchandise be delivered?
                 </h3>
-                <button type="button" className="DisplayB" onClick = {this.onClick2.bind(this)}></button>
+                </button>
             </div>
 
             { this.state.op2 ?
@@ -79,10 +81,11 @@ render()
             : null }
 
             <div className="DisplayQuestion">
+            <button type="button" className="DisplayB2" onClick = {this.onClick3.bind(this)}>
               <h3 className="ActualQuestion" >
                 Q: How long will merchandise take to deliver?
               </h3>
-              <button type="button" className="DisplayB" onClick = {this.onClick3.bind(this)}>  </button>
+                </button>
             </div>
             {this.state.op3 ?
               <div className="DisplayAns" >
@@ -91,10 +94,11 @@ render()
             : null }
 
             <div className="DisplayQuestion">
+            <button type="button" className="DisplayB2" onClick = {this.onClick4.bind(this)}>
               <h3 className="ActualQuestion" >
                   Q: What forms of payment do you accept?
               </h3>
-                <button type="button" className="DisplayB" onClick = {this.onClick4.bind(this)}>  </button>
+                  </button>
             </div>
             {this.state.op4 ?
               <div className="DisplayAns" >

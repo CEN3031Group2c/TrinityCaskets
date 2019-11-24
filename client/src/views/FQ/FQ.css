@@ -24,6 +24,17 @@
     */
 }
 
+.DisplayB2
+{
+    display: inline-block;
+    background-color: transparent;
+
+    padding: 0;
+    border: none;
+    border-color: none;
+    background: none;
+}
+
 p
 {
   padding: 10px 30px;
