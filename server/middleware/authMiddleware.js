@@ -12,7 +12,7 @@ function authMiddleware(req, res, next) {
 
     try {
         // Verify token is valid
-        const decoded = jwt.verify(token, require('../config/config').jwt.jwtSecret);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET || require('../config/config').jwt.jwtSecret);
         // Grab the user from the payload and set it as the request
         req.user = decoded;
         next();

@@ -7,7 +7,6 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 // To get our secret key
-const config = require('../config/config');
 
 
 // User Model
@@ -52,7 +51,7 @@ router.post('/', (req, res) =>{
                         // User id is token identifier
                         { id: user.id },
                         // Secret key
-                        config.jwt.jwtSecret,
+                        process.env.JWT_SECRET || require('../config/config').jwt.jwtSecret,
                         (err, token) => {
                             if(err) throw err;
 

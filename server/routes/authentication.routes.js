@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
             // If it does match, want to send token back
             jwt.sign(
                 { id: user.id },
-                require('../config/config').jwt.jwtSecret,
+                process.env.JWT_SECRET || require('../config/config').jwt.jwtSecret,
                 (err, token) => {
                     if(err) throw err;
                     res.json({

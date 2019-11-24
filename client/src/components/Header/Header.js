@@ -93,9 +93,11 @@ class Header extends React.Component {
                   {isAuthenticated ? userLinks : noUserLinks}
                 </div>
                     {user ? (user.admin ? adminBox : noAdminBox) : noAdminBox}
-                <div id = "cart">
-                  CART
-                </div>
+                  <a href="/Cart">
+                    <div id = "cart">
+                        CART
+                    </div>
+                  </a>
               </div>
             </div>
 
@@ -125,7 +127,7 @@ class Header extends React.Component {
             </div></Link>
           <Link to="/About">
             <div className = "nav_button">
-              ABOUT
+              ABOUT US
             </div></Link>
           <Dropdown />
           <Link to="/Urn">

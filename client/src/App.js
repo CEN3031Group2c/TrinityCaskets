@@ -4,7 +4,6 @@ import Home from "./views/Home/Home"
 import NotFound from "./views/NotFound"
 import Header from "./components/Header/Header"
 
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./components/Footer/Footer"
 import About from "./views/About/About"
@@ -15,6 +14,7 @@ import FQ from "./views/FQ/FQ"
 import Admin from "./views/Administrator/Administrator"
 import PrivateRoute from "./components/PrivateRoute"
 import ListingCreator from "./components/AdminPanel/ListingCreator"
+import Cart from "./components/Cart/Cart";
 
 // Getting redux to work
 import { Provider } from 'react-redux';
@@ -72,7 +72,7 @@ class App extends React.Component {
                         <Route exact path="/Catalog" component={CT} />
                         <Route exact path="/Urn" component={Urn} />
                         <Route path="/Search" render={ (props)=> ( <Search Input={this.state.searchIn}/>)} />
-
+                        <Route exact path="/Cart" component={Cart} />
                         <PrivateRoute exact path="/Admin" component={Admin} />
                         <PrivateRoute exact path="/Admin/ListingCreator" component={ListingCreator} />
                         
