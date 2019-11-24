@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import "./dropdown.css"
+import { Link } from 'react-router-dom';
 
 class Dropdown extends Component
 {
@@ -42,9 +43,11 @@ class Dropdown extends Component
         this.state.showMenu
         ? (
             <div className = "menu">
+              <Link to="/Catalog">
               <div className="list_item">
                 All
               </div>
+              </Link>
             <div className="list_item">
                 Wood
               </div>

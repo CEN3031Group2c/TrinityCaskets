@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
+//import Listings from "../../components/Listings/Listings"
 import ReactTextCollapse from 'react-text-collapse';
 import axios from 'axios'
-import "./Listings.css"
+
 
 const TEXT_COLLAPSE_OPTIONS = {
     collapse: false, // default state when component rendered
@@ -15,15 +16,15 @@ const TEXT_COLLAPSE_OPTIONS = {
     }
 }
 
-export class Listings extends Component {
-  
-    constructor(props) {
+class Search extends React.Component{
+    constructor(props)
+    {
         super(props);
-        this.state = {
+        this.state=
+        {
             data: []
-        };
+        }
     }
-    
     componentDidMount() {
         axios.get('/api/listings/')
         .then(response => {
@@ -33,14 +34,19 @@ export class Listings extends Component {
         });
     }    
 
+
     render() {
-        const backendData = this.state.data;
-        const casketList = backendData
+
+        const backendData = this.state.data
         .filter(listing => {
-            return listing.type.toLowerCase() == this.props.type //???
+            return (listing.description.toLowerCase().indexOf(this.props.Input)>=0)
+                    || (listing.modelNumber.toLowerCase().indexOf(this.props.Input)>=0)
+                    || (listing.type.toLowerCase().indexOf(this.props.Input)>=0)
+
         })
         .map(listing => {
             return (
+                <div>
                 <div id="tile">
                       <div id="img_holder">
                         <img src={listing.image} width='260'></img>
@@ -62,10 +68,15 @@ export class Listings extends Component {
                             </div>
                         </div>
                   </div>
+                  </div>
             );
         });
-        return <div className="all_listings"><div class = "row">{casketList}</div></div>
+        return <div className="all_listings"><div class = "row">{backendData}</div></div>
     }
+    
 }
+export default Search;
 
-export default Listings;
+
+
+
