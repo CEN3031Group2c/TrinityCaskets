@@ -61,7 +61,7 @@ class ListingTable extends Component {
     };
 
     render() {
-        console.log(this.props.obj.image);
+        console.log(this.props);
         return (
             <tr>
                 <td>{this.props.obj.modelNumber}</td>

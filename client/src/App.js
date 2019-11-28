@@ -14,7 +14,7 @@ import FQ from "./views/FQ/FQ"
 import Admin from "./views/Administrator/Administrator"
 import PrivateRoute from "./components/PrivateRoute"
 import ListingCreator from "./components/AdminPanel/ListingCreator"
-import Cart from "./components/Cart/Cart";
+import Cart from "./views/Cart/Cart";
 
 // Getting redux to work
 import { Provider } from 'react-redux';
