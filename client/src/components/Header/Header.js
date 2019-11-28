@@ -31,7 +31,19 @@ class Header extends React.Component {
         auth: PropTypes.object.isRequired,
     };
 
+    setValue2(val)
+    {
+      this.setState({searchV: val.target.value});
+      // this.props.SetValue(this.state.searchV)
+    }
+    setValue25(val)
+    {
+      this.props.SetValue(this.state.searchV)
+    }
+
     render() {
+    
+
 
         // Get whether we're logged in + the user's name from our 'logged in' prop
         const { isAuthenticated, user } = this.props.auth;
