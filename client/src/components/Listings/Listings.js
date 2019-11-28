@@ -84,7 +84,7 @@ export class Listings extends Component {
         const backendData = this.state.data;
         const casketList = backendData
         .filter(listing => {
-            return listing.type.toLowerCase() == this.props.type
+            return listing.type.toLowerCase() == this.props.type //???
         })
         .map(listing => {
             return (
