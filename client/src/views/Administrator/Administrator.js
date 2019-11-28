@@ -16,6 +16,7 @@ class Administrator extends Component {
 
     componentDidMount() {
         axios.get('/api/listings').then(res => {
+            console.log(res);
             this.setState({
                 listings: res.data
             })
@@ -51,7 +52,7 @@ class Administrator extends Component {
             </Table>
             <a href="/Admin/ListingCreator">
             <div className = "nav_button">
-                Creat New Listing
+                Create New Listing
             </div></a>
         </div>);
     }
