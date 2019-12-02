@@ -14,6 +14,7 @@ import FQ from "./views/FQ/FQ"
 import Admin from "./views/Administrator/Administrator"
 import PrivateRoute from "./components/PrivateRoute"
 import ListingCreator from "./components/AdminPanel/ListingCreator"
+import NewAdmin from "./components/AdminPanel/NewAdmin"
 import Cart from "./views/Cart/Cart";
 
 // Getting redux to work
@@ -29,8 +30,7 @@ class App extends React.Component {
         super(props);
         this.state=
         {
-            searchIn: '',
-            lookingfor: new URLSearchParams(window.location.search).toString().slice(0,-1).toLowerCase(),
+            searchIn: ''
         }
     }
 
@@ -75,6 +75,7 @@ class App extends React.Component {
                         <Route exact path="/Cart" component={Cart} />
                         <PrivateRoute exact path="/Admin" component={Admin} />
                         <PrivateRoute exact path="/Admin/ListingCreator" component={ListingCreator} />
+                        <PrivateRoute exact path="/Admin/NewAdmin" component={NewAdmin} />
                         
                         <Route exact path="/">
                             <Redirect to="/Home"/>
