@@ -51,7 +51,7 @@ class Header extends Component {
         // If not admin, see user info
         const noAdminBox = (
             <div id = "user_info">
-            INFO
+              <img className="topnav-logo" src={ "/usericon.png" } alt="React logo" />
             </div>
         );
 
@@ -59,7 +59,7 @@ class Header extends Component {
           <div id="h">
             <div id = "title_box">
               <div id = "title">
-                Trinity Casket Store... And More
+                Trinity Casket Store.... And More
               </div>
               <div id = "top_buttons">
                 <div id = "login_signup">
@@ -67,14 +67,14 @@ class Header extends Component {
                 </div>
                     {user ? (user.admin ? adminBox : noAdminBox) : noAdminBox}
                 <div id = "cart">
-                  CART
+                  <img className="topnav-logo" src={ "/carticon.png" } alt="React logo" />
                 </div>
               </div>
             </div>
 
           <div id = "middle_box">
             <div id = "middle_box_info">
-              Welcome to the website. This box is used to contain important header information. It should be about two lines long, although it could be extended if necessary.
+              Trinity Casket Store.... And More is a veteran owned and operated retailer. Funeral homes <b>must</b> accept our merchandise. See our FAQ for more information.
             </div>
             <div id="search_bar_holder">
               <input type="text" name="search" id = "search_bar" placeholder="Search..." value={this.state}/>
