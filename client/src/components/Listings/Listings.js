@@ -104,7 +104,11 @@ export class Listings extends Component {
                             <div id="price">
                                 ${listing.price}
                             </div>
-                            <Button onClick={() => { this.addListingToCart(listing) }} size="sm" variant="primary">
+                            <Button onClick={() => {
+                                if(this.props.auth.isAuthenticated) {
+                                    this.addListingToCart(listing) 
+                                }
+                            }} size="sm" variant="primary">
                                 Add to Cart
 
                             </Button>

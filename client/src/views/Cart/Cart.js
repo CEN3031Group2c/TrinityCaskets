@@ -54,7 +54,11 @@ class Cart extends React.Component{
             }
             else {
                 // Just a place holder for now, can make more fancy later
-                return (<h1>Please log in</h1>)
+                return (
+                    <div>
+                        <h1>Your Cart</h1>
+                    </div>
+                );
             }
         }
         return (
