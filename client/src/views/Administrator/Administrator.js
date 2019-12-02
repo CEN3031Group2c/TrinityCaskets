@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import ListingTable from '../../components/AdminPanel/ListingTable';
+import "./Administrator.css"
 
 
 class Administrator extends Component {
@@ -16,6 +17,7 @@ class Administrator extends Component {
 
     componentDidMount() {
         axios.get('/api/listings').then(res => {
+            console.log(res);
             this.setState({
                 listings: res.data
             })
@@ -51,7 +53,13 @@ class Administrator extends Component {
             </Table>
             <a href="/Admin/ListingCreator">
             <div className = "nav_button">
-                Creat New Listing
+                Create New Listing
+            </div></a>
+
+            <div className = "nav_button3"> </div>
+            <a href="/Admin/newAdmin">
+            <div className = "nav_button">
+                New Admin
             </div></a>
         </div>);
     }

@@ -30,10 +30,14 @@ module.exports.init = () => {
 
     // Router for user
     app.use('/api/user', require('../routes/user.routes'));
+    // Router for admin
+    app.use('/api/admin', require('../routes/admin.routes'));
     // Router for user authentication
     app.use('/api/authentication', require('../routes/authentication.routes'));
     // Router for listing
     app.use('/api/listings', require('../routes/listings.routes'));
+    // Router for cart
+    app.use('/api/cart', require('../routes/cart.routes'));
 
     app.use('/api/custom', require('../routes/headstone.custimaization.route'));
 

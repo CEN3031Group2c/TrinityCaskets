@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component, isValidElement } from 'react';
+import { Link, Route } from 'react-router-dom';
 import './Header.css';
 
 // Login/logout stuff
@@ -9,17 +9,42 @@ import RegisterWindow from "../userAuthentication/RegisterWindow";
 import LogoutWindow from "../userAuthentication/LogoutWindow";
 import LoginWindow from "../userAuthentication/LoginWindow";
 import Dropdown from "../Dropdown/Dropdown";
+import Search2 from "../../views/Search/search"
+
 
 // Needed to make it a component to add extended functionality
-class Header extends Component {
+class Header extends React.Component {
+  constructor(props)
+  {
+    super(props);
+    this.state=
+    {
+      searchV:'',
+      lookingfor: '',
+    }
+  }
+
+  
 
     // 'logged in' prop we'll modify
     static propTypes = {
         auth: PropTypes.object.isRequired,
     };
 
+    setValue2(val)
+    {
+      this.setState({searchV: val.target.value});
+      // this.props.SetValue(this.state.searchV)
+    }
+    setValue25(val)
+    {
+      this.props.SetValue(this.state.searchV)
+    }
 
     render() {
+    
+
+
         // Get whether we're logged in + the user's name from our 'logged in' prop
         const { isAuthenticated, user } = this.props.auth;
 
@@ -54,6 +79,8 @@ class Header extends Component {
               <img className="topnav-logo" src={ "/usericon.png" } alt="React logo" />
             </div>
         );
+        
+        
 
         return (
           <div id="h">
@@ -66,9 +93,12 @@ class Header extends Component {
                   {isAuthenticated ? userLinks : noUserLinks}
                 </div>
                     {user ? (user.admin ? adminBox : noAdminBox) : noAdminBox}
-                <div id = "cart">
-                  <img className="topnav-logo" src={ "/carticon.png" } alt="React logo" />
-                </div>
+
+                  <a href="/Cart">
+                    <div id = "cart">
+                        <img className="topnav-logo" src={ "/carticon.png" } alt="React logo" />
+                    </div>
+                  </a>
               </div>
             </div>
 
@@ -77,10 +107,16 @@ class Header extends Component {
               Trinity Casket Store.... And More is a veteran owned and operated retailer. Funeral homes <b>must</b> accept our merchandise. See our FAQ for more information.
             </div>
             <div id="search_bar_holder">
-              <input type="text" name="search" id = "search_bar" placeholder="Search..." value={this.state}/>
-              <button type = "submit" id="search_bar_button">
-                GO
-              </button>
+              <form>
+              <input type="text" name="search" id = "search_bar" placeholder="Search..." value={this.state.searchV}  onChange = {this.setValue2.bind(this)} />
+              {/* <input type="text" name="search" id = "search_bar" placeholder="Search..." value={this.state.search} ref={ (value) => {this.myValue = value} } onChange = {setValue.bind(this)} /> */}
+              <Link to={"/Search?" + this.state.searchV }>
+                {/*letid= this.state */}
+                <button type = "submit" id="search_bar_button" onClick={this.setValue25.bind(this)}>
+                  GO
+                </button>
+              </Link>
+              </form>
             </div>
           </div>
 
@@ -92,7 +128,7 @@ class Header extends Component {
             </div></Link>
           <Link to="/About">
             <div className = "nav_button">
-              ABOUT
+              ABOUT US
             </div></Link>
           <Dropdown />
           <Link to="/Urn">

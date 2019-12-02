@@ -26,6 +26,7 @@ class RegisterWindow extends Component {
         email: '',
         password: '',
         admin: false,
+        items: [],
         // Register successful?
         msg: null
     };
@@ -76,14 +77,15 @@ class RegisterWindow extends Component {
         submit.preventDefault();
 
         // Pass in the name, email, and password
-        const { name, email, password, admin } = this.state;
+        const { name, email, password, admin, items } = this.state;
 
         // Create a new user object with the passed in data
         const newUser = {
             name,
             email,
             password,
-            admin
+            admin,
+            items
         };
 
         // Attempt to register the new user

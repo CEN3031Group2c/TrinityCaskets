@@ -48,7 +48,7 @@ export const loadUser = () => (dispatch, getState) => {
 };
 
 // 2. Register User. Pass in (name, email, password)
-export const register = ({ name, email, password, admin}) => dispatch => {
+export const register = ({ name, email, password, admin, items}) => dispatch => {
     // Headers
     const config = {
         headers: {
@@ -58,7 +58,7 @@ export const register = ({ name, email, password, admin}) => dispatch => {
 
     // Request body of data that we want to send
     // Need stringify to turn javascript to JSON
-    const body = JSON.stringify({ name, email, password, admin });
+    const body = JSON.stringify({ name, email, password, admin, items});
 
     axios.post('/api/user', body, config)
         // If we passed, then register was successful and we can send the data
@@ -135,4 +135,28 @@ export const tokenConfig = getState => {
     }
 
     return config;
+};
+
+
+
+export const registerA = ({ name, email, password, admin, items}) => dispatch => {
+    // Headers
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    // Request body of data that we want to send
+    // Need stringify to turn javascript to JSON
+    const body = JSON.stringify({ name, email, password, admin, items});
+
+    axios.post('/api/admin', body, config)
+        // If we didn't pass, clear everything (REGISTER_FAIL), and return some errors
+        .catch(err => {
+            dispatch(
+                returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL')
+            );
+            {console.log("It happen 3")}
+        });
 };
