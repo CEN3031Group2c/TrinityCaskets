@@ -50,7 +50,7 @@ class Cart extends React.Component{
         else {
            console.log(this.props.Items);
            return this.props.Items.map((res, i) => {
-                return <CartTable obj={res} key={i} user={this.props.auth.user} auth={this.props.auth.isAuthenticated} />;
+                return <CartTable obj={res} key={i} user={this.props.auth.user} auth={this.props.auth.isAuthenticated} items={this.props.Items} />;
            });
         }
     }
@@ -61,13 +61,21 @@ class Cart extends React.Component{
                 return (<h1>Loading...</h1>)
             }
             else {
-                // Just a place holder for now, can make more fancy later
-                return (
-                    <div>
-                        <h1>Your Cart</h1>
-                        {this.DataTable()}
-                    </div>
-                );
+                if(this.props.Items.length == 0) {
+                    return (
+                        <div>
+                            <h1>No Items in Cart</h1>
+                        </div>
+                    );
+                }
+                else {
+                    return (
+                        <div>
+                            <h1>Your Cart</h1>
+                            {this.DataTable()}
+                        </div>
+                    );
+                }
             }
         }
         return (

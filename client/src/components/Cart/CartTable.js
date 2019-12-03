@@ -22,13 +22,25 @@ class CartTable extends Component {
 
     // Delete a listing
     removeFromCart() {
-        const listingToDelete = {
-            user: this.props.user,
-            product: this.props.obj
-        };
-        axios.delete('/api/cart/', {data: listingToDelete}).then(res => {
-            console.log('Successfully deleted')
-        });
+        if(this.props.auth) {
+            const listingToDelete = {
+                user: this.props.user,
+                product: this.props.obj
+            };
+            axios.delete('/api/cart/', {data: listingToDelete}).then(res => {
+                console.log('Successfully deleted')
+            });
+        }
+        else {
+            var array = this.props.items;
+            var index = array.indexOf(this.props.obj);
+            if(index !== -1) {
+                array.splice(index, 1);
+                this.setState({
+                    items: array 
+                });
+            }
+        }   
 
         window.location.reload();
     }
@@ -67,9 +79,9 @@ class CartTable extends Component {
                     <tbody>
                 <tr>
                     <td>
-                       {(this.state.cartItems.image !== undefined) ?
+                       {(this.state.cartItems.image != "") ?
                             <img src={this.state.cartItems.image} width={80} height={64} mode='fit'/> :
-                       <p1>No Image</p1>}
+                            <img src='https://trinity-caskets-bucket.s3.amazonaws.com/no-image-available.jpg' width={80} height={64} mode='fit'/>}
                     </td>
                     <td>{this.state.cartItems.modelNumber}</td>
                     <td>{this.state.cartItems.description}</td>
