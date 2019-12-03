@@ -1,0 +1,25 @@
+.nav_button2
+{
+  background-color: RED;
+  color: white;
+  height: 40px;
+  width: 163px;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 0px;
+  margin: 0px 1px;
+  vertical-align: top;
+}
+.nav_button3
+{
+
+    height: 40px;
+    width: 577px;
+    
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0px;
+    margin: 0px 1px;
+    vertical-align: top;
+    align-items: flex-end;
+  }

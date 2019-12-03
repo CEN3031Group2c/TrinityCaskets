@@ -136,3 +136,27 @@ export const tokenConfig = getState => {
 
     return config;
 };
+
+
+
+export const registerA = ({ name, email, password, admin, items}) => dispatch => {
+    // Headers
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    // Request body of data that we want to send
+    // Need stringify to turn javascript to JSON
+    const body = JSON.stringify({ name, email, password, admin, items});
+
+    axios.post('/api/admin', body, config)
+        // If we didn't pass, clear everything (REGISTER_FAIL), and return some errors
+        .catch(err => {
+            dispatch(
+                returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL')
+            );
+            {console.log("It happen 3")}
+        });
+};
