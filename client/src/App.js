@@ -10,6 +10,7 @@ import About from "./views/About/About"
 import CT from "./views/Catalog/Catalog"
 import Urn from "./views/Urn/Urn"
 import Search from "./views/Search/search"
+import Headstones from "./views/Headstones/Headstones"
 import FQ from "./views/FQ/FQ"
 import Admin from "./views/Administrator/Administrator"
 import PrivateRoute from "./components/PrivateRoute"
@@ -45,12 +46,12 @@ class App extends React.Component {
       this.setState({searchIn: val})
     }
 
-    
 
-    
+
+
     // Added the store for redux. The rest is the same as before
     render() {
-        const routeS = 
+        const routeS =
         [
             {
                 path: "/Search",
@@ -62,7 +63,7 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <div id="all_content_holder">
-                         <Header 
+                         <Header
                          SetValue = {this.SetValue.bind(this)}/>
                     <div id = "page_content">
                       <Switch>
@@ -72,11 +73,12 @@ class App extends React.Component {
                         <Route exact path="/Catalog" component={CT} />
                         <Route exact path="/Urn" component={Urn} />
                         <Route path="/Search" render={ (props)=> ( <Search Input={this.state.searchIn}/>)} />
+                        <Route path="/Headstones" component = {Headstones}/>
                         <Route exact path="/Cart" component={Cart} />
                         <PrivateRoute exact path="/Admin" component={Admin} />
                         <PrivateRoute exact path="/Admin/ListingCreator" component={ListingCreator} />
                         <PrivateRoute exact path="/Admin/NewAdmin" component={NewAdmin} />
-                        
+
                         <Route exact path="/">
                             <Redirect to="/Home"/>
 
