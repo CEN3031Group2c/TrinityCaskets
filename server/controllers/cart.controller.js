@@ -62,6 +62,5 @@ exports.delete = function (req, res) {
         .then((foundCart) => {
             foundCart.items.pull({_id: req.body.product._id});
             foundCart.save().then(() => res.end());
-
         });
 };
