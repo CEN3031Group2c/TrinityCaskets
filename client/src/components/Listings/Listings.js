@@ -84,13 +84,16 @@ export class Listings extends Component {
         const backendData = this.state.data;
         const casketList = backendData
         .filter(listing => {
-            return listing.type.toLowerCase() == this.props.type //???
+            return (listing.type.toLowerCase().indexOf(this.props.type)>=0) 
+                    && (listing.description.toLowerCase().indexOf(this.props.input.toLowerCase())>=0)//???
         })
         .map(listing => {
             return (
                 <div id="tile">
                       <div id="img_holder">
-                        <img src={listing.image} width='260'></img>
+                        {(listing.image != "") ?
+                         <img src={listing.image} width='260' /> : 
+                         <img src='https://trinity-caskets-bucket.s3.amazonaws.com/no-image-available.jpg' width='260' />}  
                       </div>
                         <div id="tile_body">
                             <div id="model_name">Model Number:
@@ -104,7 +107,11 @@ export class Listings extends Component {
                             <div id="price">
                                 ${listing.price}
                             </div>
-                            <Button onClick={() => { this.addListingToCart(listing) }} size="sm" variant="primary">
+                            <Button onClick={() => {
+                                if(this.props.auth.isAuthenticated) {
+                                    this.addListingToCart(listing) 
+                                }
+                            }} size="sm" variant="primary">
                                 Add to Cart
 
                             </Button>

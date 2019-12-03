@@ -68,9 +68,9 @@ class ListingTable extends Component {
                 <td>{this.props.obj.description}</td>
                 <td><p1>$ </p1>{this.props.obj.price}</td>
                 <td>
-                    {this.props.obj.image !== undefined ?
+                    {this.props.obj.image != "" ?
                         <img src={this.props.obj.image} width={286} height={230} mode='fit'/> :
-                        <p1>No Image</p1>
+                        <img src='https://trinity-caskets-bucket.s3.amazonaws.com/no-image-available.jpg' width={286} height={230} mode='fit'/>
                     }
                 </td>
                 <td>{this.props.obj.type}</td>

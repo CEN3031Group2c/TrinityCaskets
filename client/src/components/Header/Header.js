@@ -23,6 +23,7 @@ class Header extends React.Component {
       searchV:'',
       lookingfor: '',
     }
+    this.setValue3 = this.setValue3.bind(this)
   }
 
 
@@ -40,6 +41,12 @@ class Header extends React.Component {
     setValue25(val)
     {
       this.props.SetValue(this.state.searchV)
+    }
+
+    setValue3(val)
+    {
+      //console.log("Happen 8 " +val);
+      this.props.SetValueC(val)
     }
 
     render() {
@@ -131,7 +138,7 @@ class Header extends React.Component {
             <div className = "nav_button">
               ABOUT US
             </div></Link>
-          <Dropdown />
+          <Dropdown setValue3 = {this.setValue3}/>
           <Link to="/Urn">
             <div className = "nav_button nav_button_fix">
               URNS
