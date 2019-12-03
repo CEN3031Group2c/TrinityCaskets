@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
-import {Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader} from "reactstrap";
 import Table from "react-bootstrap/Table";
 
 class CartTable extends Component {
@@ -85,7 +84,7 @@ class CartTable extends Component {
                     </td>
                     <td>{this.state.cartItems.modelNumber}</td>
                     <td>{this.state.cartItems.description}</td>
-                    <td><p1>$ </p1>{this.state.cartItems.price}</td>
+                    <td><p>$ </p>{this.state.cartItems.price}</td>
 
                     <td>{this.state.cartItems.type}</td>
                     <td>
