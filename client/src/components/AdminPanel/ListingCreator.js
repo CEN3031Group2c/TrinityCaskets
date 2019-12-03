@@ -28,7 +28,8 @@ class ListingCreator extends Component{
             price: '',
             image: '',
             type: 'Casket',
-            canLeave: false
+            canLeave: false,
+            selectedFile: null
         }
     }
 
