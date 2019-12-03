@@ -41,6 +41,8 @@ module.exports.init = () => {
 
     app.use('/api/custom', require('../routes/headstone.custimaization.route'));
 
+    app.use('/api/images', require('../routes/images.routes'));
+
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
         app.use(express.static(path.join(__dirname, '../../client/build')));

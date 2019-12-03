@@ -26,7 +26,7 @@ class ListingCreator extends Component{
             modelNumber: '',
             description: '',
             price: '',
-            image: '',
+            image: null,
             type: 'Casket',
             canLeave: false
         }
@@ -45,7 +45,7 @@ class ListingCreator extends Component{
     }
 
     imageChanged(e) {
-        this.setState({ image: e.target.value })
+        this.setState({ image: e.target.files[0] })
     }
 
     typeChanged(e) {
@@ -54,17 +54,42 @@ class ListingCreator extends Component{
 
     onSubmit(e) {
         e.preventDefault();
-
-        const newListing = {
-            modelNumber: this.state.modelNumber,
-            description: this.state.description,
-            price: this.state.price,
-            image: this.state.image,
-            type: this.state.type
-        };
-
-        axios.post('/api/listings', newListing)
-            .then(res => console.log(res.data));
+        const data = new FormData();
+        if(this.state.image) {
+            data.append('image', this.state.image, this.state.image.name);
+            var modelNumber = this.state.modelNumber;
+            var description = this.state.description;
+            var price = this.state.price;
+            var type = this.state.type;
+            axios.post('/api/images/', data).then(function(res) {
+                if(res.status === 200) {
+                    if(res.data.error) {
+                        if(res.data.error.code === 'LIMIT_FILE_SIZE') {
+                            console.log('Max Size is 2 MB');
+                        }
+                        else {
+                            console.log(res.data.error);
+                        }
+                    }
+                    else {
+                        var location = res.data.location;
+                        console.log('File Uploaded');
+                        const newListing = {
+                            modelNumber: modelNumber,
+                            description: description,
+                            image: location,
+                            price: price,
+                            type: type
+                        };
+                        axios.post('/api/listings', newListing)
+                             .then(res => console.log(res.data));
+                    }
+                }
+            })
+        }
+        else {
+            console.log('Please Upload File');
+        }
 
         this.setState({
             modelNumber: '',
@@ -125,11 +150,11 @@ class ListingCreator extends Component{
 
                         <Label for='image'>Image</Label>
                         <Input
+                            type='file'
                             name='image'
                             id='image'
-                            onChange={this.imageChanged}
-                            placeholder='Paste Link'
                             className='mb-3'
+                            onChange={this.imageChanged}
                         />
 
                         <Label for='type'>Type</Label>
