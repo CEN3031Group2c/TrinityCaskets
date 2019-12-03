@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import ListingTable from '../../components/AdminPanel/ListingTable';
+import "./Administrator.css"
 
 
 class Administrator extends Component {
@@ -53,6 +54,12 @@ class Administrator extends Component {
             <a href="/Admin/ListingCreator">
             <div className = "nav_button">
                 Create New Listing
+            </div></a>
+
+            <div className = "nav_button3"> </div>
+            <a href="/Admin/newAdmin">
+            <div className = "nav_button">
+                New Admin
             </div></a>
         </div>);
     }
