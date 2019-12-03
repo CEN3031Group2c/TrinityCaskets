@@ -9,6 +9,7 @@ import RegisterWindow from "../userAuthentication/RegisterWindow";
 import LogoutWindow from "../userAuthentication/LogoutWindow";
 import LoginWindow from "../userAuthentication/LoginWindow";
 import Dropdown from "../Dropdown/Dropdown";
+import Headstones from "../../views/Headstones/Headstones"
 import Search2 from "../../views/Search/search"
 
 
@@ -24,7 +25,7 @@ class Header extends React.Component {
     }
   }
 
-  
+
 
     // 'logged in' prop we'll modify
     static propTypes = {
@@ -42,7 +43,7 @@ class Header extends React.Component {
     }
 
     render() {
-    
+
 
 
         // Get whether we're logged in + the user's name from our 'logged in' prop
@@ -79,8 +80,8 @@ class Header extends React.Component {
               <img className="topnav-logo" src={ "/usericon.png" } alt="React logo" />
             </div>
         );
-        
-        
+
+
 
         return (
           <div id="h">
@@ -104,7 +105,7 @@ class Header extends React.Component {
 
           <div id = "middle_box">
             <div id = "middle_box_info">
-              Trinity Casket Store.... And More is a veteran owned and operated retailer. Funeral homes <b>must</b> accept our merchandise. See our FAQ for more information.
+              Trinity Casket Store.... And More is a veteran owned and operated retailer. Funeral homes <b>must</b> accept our merchandise. See our Frequently Asked Questions for more information.
             </div>
             <div id="search_bar_holder">
               <form>
@@ -135,7 +136,7 @@ class Header extends React.Component {
             <div className = "nav_button nav_button_fix">
               URNS
             </div> </Link>
-          <Link to="/Catalog">
+          <Link to="/Headstones">
             <div className = "nav_button">
               HEADSTONES
             </div></Link>

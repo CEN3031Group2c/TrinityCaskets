@@ -32,7 +32,7 @@ body
 {
   padding: 0px 5px;
   font-family: 'Lobster';
-  color: black;
+  color: #342b0f;
   font-size: 38pt;
   width: 690px;
   height: 70px;
@@ -70,7 +70,7 @@ body
 #login:hover
 {
   cursor: pointer;
-  background-color: blue;
+  background-color: #514110;
 }
 
 #signup
@@ -86,12 +86,12 @@ body
 #signup:hover
 {
   cursor: pointer;
-  background-color: blue;
+  background-color: #514110;
 }
 
 #welcome
 {
-  background-color: grey;
+  background-color: #8a7d56;
   width: 150px;
   height: 32px;
   padding: 7px 0px;
@@ -128,13 +128,13 @@ body
 #user_info:hover
 {
   cursor: pointer;
-  background-color: blue;
+  background-color: #514110;
 }
 
 #cart:hover
 {
   cursor: pointer;
-  background-color: blue;
+  background-color: #514110;
 }
 
 
@@ -149,7 +149,7 @@ body
 {
   width: 690px;
   display: inline-block;
-  background-color: grey;
+  background-color: #8a7d56;
   height: 75px;
   padding: 15px 15px;
   color: black;
@@ -185,7 +185,7 @@ body
 }
 #search_bar_button:hover
 {
-  background-color: blue;
+  background-color: #514110;
   cursor: pointer;
 }
 
@@ -217,7 +217,7 @@ body
 .nav_button:hover
 {
   cursor: pointer;
-  background-color: blue;
+  background-color: #514110;
 
 }
 
