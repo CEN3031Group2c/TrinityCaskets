@@ -31,7 +31,8 @@ class App extends React.Component {
         super(props);
         this.state=
         {
-            searchIn: ''
+            searchIn: '',
+            cartItems: []
         }
     }
 
@@ -73,8 +74,8 @@ class App extends React.Component {
                         <Route exact path="/Catalog" component={CT} />
                         <Route exact path="/Urn" component={Urn} />
                         <Route path="/Search" render={ (props)=> ( <Search Input={this.state.searchIn}/>)} />
+                        <Route path="/Cart" render={() => (<Cart Items={this.state.cartItems} />)} />
                         <Route path="/Headstones" component = {Headstones}/>
-                        <Route exact path="/Cart" component={Cart} />
                         <PrivateRoute exact path="/Admin" component={Admin} />
                         <PrivateRoute exact path="/Admin/ListingCreator" component={ListingCreator} />
                         <PrivateRoute exact path="/Admin/NewAdmin" component={NewAdmin} />
