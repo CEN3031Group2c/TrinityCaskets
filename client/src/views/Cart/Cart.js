@@ -42,9 +42,17 @@ class Cart extends React.Component{
 
     // Pass in the gotten listing data as props into our listing table
     DataTable() {
-        return this.state.cartItems.map((res, i) => {
-            return <CartTable obj={res} key={i} user = {this.props.auth.user}/>;
-        });
+        if(this.props.auth.isAuthenticated) {
+            return this.state.cartItems.map((res, i) => {
+                return <CartTable obj={res} key={i} user={this.props.auth.user} auth={this.props.auth.isAuthenticated} />;
+            });
+        }
+        else {
+           console.log(this.props.Items);
+           return this.props.Items.map((res, i) => {
+                return <CartTable obj={res} key={i} user={this.props.auth.user} auth={this.props.auth.isAuthenticated} />;
+           });
+        }
     }
 
     render(){
@@ -57,6 +65,7 @@ class Cart extends React.Component{
                 return (
                     <div>
                         <h1>Your Cart</h1>
+                        {this.DataTable()}
                     </div>
                 );
             }

@@ -31,7 +31,20 @@ class App extends React.Component {
         this.state=
         {
             searchIn: '',
-            cartItems: []
+            cartItems: [
+                {
+                    tags: [],
+                    _id: '5dc41b8391aa5cf10c06445b',
+                    modelNumber: '7000',
+                    description: 'The best casket',
+                    price: 1,
+                    type: 'Casket',
+                    updated_at: '2019-11-08T22:48:23.644Z',
+                    created_at: '2019-11-07T13:26:27.769Z',
+                    __v: 0,
+                    image: 'https://trinity-caskets-bucket.s3.amazonaws.com/casket.jpg'
+                }
+            ]
         }
     }
 

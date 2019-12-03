@@ -35,11 +35,18 @@ class CartTable extends Component {
 
     componentDidMount() {
         console.log(this.props.obj.product);
-        axios.get('/api/listings/'+this.props.obj.product).then(res => {
-            this.setState({
-                cartItems: res.data
+        if(this.props.auth) {
+            axios.get('/api/listings/'+this.props.obj.product).then(res => {
+                this.setState({
+                    cartItems: res.data
+                })
             })
-        })
+        }
+        else {
+            this.setState({
+                cartItems: this.props.obj
+            })
+        }
     }
 
     render() {
@@ -60,10 +67,9 @@ class CartTable extends Component {
                     <tbody>
                 <tr>
                     <td>
-                        {(this.state.cartItems.image !== undefined) ?
+                       {(this.state.cartItems.image !== undefined) ?
                             <img src={this.state.cartItems.image} width={80} height={64} mode='fit'/> :
-                            <p1>No Image</p1>
-                        }
+                       <p1>No Image</p1>}
                     </td>
                     <td>{this.state.cartItems.modelNumber}</td>
                     <td>{this.state.cartItems.description}</td>
