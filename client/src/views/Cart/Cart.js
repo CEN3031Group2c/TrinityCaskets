@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios'
 import {connect} from "react-redux";
 import CartTable from '../../components/Cart/CartTable'
-import Table from "react-bootstrap/Table";
+import Paypal from '../../components/Payment/Paypal';
 
 
 class Cart extends React.Component{
@@ -11,7 +11,9 @@ class Cart extends React.Component{
         super(props);
         this.state = {
             cartItems: [],
-            shouldLogin: false
+            shouldLogin: false,
+            sum: 0.01,
+            sumCalculated: false
         };
     }
 
@@ -28,6 +30,7 @@ class Cart extends React.Component{
                     this.setState({
                         cartItems: res.data.items
                     })
+                    this.sumItems()
                 }).catch((error) => {
                     console.log(error);
                 })
@@ -38,6 +41,25 @@ class Cart extends React.Component{
                 })
             }
         }
+
+    }
+
+    async sumItems() {
+        var sum = 0;
+
+        for (var i in this.state.cartItems) {
+            if (this.state.cartItems[i].product) {
+                await axios.get('/api/listings/'+ this.state.cartItems[i].product).then(res => {
+                    sum += res.data.price
+                })
+            }
+        }
+        this.setState({
+            sum: sum,
+            sumCalculated: true
+        })
+
+        console.log('sumCalculated:' + this.state.sum)
     }
 
     // Pass in the gotten listing data as props into our listing table
@@ -48,7 +70,7 @@ class Cart extends React.Component{
     }
 
     render(){
-        while (!this.props.auth.isAuthenticated){
+        while (!this.props.auth.isAuthenticated || !this.state.sumCalculated){
             if (!this.state.shouldLogin) {
                 return (<h1>Loading...</h1>)
             }
@@ -61,6 +83,7 @@ class Cart extends React.Component{
             <div>
                 <h1>Your Cart</h1>
                 {this.DataTable()}
+                <Paypal amount={this.state.sum}/>
             </div>
 
         );

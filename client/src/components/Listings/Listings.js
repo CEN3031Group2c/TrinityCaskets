@@ -122,7 +122,7 @@ export class Listings extends Component {
                   </div>
             );
         });
-        return <div className="all_listings"><div class = "row">{casketList}</div></div>
+        return <div className="all_listings"><div className = "row">{casketList}</div></div>
     }
 }
 
