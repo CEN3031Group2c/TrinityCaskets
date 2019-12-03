@@ -6,6 +6,7 @@ import {
     Label,
     Input,
 } from 'reactstrap';
+import $ from 'jquery';
 import axios from 'axios'
 
 class ListingCreator extends Component{
@@ -26,10 +27,9 @@ class ListingCreator extends Component{
             modelNumber: '',
             description: '',
             price: '',
-            image: '',
+            image: null,
             type: 'Casket',
-            canLeave: false,
-            selectedFile: null
+            canLeave: false
         }
     }
 
@@ -46,7 +46,21 @@ class ListingCreator extends Component{
     }
 
     imageChanged(e) {
-        this.setState({ image: e.target.value })
+        this.setState({ image: e.target.files[0] })
+    }
+
+    onUpload(e) {
+        const data = new FormData();
+        if(this.state.image) {
+            data.append('image', this.state.image, this.state.image.name);
+            /*axios.post('/api/images/upload', data, {
+                headers: {
+                    'accept': 'application/json',
+                    'Accept-Language': 'en-US,en;q=0.8',
+                    'Content-Type': `multipart/form-data; boundary=${data._bounary}`
+                }
+            })*/
+        }
     }
 
     typeChanged(e) {
@@ -55,6 +69,18 @@ class ListingCreator extends Component{
 
     onSubmit(e) {
         e.preventDefault();
+
+        const data = new FormData();
+        if(this.state.image) {
+            data.append('image', this.state.image, this.state.image.name);
+            axios.post('/api/images/upload', data, {
+                headers: {
+                    'accept': 'application/json',
+                    'Accept-Language': 'en-US,en;q=0.8',
+                    'Content-Type': `multipart/form-data; boundary=${data._bounary}`
+                }
+            })
+        }
 
         const newListing = {
             modelNumber: this.state.modelNumber,
@@ -126,11 +152,11 @@ class ListingCreator extends Component{
 
                         <Label for='image'>Image</Label>
                         <Input
+                            type='file'
                             name='image'
                             id='image'
-                            onChange={this.imageChanged}
-                            placeholder='Paste Link'
                             className='mb-3'
+                            onChange={this.imageChanged}
                         />
 
                         <Label for='type'>Type</Label>
