@@ -33,6 +33,7 @@
     "mocha": "^6.2.1",
     "mongoose": "^5.7.1",
     "morgan": "^1.9.1",
+    "nodemailer": "^6.3.1",
     "prop-types": "^15.7.2",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
