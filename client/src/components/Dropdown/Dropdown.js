@@ -35,8 +35,7 @@ class Dropdown extends React.Component
 
   onClickLink(val)
   {
-      //console.log("Happen 6 " + val);
-      this.props.setValue3(val);
+      this.props.setSearch(val);
   }
 
   render()
@@ -60,7 +59,7 @@ class Dropdown extends React.Component
                 Wood
               </div>
               </Link>
-              <Link to="/Catalog"  onClick = {() => this.onClickLink("Copper")}>
+              <Link to="/Catalog"  onClick = {() => this.onClickLink("copper")}>
             <div className="list_item">
                 Copper
               </div>

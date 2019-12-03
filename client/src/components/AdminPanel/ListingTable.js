@@ -66,7 +66,7 @@ class ListingTable extends Component {
             <tr>
                 <td>{this.props.obj.modelNumber}</td>
                 <td>{this.props.obj.description}</td>
-                <td><p1>$ </p1>{this.props.obj.price}</td>
+                <td><p>$ </p>{this.props.obj.price}</td>
                 <td>
                     {this.props.obj.image != "" ?
                         <img src={this.props.obj.image} width={286} height={230} mode='fit'/> :

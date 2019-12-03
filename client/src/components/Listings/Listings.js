@@ -7,7 +7,6 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import Snackbar from 'material-ui/Snackbar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Cart from "../../views/Cart/Cart";
 
 
 const TEXT_COLLAPSE_OPTIONS = {
@@ -71,11 +70,9 @@ export class Listings extends Component {
 
     goToCart(){
         return(
-            <a href="/Cart">
-                <Button color="secondary" size="small">
-                    Go to cart
-                </Button>
-            </a>
+            <Button href="/Cart" color="secondary" size="small">
+                Go to cart
+            </Button>
         )
     }
 
@@ -84,12 +81,14 @@ export class Listings extends Component {
         const backendData = this.state.data;
         const casketList = backendData
         .filter(listing => {
-            return (listing.type.toLowerCase().indexOf(this.props.type)>=0) 
-                    && (listing.description.toLowerCase().indexOf(this.props.input.toLowerCase())>=0)//???
+            return (listing.type || '').toLowerCase().indexOf(this.props.type.toLowerCase())>=0
+                    && ((listing.description || '').toLowerCase().indexOf(this.props.input.toLowerCase())>=0
+                    || (listing.modelNumber || '').toLowerCase().indexOf(this.props.input.toLowerCase())>=0
+                    || (listing.type || '').toLowerCase().indexOf(this.props.input.toLowerCase())>=0)
         })
-        .map(listing => {
+        .map((listing, index) => {
             return (
-                <div id="tile">
+                <div id="tile" key={index}>
                       <div id="img_holder">
                         {(listing.image != "") ?
                          <img src={listing.image} width='260' /> : 
@@ -129,7 +128,11 @@ export class Listings extends Component {
                   </div>
             );
         });
-        return <div className="all_listings"><div className = "row">{casketList}</div></div>
+        return <div className="App" className="centered">
+                    <div className="all_listings">
+                        <div className = "row">{casketList}</div>
+                    </div>
+                </div>  
     }
 }
 

@@ -9,7 +9,7 @@ import Footer from "./components/Footer/Footer"
 import About from "./views/About/About"
 import CT from "./views/Catalog/Catalog"
 import Urn from "./views/Urn/Urn"
-import Search from "./views/Search/search"
+import Search from "./views/Search/Search"
 import Headstones from "./views/Headstones/Headstones"
 import FQ from "./views/FQ/FQ"
 import Admin from "./views/Administrator/Administrator"
@@ -31,13 +31,9 @@ class App extends React.Component {
         super(props);
         this.state=
         {
-            searchIn: '',
-
-          
-            searchC: ''
-
+            search: '',
+            type: '',
             cartItems: []
-
         }
     }
 
@@ -47,15 +43,15 @@ class App extends React.Component {
         store.dispatch(loadUser());
     }
 
-    SetValue(val)
+    setSearch(val)
     {
-      this.setState({searchIn: val})
+      this.setState({search: val})
     }
 
-    SetValueC(val)
+    setType(val)
     {
        // console.log("Happen 9 " +val);
-      this.setState({searchC: val})
+      this.setState({type: val})
     }
 
 
@@ -63,29 +59,21 @@ class App extends React.Component {
 
     // Added the store for redux. The rest is the same as before
     render() {
-        const routeS =
-        [
-            {
-                path: "/Search",
-                component: Search,
-                Input: this.state.searchIn
-            }
-        ]
 
         return (
             <Provider store={store}>
                 <div id="all_content_holder">
                          <Header
-                         SetValue = {this.SetValue.bind(this)}
-                         SetValueC = {this.SetValueC.bind(this)}/>
+                         setSearch = {this.setSearch.bind(this)}
+                         setType = {this.setType.bind(this)}/>
                     <div id = "page_content">
                       <Switch>
                         <Route exact path="/Home" component={Home}/>
                         <Route exact path="/About" component={About} />
                         <Route exact path="/FAQ" render={() => ( <FQ/>)} />
-                        <Route exact path="/Catalog" render={() => (<CT Input = {this.state.searchC}/>)} />
+                        <Route exact path="/Catalog" render={() => (<CT input = {this.state.search}/>)} />
                         <Route exact path="/Urn" component={Urn} />
-                        <Route path="/Search" render={ (props)=> ( <Search Input={this.state.searchIn}/>)} />
+                        <Route path="/Search" render={()=> ( <Search input={this.state.search}/>)} />
                         <Route path="/Cart" render={() => (<Cart Items={this.state.cartItems} />)} />
                         <Route path="/Headstones" component = {Headstones}/>
                         <PrivateRoute exact path="/Admin" component={Admin} />

@@ -1,20 +1,18 @@
-const config = require('../config/config')
-const express = require('express');
 const aws = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const multer = require('multer');
 const path = require('path');
 
 const s3 = new aws.S3({
-    accessKeyId: config.aws.accessKeyId,
-    secretAccessKey: config.aws.secretAccessKey,
-    Bucket: config.aws.Bucket
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID || require('./config').aws.accessKeyId,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || require('./config').aws.secretAccessKey,
+    Bucket: process.env.AWS_BUCKET || require('./config').aws.Bucket
 });
 
 const imageUpload = multer({
     storage: multerS3({
         s3: s3,
-        bucket: config.aws.Bucket,
+        bucket: process.env.AWS_BUCKET || require('./config').aws.Bucket,
         acl: 'public-read',
         key: function(req, fileName,cb) {
             cb(null, path.basename(fileName.originalname, path.extname(fileName.originalname)) + path.extname(fileName.originalname))

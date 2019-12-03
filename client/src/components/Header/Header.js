@@ -1,5 +1,5 @@
-import React, { Component, isValidElement } from 'react';
-import { Link, Route } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 // Login/logout stuff
@@ -9,8 +9,6 @@ import RegisterWindow from "../userAuthentication/RegisterWindow";
 import LogoutWindow from "../userAuthentication/LogoutWindow";
 import LoginWindow from "../userAuthentication/LoginWindow";
 import Dropdown from "../Dropdown/Dropdown";
-import Headstones from "../../views/Headstones/Headstones"
-import Search2 from "../../views/Search/search"
 
 
 // Needed to make it a component to add extended functionality
@@ -18,41 +16,30 @@ class Header extends React.Component {
   constructor(props)
   {
     super(props);
-    this.state=
-    {
-      searchV:'',
-      lookingfor: '',
-    }
-    this.setValue3 = this.setValue3.bind(this)
   }
-
-
 
     // 'logged in' prop we'll modify
     static propTypes = {
         auth: PropTypes.object.isRequired,
     };
 
-    setValue2(val)
+    setSearchWithInput()
     {
-      this.setState({searchV: val.target.value});
-      // this.props.SetValue(this.state.searchV)
-    }
-    setValue25(val)
-    {
-      this.props.SetValue(this.state.searchV)
+      const searchValue = this.searchValue.value
+      this.props.setSearch(searchValue)
     }
 
-    setValue3(val)
+    setSearchWithDropdown(val)
     {
-      //console.log("Happen 8 " +val);
-      this.props.SetValueC(val)
+      this.props.setSearch(val)
+    }
+
+    setType(val)
+    {
+      this.props.setType(val)
     }
 
     render() {
-
-
-
         // Get whether we're logged in + the user's name from our 'logged in' prop
         const { isAuthenticated, user } = this.props.auth;
 
@@ -88,8 +75,6 @@ class Header extends React.Component {
             </div>
         );
 
-
-
         return (
           <div id="h">
             <div id = "title_box">
@@ -116,11 +101,9 @@ class Header extends React.Component {
             </div>
             <div id="search_bar_holder">
               <form>
-              <input type="text" name="search" id = "search_bar" placeholder="Search..." value={this.state.searchV}  onChange = {this.setValue2.bind(this)} />
-              {/* <input type="text" name="search" id = "search_bar" placeholder="Search..." value={this.state.search} ref={ (value) => {this.myValue = value} } onChange = {setValue.bind(this)} /> */}
-              <Link to={"/Search?" + this.state.searchV }>
-                {/*letid= this.state */}
-                <button type = "submit" id="search_bar_button" onClick={this.setValue25.bind(this)}>
+              <input type="text" name="search" id = "search_bar" placeholder="Search..." ref={(value) => {this.searchValue = value} }/>
+              <Link to={"/Search"}>
+                <button type = "submit" id="search_bar_button" onClick={this.setSearchWithInput.bind(this)}>
                   GO
                 </button>
               </Link>
@@ -138,7 +121,7 @@ class Header extends React.Component {
             <div className = "nav_button">
               ABOUT US
             </div></Link>
-          <Dropdown setValue3 = {this.setValue3}/>
+          <Dropdown setSearch = {this.setSearchWithDropdown.bind(this)}/>
           <Link to="/Urn">
             <div className = "nav_button nav_button_fix">
               URNS

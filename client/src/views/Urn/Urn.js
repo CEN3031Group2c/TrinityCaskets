@@ -4,9 +4,9 @@ import './Urn.css';
 
 function Urn() {
     return (
-        <div className="App" class="centered">
-            <Listings type="urn" />
-        </div>
+        //<div className="App" className="centered">
+            <Listings type="urn" input=""/>
+        //</div>
     );
 }
 export default Urn;
