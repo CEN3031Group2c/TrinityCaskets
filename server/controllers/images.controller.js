@@ -6,25 +6,26 @@ const path = require('path');
 
 
 const s3 = new aws.S3({
-    accessKeyId: '',
-    secretAccessKey: '',
-    Bucket: ''
+    accessKeyId: 'AKIAQXRABT4C4RT37FWF',
+    secretAccessKey: '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',
+    Bucket: 'trinity-caskets-bucket'
 });
 
 const imageUpload = multer({
     storage: multerS3({
         s3: s3,
-        bucket: '',
+        bucket: 'trinity-caskets-bucket',
         acl: 'public-read',
+        contentType: multerS3.AUTO_CONTENT_TYPE,
         key: function(req, fileName,cb) {
-            cb(null, path.basename(fileName.originalname, path.extname(fileName.originalname)) + '-' + Date.now() + path.extname(fileName.originalname))
+            cb(null, path.basename(fileName.originalname, path.extname(fileName.originalname)) + path.extname(fileName.originalname))
         }
     }),
     limits: {fileSize: 2000000},
     fileFilter: function(req, fileName, cb) {
         checkFileType(fileName, cb);
     }
-}).single('productImage');
+}).single('image');
 
 function checkFileType(fileName, cb) {
     const fileType = /jpeg|jpg|gif|png/;
@@ -39,7 +40,7 @@ function checkFileType(fileName, cb) {
 }
 
 exports.create = function(req, res) {
-    imageUpload(function(req, res, error) {
+    imageUpload(req, res, (error) => {
         if(error) {
             res.json({error: error});
         }
