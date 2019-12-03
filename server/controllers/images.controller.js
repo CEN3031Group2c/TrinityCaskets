@@ -39,5 +39,22 @@ function checkFileType(fileName, cb) {
 }
 
 exports.create = function(req, res) {
-    
+    imageUpload(function(req, res, error) {
+        if(error) {
+            res.json({error: error});
+        }
+        else {
+            if(req.file === undefined) {
+                res.json('Error: No File Selected');
+            }
+            else {
+                const name = req.file.key;
+                const location = req.file.location;
+                res.json({
+                    image: name,
+                    location: location
+                });
+            }
+        }
+    })
 }
