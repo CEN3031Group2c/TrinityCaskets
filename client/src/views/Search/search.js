@@ -39,7 +39,8 @@ class Search extends React.Component{
 
         const backendData = this.state.data
         .filter(listing => {
-            return (listing.description.toLowerCase().indexOf(this.props.Input)>=0)
+            console.log(listing)
+            return ((listing.description || '').toLowerCase().indexOf(this.props.Input)>=0)
                     || (listing.modelNumber.toLowerCase().indexOf(this.props.Input)>=0)
                     || (listing.type.toLowerCase().indexOf(this.props.Input)>=0)
 
@@ -71,7 +72,7 @@ class Search extends React.Component{
                   </div>
             );
         });
-        return <div className="all_listings"><div class = "row">{backendData}</div></div>
+        return <div className="all_listings"><div className = "row">{backendData}</div></div>
     }
     
 }
