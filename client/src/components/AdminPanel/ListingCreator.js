@@ -6,7 +6,6 @@ import {
     Label,
     Input,
 } from 'reactstrap';
-import $ from 'jquery';
 import axios from 'axios'
 
 class ListingCreator extends Component{
@@ -55,11 +54,14 @@ class ListingCreator extends Component{
 
     onSubmit(e) {
         e.preventDefault();
-        var fileLocation;
         const data = new FormData();
         if(this.state.image) {
             data.append('image', this.state.image, this.state.image.name);
-            axios.post('/api/images/', data).then(res => {
+            var modelNumber = this.state.modelNumber;
+            var description = this.state.description;
+            var price = this.state.price;
+            var type = this.state.type;
+            axios.post('/api/images/', data).then(function(res) {
                 if(res.status === 200) {
                     if(res.data.error) {
                         if(res.data.error.code === 'LIMIT_FILE_SIZE') {
@@ -70,8 +72,17 @@ class ListingCreator extends Component{
                         }
                     }
                     else {
-                        this.fileLocation = res.data.location;
+                        var location = res.data.location;
                         console.log('File Uploaded');
+                        const newListing = {
+                            modelNumber: modelNumber,
+                            description: description,
+                            image: location,
+                            price: price,
+                            type: type
+                        };
+                        axios.post('/api/listings', newListing)
+                             .then(res => console.log(res.data));
                     }
                 }
             })
@@ -79,17 +90,6 @@ class ListingCreator extends Component{
         else {
             console.log('Please Upload File');
         }
-        console.log(fileLocation);
-        const newListing = {
-            modelNumber: this.state.modelNumber,
-            description: this.state.description,
-            price: this.state.price,
-            image: this.state.image,
-            type: this.state.type
-        };
-
-        axios.post('/api/listings', newListing)
-            .then(res => console.log(res.data));
 
         this.setState({
             modelNumber: '',
