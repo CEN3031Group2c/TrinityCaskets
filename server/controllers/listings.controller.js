@@ -1,6 +1,6 @@
 /* Dependencies */
 var Listing = require('../models/ListingSchema.js');
-
+var Cart = reqire("CartSchema.js")
 /* Create a listing */
 exports.create = function (req, res) {
 
@@ -67,6 +67,23 @@ exports.delete = function (req, res) {
     Listing.deleteOne({
         _id: listing._id
     }, (err) => {
+
+        Cart.updateMany({
+            items: {
+                products: {
+                    type: listing.id
+                }
+            }
+        },{
+            items: {
+                
+            }
+        }, function(err,cart){
+            if(err){
+                throw err;
+            }
+        })
+
         if (err) {
             console.log(err);
             res.status(400).send(err);
