@@ -20,18 +20,6 @@ A website for Trinity Caskets Store and More. Using a MERN stack, the web app di
 - Payment
 - TO-DO: Add screenshots for the above features
 
-## Credits
-- MongoDB
-- Express
-- React
-- Node.js
-- Bootstrap
-- Reactstrap
-- Redux
-- Paypal Button API
-- AWS Buckets
-- All dependencies are in the `package.json` in the root folder and `package.json` in the client folder
-
 ## How to Run Project Locally
 - Create a .env file at the root directory and add these environment variables:
   - DB_URI=BLANK  
@@ -53,3 +41,15 @@ A website for Trinity Caskets Store and More. Using a MERN stack, the web app di
     AWS_SECRET_ACCESS_KEY=BLANK  
     AWS_BUCKET=BLANK  
 - Visit deployed link (your-app-name.herokuapp.com)
+
+## Credits
+- MongoDB
+- Express
+- React
+- Node.js
+- Bootstrap
+- Reactstrap
+- Redux
+- Paypal Button API
+- AWS Buckets
+- All dependencies are in the `package.json` in the root folder and `package.json` in the client folder
