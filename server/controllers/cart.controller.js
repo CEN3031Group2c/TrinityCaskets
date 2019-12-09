@@ -59,3 +59,7 @@ exports.delete = function (req, res) {
             foundCart.save().then(() => res.end());
         });
 };
+
+exports.getClientId = function (req, res) {
+    res.json(process.env.PAYPAL_CLIENT_ID || 'sb');
+}

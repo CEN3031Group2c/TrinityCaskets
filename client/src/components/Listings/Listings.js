@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import ReactTextCollapse from 'react-text-collapse';
 import axios from 'axios'
 import "./Listings.css"
-import Button from "react-bootstrap/Button";
+import BootstrapButton from "react-bootstrap/Button";
+import {Modal, ModalBody, ModalHeader, Button} from "reactstrap";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import Snackbar from 'material-ui/Snackbar';
@@ -36,7 +37,8 @@ export class Listings extends Component {
 
         this.state = {
             data: [],
-            snackbarOpen: false
+            snackbarOpen: false,
+            loginModalOpen: false
         };
     }
 
@@ -55,9 +57,21 @@ export class Listings extends Component {
             console.log(error)
         });
         this.setState({ snackbarOpen: true });
-
-
     }
+
+    promptLogin() {
+        this.setState({loginModalOpen: true});
+    }
+
+    closeLogin() {
+        this.setState({loginModalOpen: false});
+    }
+
+    toggleLoginModal = () => {
+        this.setState({
+            loginModalOpen: !this.state.loginModalOpen
+        });
+    };
     
     componentDidMount() {
         axios.get('/api/listings/')
@@ -70,14 +84,13 @@ export class Listings extends Component {
 
     goToCart(){
         return(
-            <Button href="/Cart" color="secondary" size="small">
+            <BootstrapButton href="/Cart" color="secondary" size="small">
                 Go to cart
-            </Button>
+            </BootstrapButton>
         )
     }
 
     render() {
-
         const backendData = this.state.data;
         const casketList = backendData
         .filter(listing => {
@@ -106,14 +119,16 @@ export class Listings extends Component {
                             <div id="price">
                                 ${listing.price}
                             </div>
-                            <Button onClick={() => {
+                            <BootstrapButton onClick={() => {
                                 if(this.props.auth.isAuthenticated) {
                                     this.addListingToCart(listing) 
+                                } else {
+                                    this.toggleLoginModal()
                                 }
                             }} size="sm" variant="primary">
                                 Add to Cart
 
-                            </Button>
+                            </BootstrapButton>
                             <MuiThemeProvider>
                                 <Snackbar
                                     open={this.state.snackbarOpen}
@@ -124,7 +139,6 @@ export class Listings extends Component {
                                 />
                             </MuiThemeProvider>
                         </div>
-
                   </div>
             );
         });
@@ -132,6 +146,20 @@ export class Listings extends Component {
                     <div className="all_listings">
                         <div className = "row">{casketList}</div>
                     </div>
+                    <Modal
+                            isOpen={this.state.loginModalOpen}
+                            toggle={this.toggleLoginModal}
+                            className="modal_content"
+                            overlayClassName="modal"
+                        >
+                        <ModalHeader toggle={this.toggleLoginModal} id="header">Log In</ModalHeader>
+                        <ModalBody>
+                            <h4>Please login or register to add items to your cart</h4>
+                            <Button color='dark' id="cancel_button" onClick={this.toggleLoginModal}>
+                                Close
+                            </Button>
+                        </ModalBody>
+                    </Modal>
                 </div>  
     }
 }

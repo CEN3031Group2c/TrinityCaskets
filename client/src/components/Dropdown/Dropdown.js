@@ -59,9 +59,9 @@ class Dropdown extends React.Component
                 Wood
               </div>
               </Link>
-              <Link to="/Catalog"  onClick = {() => this.onClickLink("copper")}>
+              <Link to="/Catalog"  onClick = {() => this.onClickLink("bronze")}>
             <div className="list_item">
-                Copper
+                Bronze
               </div>
               </Link>
               <Link to="/Catalog"  onClick = {() => this.onClickLink("Stainless Steel")}>
