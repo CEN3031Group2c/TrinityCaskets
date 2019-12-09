@@ -34,11 +34,11 @@ A website for Trinity Caskets Store and More. Using a MERN stack, the web app di
 
 ## How to Run Project Locally
 - Create a .env file at the root directory and add these environment variables:
-  - DB_URI=BLANK
-    JWT_SECRET=BLANK
-    PAYPAL_CLIENT_ID=BLANK
-    AWS_ACCESS_KEY_ID=BLANK
-    AWS_SECRET_ACCESS_KEY=BLANK
+  - DB_URI=BLANK  
+    JWT_SECRET=BLANK  
+    PAYPAL_CLIENT_ID=BLANK  
+    AWS_ACCESS_KEY_ID=BLANK  
+    AWS_SECRET_ACCESS_KEY=BLANK  
     AWS_BUCKET=BLANK
 - Install dependencies (`npm run install-all`)
 - Run client and server in dev (`npm run dev`)
@@ -46,10 +46,10 @@ A website for Trinity Caskets Store and More. Using a MERN stack, the web app di
 ## How to Run Project on Heroku
 - Push project to heroku master
 - Add these environment variables:
-  - DB_URI=BLANK
-    JWT_SECRET=BLANK
-    PAYPAL_CLIENT_ID=BLANK
-    AWS_ACCESS_KEY_ID=BLANK
-    AWS_SECRET_ACCESS_KEY=BLANK
-    AWS_BUCKET=BLANK
+  - DB_URI=BLANK  
+    JWT_SECRET=BLANK  
+    PAYPAL_CLIENT_ID=BLANK  
+    AWS_ACCESS_KEY_ID=BLANK  
+    AWS_SECRET_ACCESS_KEY=BLANK  
+    AWS_BUCKET=BLANK  
 - Visit deployed link (your-app-name.herokuapp.com)
