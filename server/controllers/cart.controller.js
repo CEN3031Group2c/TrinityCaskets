@@ -25,9 +25,11 @@ exports.post = function (req, res) {
             }
         });
 };
-/* Show the current listing */
+/* Show the current user */
 exports.read = function (req, res) {
-    /* send back the listing as json from the request */
+    // TO-DO: remove lsitings that are missing
+
+    /* send back the user as json from the request */
     res.json(req.user);
 };
 
@@ -52,7 +54,6 @@ exports.get = function (req, res) {
 };
 
 exports.delete = function (req, res) {
-
     UserSchema.findOne({_id: req.body.user._id})
         .then((foundCart) => {
             foundCart.items.pull({_id: req.body.product._id});
@@ -61,5 +62,5 @@ exports.delete = function (req, res) {
 };
 
 exports.getClientId = function (req, res) {
-    res.json(process.env.PAYPAL_CLIENT_ID || 'sb');
+    res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
 }
