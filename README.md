@@ -1,59 +1,52 @@
 # Trinity Caskets
-Author: Group 2C
-A website for the Trinity Caskets store.
+## Description
+A website for Trinity Caskets Store and More. Using a MERN stack, the web app displays information and listings. It features a cart, payment, user logins, and an admin panel for CRUD operations. The site is currently deployed at http://www.trinitycasketstoreandmore.com/
 
-## Dependencies
-Since this project will hold both the client application and the server application there will be node modules in two different places. First run `npm install` from the root. After this you will run `npm run-script install-all` from the root. From now on run this command anytime you want to install all modules again. This is a script we have defined in package.json .
+## Authors
+- Ashlyn Comiskey
+- Bao Nguyen
+- Michael DelSole
+- Abinai Pasunuri
+- Jose Quintas
+- John Francis
 
-## File Structure
-#### `client` - Holds the client application
-- #### `public` - This holds all of our static files
-- #### `src`
-    - #### `assets` - This folder holds assets such as images, docs, and fonts
-    - #### `components` - This folder holds all of the different components that will make up our views
-    - #### `views` - These represent a unique page on the website i.e. Home or About. These are still normal react components.
-    - #### `App.js` - This is what renders all of our browser routes and different views
-    - #### `index.js` - This is what renders the react app by rendering App.js, should not change
-- #### `package.json` - Defines npm behaviors and packages for the client
-#### `server` - Holds the server application
-- #### `config` - This holds our configuration files, like mongoDB uri
-- #### `controllers` - These hold all of the callback functions that each route will call
-- #### `models` - This holds all of our data models
-- #### `routes` - This holds all of our HTTP to URL path associations for each unique url
-- #### `tests` - This holds all of our server tests that we have defined
-- #### `server.js` - Defines npm behaviors and packages for the client
-#### `package.json` - Defines npm behaviors
-#### `.gitignore` - Tells git which files to ignore
+## Features
+- Home Page
+- About Page
+- FAQ
+- Catalog
+- User Login
+- Admin Panel
+- Payment
+- TO-DO: Add screenshots for the above features
 
-## Available Scripts
+## Credits
+- MongoDB
+- Express
+- React
+- Node.js
+- Bootstrap
+- Reactstrap
+- TO-DO: add more
 
-In the project directory, you can run:
+## How to Run Project Locally
+- Create a .env file at the root directory and add these environment variables:
+  - DB_URI=BLANK
+JWT_SECRET=BLANK
+PAYPAL_CLIENT_ID=BLANK
+AWS_ACCESS_KEY_ID=BLANK
+AWS_SECRET_ACCESS_KEY=BLANK
+AWS_BUCKET=BLANK
+- Install dependencies (`npm run install-all`)
+- Run client and server in dev (`npm run dev`)
 
-### `npm run-script dev`
-
-Runs both the client app and the server app in development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view the client in the browser.
-
-### `npm run-script test`
-
-Runs tests in the server/tests folder with mocha
-
-### `npm run-script client`
-
-Runs just the client app in development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view the client in the browser.
-
-
-### `npm run-script server`
-
-Runs just the server in development mode.<br>
-
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-If deploying to heroku this does not need to be run since it is handled by the heroku-postbuild script<br>
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to Run Project on Heroku
+- Push project to heroku master
+- Add these environment variables:
+  - DB_URI=BLANK
+    JWT_SECRET=BLANK
+    PAYPAL_CLIENT_ID=BLANK
+    AWS_ACCESS_KEY_ID=BLANK
+    AWS_SECRET_ACCESS_KEY=BLANK
+    AWS_BUCKET=BLANK
+- Visit deployed link (your-app-name.herokuapp.com)
