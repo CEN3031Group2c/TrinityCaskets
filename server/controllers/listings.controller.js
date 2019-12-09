@@ -1,6 +1,6 @@
 /* Dependencies */
 var Listing = require('../models/ListingSchema.js');
-var Cart = reqire("CartSchema.js")
+var Cart = require("CartSchema.js")
 /* Create a listing */
 exports.create = function (req, res) {
 
