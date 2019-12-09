@@ -13,12 +13,15 @@ class Cart extends React.Component{
             cartItems: [],
             shouldLogin: false,
             sum: 0.01,
-            sumCalculated: false
+            sumCalculated: false,
+            clientId: undefined
         };
     }
 
     // Because user authentication doesn't load immediately, need to define it once it's ready
     componentDidUpdate(prevProps, prevState, snapshot) {
+        if (!this.state.clientId)
+            this.getClientId();
         if (prevProps.auth.isAuthenticated !== this.props.auth.isAuthenticated) {
             console.log('Here: '+ this.props.auth.isAuthenticated)
             if (this.props.auth.isAuthenticated) {
@@ -30,7 +33,7 @@ class Cart extends React.Component{
                     this.setState({
                         cartItems: res.data.items
                     })
-                    this.sumItems()
+                    this.sumItems();
                 }).catch((error) => {
                     console.log(error);
                 })
@@ -42,6 +45,13 @@ class Cart extends React.Component{
             }
         }
 
+    }
+
+    async getClientId() {
+        var clientId = await axios.get('/api/cart/client-id');
+        this.setState({
+            clientId: "" + clientId.data
+        });
     }
 
     async sumItems() {
@@ -78,7 +88,7 @@ class Cart extends React.Component{
     }
 
     render(){
-        while (!this.props.auth.isAuthenticated || !this.state.sumCalculated){
+        while (!this.props.auth.isAuthenticated || !this.state.sumCalculated || !this.state.clientId){
             if (!this.state.shouldLogin) {
                 return (<h1>Loading...</h1>)
             }
@@ -104,9 +114,9 @@ class Cart extends React.Component{
             <div>
                 <h1>Your Cart</h1>
                 {this.DataTable()}
-                <Paypal amount={this.state.sum}/>
+                <p>Please note that before or after purchasing, you will have to contact us to decide where we will ship your item(s).</p>
+                <Paypal amount={this.state.sum} clientId={this.state.clientId}/>
             </div>
-
         );
     }
 }
