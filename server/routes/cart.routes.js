@@ -7,6 +7,8 @@ router.route('/')
     .post(controller.post)
     .delete(controller.delete);
 
+router.route('/client-id')
+    .get(controller.getClientId);
 
 router.route('/:userID')
     .get(controller.read);
