@@ -11,14 +11,19 @@ A website for Trinity Caskets Store and More. Using a MERN stack, the web app di
 - John Francis
 
 ## Features
-- Home Page
+- Home Page: 
+![home page](https://i.ibb.co/375XkVg/2019-12-09-16-01-02-Trinity-Casket-Store-And-More.png)
 - About Page
+![about page](https://i.ibb.co/TWzjcSH/2019-12-09-16-01-18-Trinity-Casket-Store-And-More.png)
 - FAQ
+![FAQ page](https://i.ibb.co/Jjvx9q8/2019-12-09-16-05-37-Trinity-Casket-Store-And-More.png)
 - Catalog
+![catalog page](https://i.ibb.co/kBNQbfQ/2019-12-09-16-02-33-Trinity-Casket-Store-And-More.png)
 - User Login
+![login](https://i.ibb.co/xJ9dqXH/2019-12-09-16-10-44-Trinity-Casket-Store-And-More.png)
 - Admin Panel
+![admin panel](https://i.ibb.co/pJDdHBp/2019-12-09-16-08-33-Trinity-Casket-Store-And-More.png)
 - Payment
-- TO-DO: Add screenshots for the above features
 
 ## How to Run Project Locally
 - Create a .env file at the root directory and add these environment variables:
