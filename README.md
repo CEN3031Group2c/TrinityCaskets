@@ -58,5 +58,5 @@ Full demo of features: https://www.youtube.com/watch?v=UKLjXEbhWFk
 - Reactstrap
 - Redux
 - Paypal Button API
-- AWS Buckets
+- AWS S3
 - All dependencies are in the `package.json` in the root folder and `package.json` in the client folder
