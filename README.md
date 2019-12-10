@@ -25,7 +25,7 @@ Full demo of features: https://www.youtube.com/watch?v=UKLjXEbhWFk
 - Admin Panel  
 ![admin panel](https://i.ibb.co/pJDdHBp/2019-12-09-16-08-33-Trinity-Casket-Store-And-More.png)
 - Payment  
-![payment](https://i.ibb.co/wQq4mQ4/Annotation-2019-12-09-192728.jpg)
+<img src="https://i.ibb.co/wQq4mQ4/Annotation-2019-12-09-192728.jpg" width="40%" alt="payment"/>
 
 ## How to Run Project Locally
 - Create a .env file at the root directory and add these environment variables:
