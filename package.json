@@ -41,7 +41,7 @@
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
     "path": "^0.12.7",
-    "nodemailer": "^6.3.1",
+    "nodemailer": "^6.4.16",
     "prop-types": "^15.7.2",
     "url": "^0.11.0",
     "uuid": "^3.3.3"
