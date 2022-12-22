@@ -32,7 +32,7 @@
     "config": "^3.2.4",
     "csv-parser": "^2.3.2",
     "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "material-ui": "^0.20.2",
     "material-ui-snackbar-provider": "^1.0.0-pre.5",
     "mocha": "^6.2.1",
